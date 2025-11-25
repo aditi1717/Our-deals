@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import LanguageSelector from './LanguageSelector'
 import LoginModal from './LoginModal'
-import ProfilePage from '../pages/ProfilePage'
 import './Header.css'
 
 function Header() {
+  const navigate = useNavigate()
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
-  const [isProfileOpen, setIsProfileOpen] = useState(false)
   const [userData, setUserData] = useState(null)
 
   // Load user data from localStorage on mount
@@ -26,7 +26,7 @@ function Header() {
   const handleLogout = () => {
     setUserData(null)
     localStorage.removeItem('userData')
-    setIsProfileOpen(false)
+    navigate('/')
   }
 
   return (
@@ -48,7 +48,7 @@ function Header() {
               </svg>
             </button>
             {userData ? (
-              <button className="profile-icon-btn" onClick={() => setIsProfileOpen(true)} aria-label="Profile">
+              <button className="profile-icon-btn" onClick={() => navigate('/profile')} aria-label="Profile">
                 <div className="profile-icon">
                   <span className="profile-icon-initial">{userData.name ? userData.name.charAt(0).toUpperCase() : 'U'}</span>
                 </div>
@@ -64,13 +64,6 @@ function Header() {
         onClose={() => setIsLoginModalOpen(false)}
         onLoginSuccess={handleLoginSuccess}
       />
-      {isProfileOpen && (
-        <ProfilePage 
-          onClose={() => setIsProfileOpen(false)}
-          userData={userData}
-          onLogout={handleLogout}
-        />
-      )}
     </>
   )
 }

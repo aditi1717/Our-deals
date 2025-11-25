@@ -1,30 +1,11 @@
-.profile-page-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  z-index: 10000;
-  animation: fadeIn 0.3s ease-in-out;
-  overflow: hidden;
-  touch-action: none;
-}
-
 .profile-page {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  max-width: 500px;
+  min-height: 100vh;
   background-color: white;
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
-  animation: slideInFromRight 0.3s ease-out;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .profile-header {

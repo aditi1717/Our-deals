@@ -1,40 +1,52 @@
 import { useState, useEffect } from 'react'
-import PrivacyPolicyPage from './PrivacyPolicyPage'
-import ContactUsPage from './ContactUsPage'
+import { useNavigate } from 'react-router-dom'
+import EditProfileModal from '../components/EditProfileModal'
 import './ProfilePage.css'
 
-function ProfilePage({ onClose, userData, onLogout }) {
+function ProfilePage({ editMode }) {
+  const navigate = useNavigate()
   const [selectedLanguage, setSelectedLanguage] = useState('English')
-  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false)
-  const [showContactUs, setShowContactUs] = useState(false)
+  const [showEditProfile, setShowEditProfile] = useState(editMode || false)
+  const [userData, setUserData] = useState(null)
 
-  // Prevent body scroll when profile is open
+  // Load user data from localStorage
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = 'unset'
+    const savedUser = localStorage.getItem('userData')
+    if (savedUser) {
+      setUserData(JSON.parse(savedUser))
     }
   }, [])
 
+  const handleLogout = () => {
+    setUserData(null)
+    localStorage.removeItem('userData')
+    navigate('/')
+  }
+
+  const handleProfileUpdate = (updatedData) => {
+    setUserData(updatedData)
+    localStorage.setItem('userData', JSON.stringify(updatedData))
+    setShowEditProfile(false)
+  }
+
   return (
-    <div className="profile-page-overlay" onClick={onClose}>
-      <div className="profile-page" onClick={(e) => e.stopPropagation()}>
-        <div className="profile-header">
-          <h2 className="profile-header-title">Profile</h2>
-          <button className="close-profile-btn" onClick={onClose}>×</button>
-        </div>
+    <div className="profile-page">
+      <div className="profile-header">
+        <h2 className="profile-header-title">Profile</h2>
+        <button className="close-profile-btn" onClick={() => navigate('/')}>×</button>
+      </div>
 
         <div className="profile-content">
           {/* User Profile Section */}
           <div className="user-profile-section">
             <div className="profile-picture">
-              <span className="profile-initial">U</span>
+              <span className="profile-initial">{userData?.name ? userData.name.charAt(0).toUpperCase() : 'U'}</span>
             </div>
             <div className="user-details">
               <h3 className="username">{userData?.name || 'User_1822'}</h3>
               <p className="user-phone">+91 {userData?.mobileNumber || '8236021822'}</p>
             </div>
-            <button className="edit-profile-btn">
+            <button className="edit-profile-btn" onClick={() => setShowEditProfile(true)}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M18.5 2.50023C18.8978 2.10243 19.4374 1.87891 20 1.87891C20.5626 1.87891 21.1022 2.10243 21.5 2.50023C21.8978 2.89804 22.1213 3.43762 22.1213 4.00023C22.1213 4.56284 21.8978 5.10243 21.5 5.50023L12 15.0002L8 16.0002L9 12.0002L18.5 2.50023Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -50,7 +62,7 @@ function ProfilePage({ onClose, userData, onLogout }) {
               </svg>
               <span>Rate Us</span>
             </button>
-            <button className="action-btn" onClick={() => setShowContactUs(true)}>
+            <button className="action-btn" onClick={() => navigate('/contact-us')}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="currentColor"/>
               </svg>
@@ -103,7 +115,7 @@ function ProfilePage({ onClose, userData, onLogout }) {
                   <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="more-option" onClick={() => setShowPrivacyPolicy(true)}>
+              <div className="more-option" onClick={() => navigate('/privacy-policy')}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M12 16V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -123,7 +135,7 @@ function ProfilePage({ onClose, userData, onLogout }) {
                   <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="more-option" onClick={() => setShowContactUs(true)}>
+              <div className="more-option" onClick={() => navigate('/contact-us')}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -135,13 +147,7 @@ function ProfilePage({ onClose, userData, onLogout }) {
               </div>
               <div 
                 className="more-option logout-option" 
-                onClick={(e) => {
-                  e.stopPropagation()
-                  if (onLogout) {
-                    onLogout()
-                  }
-                  onClose()
-                }}
+                onClick={handleLogout}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -156,12 +162,18 @@ function ProfilePage({ onClose, userData, onLogout }) {
             </div>
           </div>
         </div>
-      </div>
-      {showPrivacyPolicy && (
-        <PrivacyPolicyPage onClose={() => setShowPrivacyPolicy(false)} />
-      )}
-      {showContactUs && (
-        <ContactUsPage onClose={() => setShowContactUs(false)} />
+      {showEditProfile && (
+        <EditProfileModal
+          isOpen={showEditProfile}
+          onClose={() => {
+            setShowEditProfile(false)
+            if (editMode) {
+              navigate('/profile')
+            }
+          }}
+          userData={userData}
+          onUpdate={handleProfileUpdate}
+        />
       )}
     </div>
   )

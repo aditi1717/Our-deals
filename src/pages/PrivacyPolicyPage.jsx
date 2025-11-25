@@ -1,20 +1,13 @@
-import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './PrivacyPolicyPage.css'
 
-function PrivacyPolicyPage({ onClose }) {
-  // Prevent body scroll when page is open
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [])
+function PrivacyPolicyPage() {
+  const navigate = useNavigate()
 
   return (
-    <div className="privacy-policy-overlay" onClick={onClose}>
-      <div className="privacy-policy-page" onClick={(e) => e.stopPropagation()}>
-        <div className="privacy-policy-header">
-          <button className="back-btn" onClick={onClose}>
+    <div className="privacy-policy-page">
+      <div className="privacy-policy-header">
+        <button className="back-btn" onClick={() => navigate(-1)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -107,7 +100,6 @@ function PrivacyPolicyPage({ onClose }) {
             </div>
           </section>
         </div>
-      </div>
     </div>
   )
 }
