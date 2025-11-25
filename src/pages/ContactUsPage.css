@@ -1,0 +1,256 @@
+.contact-us-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 10001;
+  animation: fadeIn 0.3s ease-in-out;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.contact-us-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  animation: fadeInScale 0.3s ease-out;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-us-header {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+}
+
+.back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.back-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-us-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.contact-us-content {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 40px;
+}
+
+.company-header-card {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.company-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.company-icon span {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.company-info {
+  flex: 1;
+}
+
+.company-tagline {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 500;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.contact-card {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+}
+
+.contact-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.email-icon,
+.phone-icon,
+.headset-icon,
+.website-icon,
+.company-icon {
+  background-color: #2d5016;
+}
+
+.contact-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.contact-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 4px 0;
+}
+
+.contact-value {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.action-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 8px;
+}
+
+.action-icon-btn:hover {
+  background-color: #f3f4f6;
+  color: #2d5016;
+}
+
+.action-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-footer {
+  text-align: center;
+  padding: 24px 0;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 24px;
+}
+
+.contact-footer p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-us-content {
+    padding: 16px;
+  }
+
+  .company-header-card {
+    padding: 20px;
+  }
+
+  .contact-card {
+    padding: 16px;
+  }
+}
+

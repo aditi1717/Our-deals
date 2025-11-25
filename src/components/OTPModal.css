@@ -1,0 +1,222 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 9998;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.otp-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 450px;
+  z-index: 9999;
+  animation: modalFadeIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+  padding: 24px;
+  color: white;
+}
+
+.modal-logo {
+  margin-bottom: 16px;
+}
+
+.logo-our {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.logo-deals {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.welcome-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: white;
+}
+
+.welcome-subtitle {
+  font-size: 14px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.modal-content {
+  padding: 32px 24px;
+}
+
+.otp-input-group {
+  margin-bottom: 24px;
+}
+
+.input-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.otp-inputs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.otp-input {
+  width: 50px;
+  height: 60px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: all 0.3s;
+  outline: none;
+}
+
+.otp-input:focus {
+  border-color: #2d5016;
+  box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+}
+
+.otp-input:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.otp-actions {
+  margin-bottom: 16px;
+}
+
+.verify-otp-btn {
+  width: 100%;
+  background-color: #2d5016;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 16px;
+}
+
+.verify-otp-btn:hover:not(:disabled) {
+  background-color: #1f3810;
+}
+
+.verify-otp-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.resend-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.resend-text {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.resend-btn {
+  background: none;
+  border: none;
+  color: #2d5016;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s;
+}
+
+.resend-btn:hover {
+  color: #1f3810;
+  text-decoration: underline;
+}
+
+.maybe-later-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s;
+}
+
+.maybe-later-btn:hover {
+  color: #374151;
+}
+
+@media (max-width: 768px) {
+  .otp-modal {
+    width: 95%;
+    max-width: none;
+  }
+
+  .modal-content {
+    padding: 24px 20px;
+  }
+
+  .otp-input {
+    width: 45px;
+    height: 55px;
+    font-size: 20px;
+  }
+
+  .otp-inputs {
+    gap: 8px;
+  }
+}
+

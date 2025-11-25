@@ -1,0 +1,132 @@
+.tourist-places-section {
+  margin-bottom: 48px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tourist-places-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.tourist-places-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.new-badge {
+  background-color: #dc2626;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tourist-places-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 8px;
+}
+
+.tourist-places-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tourist-places-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.tourist-places-container::-webkit-scrollbar-thumb {
+  background: #2d5016;
+  border-radius: 10px;
+}
+
+.tourist-places-container::-webkit-scrollbar-thumb:hover {
+  background: #1f3810;
+}
+
+.tourist-places-carousel {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 8px;
+}
+
+.tourist-place-card {
+  min-width: 280px;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.tourist-place-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.tourist-place-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+.tourist-place-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tourist-place-content {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tourist-place-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.tourist-place-explore {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d5016;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.tourist-place-card:hover .tourist-place-explore {
+  color: #1f3810;
+}
+
+@media (max-width: 768px) {
+  .tourist-place-card {
+    min-width: 240px;
+  }
+
+  .tourist-places-title {
+    font-size: 20px;
+  }
+}
+

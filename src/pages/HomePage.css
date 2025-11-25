@@ -1,0 +1,11 @@
+.homepage {
+  background-color: #faf9f6;
+  min-height: 100vh;
+}
+
+.homepage-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background-color: #faf9f6;
+}
