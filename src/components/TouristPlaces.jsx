@@ -43,7 +43,6 @@ function TouristPlaces() {
               </div>
               <div className="tourist-place-content">
                 <h3 className="tourist-place-name">{city.name}</h3>
-                <span className="tourist-place-explore">{city.exploreText}</span>
               </div>
             </div>
           ))}

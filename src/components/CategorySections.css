@@ -96,7 +96,7 @@
 .sub-category-content {
   padding: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex: 1;
   min-height: 80px;
@@ -109,17 +109,6 @@
   margin: 0;
 }
 
-.sub-category-explore {
-  font-size: 14px;
-  font-weight: 600;
-  color: #13335a;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.sub-category-card:hover .sub-category-explore {
-  color: #0f2440;
-}
 
 /* Popular Category Styling */
 .sub-category-card.popular-style {

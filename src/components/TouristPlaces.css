@@ -97,7 +97,7 @@
 .tourist-place-content {
   padding: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -108,17 +108,6 @@
   margin: 0;
 }
 
-.tourist-place-explore {
-  font-size: 14px;
-  font-weight: 600;
-  color: #13335a;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.tourist-place-card:hover .tourist-place-explore {
-  color: #0f2440;
-}
 
 @media (max-width: 768px) {
   .tourist-place-card {

@@ -75,7 +75,6 @@ function CategorySections() {
                 </div>
                 <div className="sub-category-content">
                   <h3 className="sub-category-name">{subCat.name}</h3>
-                  <span className="sub-category-explore">Explore ></span>
                 </div>
               </div>
             ))}

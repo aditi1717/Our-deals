@@ -16,7 +16,18 @@ export const categorySectionsData = [
     subCategories: [
       { name: "Banquet Halls", image: hotelPg, isPopular: true },
       { name: "Bridal Requisite", image: weddingPlans },
-      { name: "Caterers", image: foodDining, isPopular: true }
+      { name: "Caterers", image: foodDining, isPopular: true },
+      { name: "Wedding Planners", image: weddingPlans },
+      { name: "Photographers", image: weddingPlans },
+      { name: "Makeup Artists", image: beautyCare },
+      { name: "Mehndi Artists", image: beautyCare },
+      { name: "DJ Booking", image: dailyServices },
+      { name: "Choreographer", image: dailyServices },
+      { name: "Bridal Wear & Jewellery", image: weddingPlans },
+      { name: "Groom Wear", image: weddingPlans },
+      { name: "Pandit Ji", image: dailyServices },
+      { name: "Rath Booking", image: transportationTravel },
+      { name: "Decoration & Tents Service", image: homeServices }
     ]
   },
   {
@@ -24,7 +35,12 @@ export const categorySectionsData = [
     subCategories: [
       { name: "Beauty Parlours", image: beautyCare },
       { name: "Spa & Massages", image: beautyCare },
-      { name: "Salons", image: beautyCare }
+      { name: "Salons", image: beautyCare },
+      { name: "Hair Stylists", image: beautyCare },
+      { name: "Nail Salons", image: beautyCare },
+      { name: "Skin Care", image: beautyCare },
+      { name: "Hair Color & Highlights", image: beautyCare },
+      { name: "Facial Treatments", image: beautyCare }
     ]
   },
   {
@@ -32,7 +48,12 @@ export const categorySectionsData = [
     subCategories: [
       { name: "AC Service", image: repair },
       { name: "Car Service", image: transportationTravel },
-      { name: "Bike Service", image: transportationTravel }
+      { name: "Bike Service", image: transportationTravel },
+      { name: "Plumbing", image: repair },
+      { name: "Appliance Repair", image: repair },
+      { name: "Home Maintenance", image: homeServices },
+      { name: "Electrical Repairs", image: repair },
+      { name: "Carpentry", image: repair }
     ]
   },
   {
@@ -40,7 +61,12 @@ export const categorySectionsData = [
     subCategories: [
       { name: "Movies", image: dailyServices },
       { name: "Grocery", image: foodDining },
-      { name: "Electricians", image: homeServices }
+      { name: "Electricians", image: homeServices },
+      { name: "Pharmacy", image: dailyServices },
+      { name: "Laundry", image: dailyServices },
+      { name: "Home Delivery", image: foodDining },
+      { name: "Pet Care", image: dailyServices },
+      { name: "Cleaning Services", image: homeServices }
     ]
   },
   {
