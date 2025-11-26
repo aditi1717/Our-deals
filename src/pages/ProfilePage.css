@@ -14,10 +14,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   flex-shrink: 0;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .profile-header-title {
@@ -50,6 +56,7 @@
 
 .profile-content {
   padding: clamp(16px, 2vw, 24px);
+  padding-top: calc(clamp(16px, 2vw, 20px) * 2 + clamp(18px, 2.5vw, 24px) + clamp(16px, 2vw, 24px)); /* Add space for fixed header */
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
@@ -306,12 +313,19 @@
     flex-direction: column;
   }
 
+  .profile-header {
+    max-width: 100%;
+    left: 0;
+    right: 0;
+  }
+
   .profile-content {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     min-height: 0;
+    padding-top: calc(clamp(16px, 2vw, 20px) * 2 + clamp(18px, 2.5vw, 24px) + clamp(16px, 2vw, 24px)); /* Add space for fixed header */
     padding-bottom: 80px; /* Space for bottom navigation */
   }
 }
