@@ -1,10 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
+import BottomNavigation from './components/BottomNavigation'
 import HomePage from './pages/HomePage'
 import ProfilePage from './pages/ProfilePage'
 import CategoriesPage from './pages/CategoriesPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import ContactUsPage from './pages/ContactUsPage'
+import VendorListPage from './pages/VendorListPage'
+import VendorDetailPage from './pages/VendorDetailPage'
+import CategorySubcategoriesPage from './pages/CategorySubcategoriesPage'
 import './App.css'
 
 function AppContent() {
@@ -14,15 +18,19 @@ function AppContent() {
   return (
     <div className="app">
       {showHeader && <Header />}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/profile/edit" element={<ProfilePage editMode={true} />} />
-        <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/categories/:categoryName" element={<CategoriesPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/contact-us" element={<ContactUsPage />} />
-      </Routes>
+             <Routes>
+               <Route path="/" element={<HomePage />} />
+               <Route path="/profile" element={<ProfilePage />} />
+               <Route path="/profile/edit" element={<ProfilePage editMode={true} />} />
+               <Route path="/categories" element={<CategoriesPage />} />
+               <Route path="/categories/:categoryName" element={<CategoriesPage />} />
+               <Route path="/category/:categoryName" element={<CategorySubcategoriesPage />} />
+               <Route path="/vendors/:subcategoryName" element={<VendorListPage />} />
+               <Route path="/vendor/:vendorId" element={<VendorDetailPage />} />
+               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+               <Route path="/contact-us" element={<ContactUsPage />} />
+             </Routes>
+      <BottomNavigation />
     </div>
   )
 }

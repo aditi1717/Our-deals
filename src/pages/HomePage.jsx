@@ -1,6 +1,5 @@
 import SearchSection from '../components/SearchSection'
 import CategoryGrid from '../components/CategoryGrid'
-import PopularSearches from '../components/PopularSearches'
 import BannerCarousel from '../components/BannerCarousel'
 import TouristPlaces from '../components/TouristPlaces'
 import CategorySections from '../components/CategorySections'
@@ -13,7 +12,6 @@ function HomePage() {
       <div className="homepage-container">
         <SearchSection />
         <CategoryGrid />
-        <PopularSearches />
         <BannerCarousel />
         <CategorySections />
         <BannerCarousel2 />

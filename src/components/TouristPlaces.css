@@ -49,12 +49,12 @@
 }
 
 .tourist-places-container::-webkit-scrollbar-thumb {
-  background: #2d5016;
+  background: #13335a;
   border-radius: 10px;
 }
 
 .tourist-places-container::-webkit-scrollbar-thumb:hover {
-  background: #1f3810;
+  background: #0f2440;
 }
 
 .tourist-places-carousel {
@@ -111,13 +111,13 @@
 .tourist-place-explore {
   font-size: 14px;
   font-weight: 600;
-  color: #2d5016;
+  color: #13335a;
   cursor: pointer;
   transition: color 0.3s;
 }
 
 .tourist-place-card:hover .tourist-place-explore {
-  color: #1f3810;
+  color: #0f2440;
 }
 
 @media (max-width: 768px) {

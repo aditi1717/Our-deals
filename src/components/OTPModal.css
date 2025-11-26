@@ -19,7 +19,7 @@
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   width: 90%;
-  max-width: 450px;
+  max-width: 400px; /* Same as login modal */
   z-index: 9999;
   animation: modalFadeIn 0.3s ease-out;
   overflow: hidden;
@@ -46,8 +46,8 @@
 }
 
 .modal-header {
-  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
-  padding: 24px;
+  background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
+  padding: 20px; /* Same as login modal */
   color: white;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .modal-content {
-  padding: 32px 24px;
+  padding: 24px 20px; /* Same as login modal */
 }
 
 .otp-input-group {
@@ -118,8 +118,8 @@
 }
 
 .otp-input:focus {
-  border-color: #2d5016;
-  box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+  border-color: #13335a;
+  box-shadow: 0 0 0 3px rgba(19, 51, 90, 0.1);
 }
 
 .otp-input:disabled {
@@ -133,7 +133,7 @@
 
 .verify-otp-btn {
   width: 100%;
-  background-color: #2d5016;
+  background-color: #13335a;
   color: white;
   border: none;
   padding: 14px 24px;
@@ -146,7 +146,7 @@
 }
 
 .verify-otp-btn:hover:not(:disabled) {
-  background-color: #1f3810;
+  background-color: #0f2440;
 }
 
 .verify-otp-btn:disabled {
@@ -170,7 +170,7 @@
 .resend-btn {
   background: none;
   border: none;
-  color: #2d5016;
+  color: #13335a;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -179,7 +179,7 @@
 }
 
 .resend-btn:hover {
-  color: #1f3810;
+  color: #0f2440;
   text-decoration: underline;
 }
 
@@ -201,12 +201,24 @@
 
 @media (max-width: 768px) {
   .otp-modal {
-    width: 95%;
-    max-width: none;
+    width: 85%; /* Same as login modal */
+    max-width: 380px; /* Same as login modal */
   }
 
   .modal-content {
-    padding: 24px 20px;
+    padding: 20px 16px; /* Same as login modal */
+  }
+
+  .modal-header {
+    padding: 16px 20px; /* Same as login modal */
+  }
+
+  .welcome-title {
+    font-size: 24px; /* Same as login modal */
+  }
+
+  .welcome-subtitle {
+    font-size: 13px; /* Same as login modal */
   }
 
   .otp-input {

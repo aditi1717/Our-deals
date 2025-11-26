@@ -19,7 +19,7 @@
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   width: 90%;
-  max-width: 450px;
+  max-width: 400px; /* Reduced from 450px */
   z-index: 9999;
   animation: modalFadeIn 0.3s ease-out;
   overflow: hidden;
@@ -46,8 +46,8 @@
 }
 
 .modal-header {
-  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
-  padding: 24px;
+  background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
+  padding: 20px; /* Reduced from 24px */
   color: white;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .modal-content {
-  padding: 32px 24px;
+  padding: 24px 20px; /* Reduced padding */
 }
 
 .mobile-input-group {
@@ -106,7 +106,7 @@
 }
 
 .mobile-input-wrapper:focus-within {
-  border-color: #2d5016;
+  border-color: #13335a;
 }
 
 .country-code {
@@ -150,26 +150,26 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: #2d5016;
+  accent-color: #13335a;
 }
 
 .terms-link {
   display: block;
   font-size: 14px;
-  color: #2d5016;
+  color: #13335a;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .terms-link:hover {
-  color: #1f3810;
+  color: #0f2440;
   text-decoration: underline;
 }
 
 .login-otp-btn {
   width: 100%;
-  background-color: #2d5016;
+  background-color: #13335a;
   color: white;
   border: none;
   padding: 14px 24px;
@@ -183,7 +183,7 @@
 }
 
 .login-otp-btn:hover:not(:disabled) {
-  background-color: #1f3810;
+  background-color: #0f2440;
 }
 
 .login-otp-btn:disabled {
@@ -211,12 +211,24 @@
 
 @media (max-width: 768px) {
   .login-modal {
-    width: 95%;
-    max-width: none;
+    width: 85%; /* Reduced from 95% */
+    max-width: 380px; /* Added max-width for mobile */
   }
 
   .modal-content {
-    padding: 24px 20px;
+    padding: 20px 16px; /* Reduced padding on mobile */
+  }
+
+  .modal-header {
+    padding: 16px 20px; /* Reduced header padding on mobile */
+  }
+
+  .welcome-title {
+    font-size: 24px; /* Slightly smaller on mobile */
+  }
+
+  .welcome-subtitle {
+    font-size: 13px; /* Slightly smaller on mobile */
   }
 }
 

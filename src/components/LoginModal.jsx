@@ -41,8 +41,8 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
     <>
       {!showOTP && !showName && (
         <>
-          <div className="modal-overlay" onClick={onClose}></div>
-          <div className="login-modal">
+          <div className="modal-overlay"></div>
+          <div className="login-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div className="modal-logo">
             <span className="logo-our">Our</span>

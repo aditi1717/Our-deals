@@ -19,7 +19,7 @@
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   width: 90%;
-  max-width: 450px;
+  max-width: 400px; /* Same as login modal */
   z-index: 9999;
   animation: modalFadeIn 0.3s ease-out;
   overflow: hidden;
@@ -46,8 +46,8 @@
 }
 
 .modal-header {
-  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
-  padding: 28px 24px;
+  background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
+  padding: 20px; /* Same as login modal */
   color: white;
   border-radius: 16px 16px 0 0;
 }
@@ -84,7 +84,7 @@
 }
 
 .modal-content {
-  padding: 32px 24px;
+  padding: 24px 20px; /* Same as login modal */
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -109,8 +109,8 @@
 }
 
 .name-input:focus {
-  border-color: #2d5016;
-  box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.08);
+  border-color: #13335a;
+  box-shadow: 0 0 0 3px rgba(19, 51, 90, 0.08);
   background-color: #ffffff;
 }
 
@@ -176,12 +176,24 @@
 
 @media (max-width: 768px) {
   .name-modal {
-    width: 95%;
-    max-width: none;
+    width: 85%; /* Same as login modal */
+    max-width: 380px; /* Same as login modal */
   }
 
   .modal-content {
-    padding: 24px 20px;
+    padding: 20px 16px; /* Same as login modal */
+  }
+
+  .modal-header {
+    padding: 16px 20px; /* Same as login modal */
+  }
+
+  .welcome-title {
+    font-size: 24px; /* Same as login modal */
+  }
+
+  .welcome-subtitle {
+    font-size: 13px; /* Same as login modal */
   }
 }
 

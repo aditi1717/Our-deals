@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 import './SearchSection.css'
 
 function SearchSection() {
-  const [location, setLocation] = useState('Mumbai')
-  const [searchQuery, setSearchQuery] = useState('Search for Spa & Salons')
+  const [location, setLocation] = useState('')
+  const [searchQuery, setSearchQuery] = useState('')
   const [isSearchFocused, setIsSearchFocused] = useState(false)
   const searchInputRef = useRef(null)
   const dropdownRef = useRef(null)
@@ -50,13 +50,13 @@ function SearchSection() {
 
   return (
     <div className="search-section">
-      <h2 className="search-title">
+      <h2 className="search-title desktop-only">
         Search across <span className="search-highlight">'4.9 Crore+'</span> Businesses
       </h2>
       <div className="search-container-wrapper">
         <div className="search-container">
-          <div className="location-input-wrapper">
-            <span className="location-icon">
+          <div className="location-input-wrapper desktop-only">
+            <span className="location-icon-left">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
               </svg>
@@ -66,10 +66,18 @@ function SearchSection() {
               className="location-input"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              placeholder="Location"
+              placeholder="Mumbai"
             />
+            <span className="location-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+              </svg>
+            </span>
           </div>
-          <div className="search-input-wrapper" ref={dropdownRef}>
+          <div className="search-input-wrapper mobile-search-bar" ref={dropdownRef}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="search-icon-left">
+              <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
             <input
               ref={searchInputRef}
               type="text"
@@ -79,6 +87,7 @@ function SearchSection() {
               onFocus={() => setIsSearchFocused(true)}
               placeholder="Search for Spa & Salons"
             />
+            <div className="search-separator"></div>
             <button className="mic-icon" aria-label="Voice search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 1C10.34 1 9 2.34 9 4V12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12V4C15 2.34 13.66 1 12 1Z" fill="currentColor"/>
@@ -130,12 +139,6 @@ function SearchSection() {
               </div>
             )}
           </div>
-          <button className="search-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <span>Search</span>
-          </button>
         </div>
       </div>
     </div>

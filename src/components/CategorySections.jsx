@@ -1,61 +1,82 @@
-import weddingPlans from '../assets/wedding plans.jpg'
-import hotelPg from '../assets/hotel and pg.jpg'
-import foodDining from '../assets/food and Dining.jpg'
-import beautyCare from '../assets/beauty care.jpg'
-import repair from '../assets/repair.png'
-import transportationTravel from '../assets/transortation and travel.png'
-import dailyServices from '../assets/daily services.jpg'
-import homeServices from '../assets/home services.jpg'
+import { useNavigate } from 'react-router-dom'
+import { categorySectionsData } from '../data/categorySections'
 import './CategorySections.css'
 
 function CategorySections() {
-  const categorySections = [
-    {
-      title: "Wedding Requisites",
-      subCategories: [
-        { name: "Banquet Halls", image: hotelPg },
-        { name: "Bridal Requisite", image: weddingPlans },
-        { name: "Caterers", image: foodDining }
-      ]
-    },
-    {
-      title: "Beauty & Spa",
-      subCategories: [
-        { name: "Beauty Parlours", image: beautyCare },
-        { name: "Spa & Massages", image: beautyCare },
-        { name: "Salons", image: beautyCare }
-      ]
-    },
-    {
-      title: "Repairs & Services",
-      subCategories: [
-        { name: "AC Service", image: repair },
-        { name: "Car Service", image: transportationTravel },
-        { name: "Bike Service", image: transportationTravel }
-      ]
-    },
-    {
-      title: "Daily Needs",
-      subCategories: [
-        { name: "Movies", image: dailyServices },
-        { name: "Grocery", image: foodDining },
-        { name: "Electricians", image: homeServices }
-      ]
+  const navigate = useNavigate()
+
+  const handleSubCategoryClick = (subCategoryName, isPopular) => {
+    if (isPopular) {
+      // Navigate to category subcategories page for popular categories
+      navigate(`/category/${encodeURIComponent(subCategoryName)}`)
+    } else {
+      // Navigate directly to vendors for regular subcategories
+      navigate(`/vendors/${encodeURIComponent(subCategoryName)}`)
     }
-  ]
+  }
+
+  // Collect all popular subcategories from all sections
+  const popularSubCategories = []
+  categorySectionsData.forEach((section) => {
+    section.subCategories.forEach((subCat) => {
+      if (subCat.isPopular) {
+        popularSubCategories.push(subCat)
+      }
+    })
+  })
 
   return (
     <div className="category-sections-container">
-      {categorySections.map((section, index) => (
-        <div key={index} className="category-section-card">
-          <h3 className="category-section-title">{section.title}</h3>
+      {/* Popular Searches Section */}
+      {popularSubCategories.length > 0 && (
+        <div className="category-section-card">
+          <h3 className="category-section-title">Popular Searches</h3>
           <div className="sub-categories">
-            {section.subCategories.map((subCat, subIndex) => (
-              <div key={subIndex} className="sub-category-card">
+            {popularSubCategories.map((subCat, subIndex) => (
+              <div 
+                key={subIndex} 
+                className="sub-category-card popular-style"
+                onClick={() => handleSubCategoryClick(subCat.name, true)}
+              >
                 <div className="sub-category-image">
                   <img src={subCat.image} alt={subCat.name} />
                 </div>
-                <span className="sub-category-name">{subCat.name}</span>
+                <div className="sub-category-content popular-content">
+                  <h3 className="sub-category-name popular-name">{subCat.name}</h3>
+                  <button 
+                    className="popular-enquire-button"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleSubCategoryClick(subCat.name, true)
+                    }}
+                  >
+                    Enquire Now
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Regular Category Sections */}
+      {categorySectionsData.map((section, index) => (
+        <div key={index} className="category-section-card">
+          <h3 className="category-section-title">{section.categoryName}</h3>
+          <div className="sub-categories">
+            {section.subCategories.map((subCat, subIndex) => (
+              <div 
+                key={subIndex} 
+                className="sub-category-card"
+                onClick={() => handleSubCategoryClick(subCat.name, subCat.isPopular)}
+              >
+                <div className="sub-category-image">
+                  <img src={subCat.image} alt={subCat.name} />
+                </div>
+                <div className="sub-category-content">
+                  <h3 className="sub-category-name">{subCat.name}</h3>
+                  <span className="sub-category-explore">Explore ></span>
+                </div>
               </div>
             ))}
           </div>

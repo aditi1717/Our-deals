@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import EditProfileModal from '../components/EditProfileModal'
+import LoginModal from '../components/LoginModal'
 import './ProfilePage.css'
 
 function ProfilePage({ editMode }) {
@@ -8,12 +9,16 @@ function ProfilePage({ editMode }) {
   const [selectedLanguage, setSelectedLanguage] = useState('English')
   const [showEditProfile, setShowEditProfile] = useState(editMode || false)
   const [userData, setUserData] = useState(null)
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
 
   // Load user data from localStorage
   useEffect(() => {
     const savedUser = localStorage.getItem('userData')
     if (savedUser) {
       setUserData(JSON.parse(savedUser))
+    } else {
+      // If no user data, show login modal
+      setIsLoginModalOpen(true)
     }
   }, [])
 
@@ -27,6 +32,32 @@ function ProfilePage({ editMode }) {
     setUserData(updatedData)
     localStorage.setItem('userData', JSON.stringify(updatedData))
     setShowEditProfile(false)
+  }
+
+  const handleLoginSuccess = (data) => {
+    setUserData(data)
+    localStorage.setItem('userData', JSON.stringify(data))
+    setIsLoginModalOpen(false)
+  }
+
+  // If user is not logged in, show login modal instead of profile
+  useEffect(() => {
+    if (!userData) {
+      setIsLoginModalOpen(true)
+    }
+  }, [userData])
+
+  if (!userData) {
+    return (
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => {
+          setIsLoginModalOpen(false)
+          navigate('/') // Go back to home if login is cancelled
+        }}
+        onLoginSuccess={handleLoginSuccess}
+      />
+    )
   }
 
   return (

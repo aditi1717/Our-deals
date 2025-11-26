@@ -1,0 +1,152 @@
+.category-subcategories-page {
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-subcategories-header {
+  background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+}
+
+.back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.back-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.category-subcategories-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.category-subcategories-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+.subcategories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.subcategory-grid-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.subcategory-grid-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.subcategory-grid-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subcategory-grid-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.subcategory-grid-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #13335a;
+  color: white;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.subcategory-grid-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  text-align: center;
+  line-height: 1.4;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.subcategory-grid-card:hover .subcategory-grid-name {
+  color: #13335a;
+}
+
+.no-subcategories {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .category-subcategories-content {
+    padding: 16px;
+    padding-bottom: 100px;
+  }
+
+  .subcategories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 16px;
+  }
+
+  .subcategory-grid-name {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+

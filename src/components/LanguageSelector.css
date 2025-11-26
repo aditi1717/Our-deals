@@ -17,7 +17,7 @@
 }
 
 .language-selector-btn:hover {
-  border-color: #2d5016;
+  border-color: #13335a;
 }
 
 .language-icon {
@@ -67,7 +67,7 @@
 }
 
 .language-option.active {
-  background-color: #e8f0e4;
-  color: #2d5016;
+  background-color: #e8f0f7;
+  color: #13335a;
   font-weight: 500;
 }

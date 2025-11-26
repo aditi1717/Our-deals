@@ -9,7 +9,7 @@
 }
 
 .profile-header {
-  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+  background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
   padding: 20px 24px;
   display: flex;
   justify-content: space-between;
@@ -52,6 +52,9 @@
   padding: 24px;
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  min-height: 0; /* Important for flex children to respect overflow */
 }
 
 .user-profile-section {
@@ -106,7 +109,7 @@
 }
 
 .edit-profile-btn:hover {
-  color: #2d5016;
+  color: #13335a;
 }
 
 .action-buttons {
@@ -133,8 +136,8 @@
 }
 
 .action-btn:hover {
-  border-color: #2d5016;
-  color: #2d5016;
+  border-color: #13335a;
+  color: #13335a;
   background-color: #f9fafb;
 }
 
@@ -201,13 +204,13 @@
 }
 
 .language-btn.active {
-  border-color: #2d5016;
-  background-color: #f0f7ed;
-  color: #2d5016;
+  border-color: #13335a;
+  background-color: #e8f0f7;
+  color: #13335a;
 }
 
 .language-btn:hover {
-  border-color: #2d5016;
+  border-color: #13335a;
 }
 
 .more-section {
@@ -279,6 +282,20 @@
 @media (max-width: 768px) {
   .profile-page {
     max-width: 100%;
+    height: 100vh; /* Fixed height on mobile */
+    max-height: 100vh; /* Prevent overflow */
+    overflow: hidden; /* Prevent page scroll */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    min-height: 0;
+    padding-bottom: 80px; /* Space for bottom navigation */
   }
 }
 

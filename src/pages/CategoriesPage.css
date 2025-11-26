@@ -1,12 +1,13 @@
 .categories-page {
-  min-height: 100vh;
+  height: 100vh;
   background-color: white;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .categories-header {
-  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+  background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
   padding: 20px 24px;
   display: flex;
   justify-content: space-between;
@@ -53,6 +54,11 @@
   display: flex;
   flex: 1;
   overflow: hidden;
+  height: calc(100vh - 80px); /* Subtract header height */
+  min-height: 0; /* Important for flex children to respect overflow */
+  position: relative;
+  isolation: isolate; /* Create a new stacking context */
+  overscroll-behavior: none; /* Prevent scroll chaining */
 }
 
 /* Left Sidebar - Categories List */
@@ -61,8 +67,36 @@
   background-color: #f9fafb;
   border-right: 1px solid #e5e7eb;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 16px 0;
   flex-shrink: 0;
+  height: 100%;
+  position: relative;
+  isolation: isolate; /* Create a new stacking context */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  overscroll-behavior-y: contain; /* Prevent scroll chaining */
+  overscroll-behavior-x: none;
+  touch-action: pan-y; /* Only allow vertical scrolling */
+  will-change: scroll-position;
+  contain: layout style paint;
+}
+
+/* Prevent scroll propagation from sidebar */
+.categories-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.categories-sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.categories-sidebar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.categories-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
 
 .category-sidebar-item {
@@ -80,8 +114,8 @@
 }
 
 .category-sidebar-item.selected {
-  background-color: #f0f7ed; /* Light green background for better visibility */
-  border-left-color: #2d5016;
+  background-color: #e8f0f7; /* Light blue background for better visibility */
+  border-left-color: #13335a;
   border-left-width: 4px; /* Thicker border for better visibility */
 }
 
@@ -98,7 +132,7 @@
 }
 
 .category-sidebar-item.selected .category-sidebar-icon {
-  background-color: #2d5016; /* Green background for icon when selected */
+  background-color: #13335a; /* Blue background for icon when selected */
 }
 
 .category-sidebar-icon img {
@@ -114,7 +148,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2d5016;
+  background-color: #13335a;
   color: white;
   font-weight: 700;
   font-size: 18px;
@@ -128,16 +162,40 @@
 }
 
 .category-sidebar-item.selected .category-sidebar-name {
-  color: #2d5016;
+  color: #13335a;
   font-weight: 600;
 }
 
 /* Right Content - Subcategories */
 .categories-main-content {
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden; /* Changed from overflow-y: auto to prevent scrolling */
   padding: 24px;
   background-color: white;
+  height: 100%;
+  min-height: 0; /* Important for flex children to respect overflow */
+  position: relative;
+  isolation: isolate; /* Create a new stacking context */
+  overscroll-behavior: none; /* Prevent any scroll chaining */
+  pointer-events: auto;
+}
+
+/* Prevent scroll propagation from main content */
+.categories-main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.categories-main-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.categories-main-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.categories-main-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
 
 .selected-category-title {
@@ -191,7 +249,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2d5016;
+  background-color: #13335a;
   color: white;
   font-weight: 700;
   font-size: 32px;
@@ -206,7 +264,7 @@
 }
 
 .subcategory-card:hover .subcategory-name {
-  color: #2d5016;
+  color: #13335a;
 }
 
 .no-subcategories {
@@ -260,7 +318,7 @@
 
   .category-sidebar-item.selected {
     border-left: none;
-    border-bottom-color: #2d5016;
+    border-bottom-color: #13335a;
   }
 
   .subcategories-grid {

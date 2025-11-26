@@ -29,7 +29,7 @@
 .edit-profile-title {
   font-size: 24px;
   font-weight: 700;
-  color: #2d5016;
+  color: #13335a;
   margin: 0 0 24px 0;
   text-align: center;
 }
@@ -64,7 +64,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #2d5016;
+  background-color: #13335a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +75,7 @@
 }
 
 .edit-avatar-icon:hover {
-  background-color: #1f3810;
+  background-color: #0f2440;
 }
 
 .edit-avatar-icon svg {
@@ -98,7 +98,7 @@
 }
 
 .edit-profile-input-wrapper:focus-within {
-  border-color: #2d5016;
+  border-color: #13335a;
 }
 
 .input-icon {
@@ -128,7 +128,7 @@
 
 .update-btn {
   width: 100%;
-  background-color: #2d5016;
+  background-color: #13335a;
   color: white;
   border: none;
   padding: 14px 24px;
@@ -140,7 +140,7 @@
 }
 
 .update-btn:hover:not(:disabled) {
-  background-color: #1f3810;
+  background-color: #0f2440;
 }
 
 .update-btn:disabled {
