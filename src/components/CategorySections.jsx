@@ -29,9 +29,9 @@ function CategorySections() {
     <div className="category-sections-container">
       {/* Popular Searches Section */}
       {popularSubCategories.length > 0 && (
-        <div className="category-section-card">
+        <div className="category-section-card popular-searches-section">
           <h3 className="category-section-title">Popular Searches</h3>
-          <div className="sub-categories">
+          <div className="sub-categories popular-searches-categories">
             {popularSubCategories.map((subCat, subIndex) => (
               <div 
                 key={subIndex} 

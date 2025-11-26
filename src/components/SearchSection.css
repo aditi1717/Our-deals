@@ -31,10 +31,10 @@
 }
 
 .search-title {
-  font-size: 28px;
+  font-size: clamp(20px, 3vw, 28px);
   font-weight: bold;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 2.5vw, 24px);
   color: #1f2937;
 }
 
@@ -44,7 +44,7 @@
 
 .search-container-wrapper {
   position: relative;
-  max-width: 900px;
+  max-width: min(900px, 95vw);
   margin: 0 auto;
 }
 
@@ -61,10 +61,10 @@
   background-color: #f9fafb;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: clamp(10px, 1.2vw, 12px) clamp(12px, 1.5vw, 16px);
   flex: 0 0 auto;
-  max-width: 200px;
-  min-width: 180px;
+  max-width: clamp(150px, 18vw, 200px);
+  min-width: clamp(130px, 16vw, 180px);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -107,7 +107,7 @@
   outline: none;
   flex: 1;
   color: #000000;
-  font-size: 16px;
+  font-size: clamp(14px, 1.6vw, 16px);
   text-align: left;
   min-width: 0;
   white-space: nowrap;
@@ -125,11 +125,11 @@
   background-color: #f9fafb;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: clamp(10px, 1.2vw, 12px) clamp(12px, 1.5vw, 16px);
   flex: 1;
   position: relative;
   z-index: 100;
-  gap: 8px;
+  gap: clamp(6px, 0.8vw, 8px);
 }
 
 .search-input {
@@ -138,7 +138,7 @@
   outline: none;
   flex: 1;
   color: #000000;
-  font-size: 16px;
+  font-size: clamp(14px, 1.6vw, 16px);
   padding: 0;
 }
 
