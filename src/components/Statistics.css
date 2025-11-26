@@ -1,122 +1,68 @@
 .statistics-section {
   background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
-  padding: 24px 24px;
-  margin-bottom: 24px;
+  padding: clamp(16px, 2vw, 24px);
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .statistics-container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .statistics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(8px, 1.5vw, 16px);
+  width: 100%;
 }
 
 .stat-item {
   text-align: center;
   color: white;
+  box-sizing: border-box;
 }
 
 .stat-number {
-  font-size: 32px;
+  font-size: clamp(18px, 2.5vw, 32px);
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: clamp(3px, 0.4vw, 4px);
   color: white;
+  line-height: 1.2;
 }
 
 .stat-label {
-  font-size: 14px;
+  font-size: clamp(11px, 1.2vw, 14px);
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
+  line-height: 1.4;
 }
 
 @media (max-width: 1024px) {
-  .statistics-section {
-    padding: 22px 20px;
-  }
-
-  .stat-number {
-    font-size: 28px;
-  }
-
-  .stat-label {
-    font-size: 13px;
+  .statistics-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(8px, 1.2vw, 14px);
   }
 }
 
 @media (max-width: 768px) {
-  .statistics-section {
-    padding: 20px 16px;
-  }
-
   .statistics-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .stat-number {
-    font-size: 24px;
-  }
-
-  .stat-label {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 600px) {
-  .statistics-section {
-    padding: 18px 14px;
-  }
-
-  .statistics-grid {
-    gap: 10px;
-  }
-
-  .stat-number {
-    font-size: 22px;
-  }
-
-  .stat-label {
-    font-size: 11px;
+    gap: clamp(8px, 1.5vw, 12px);
   }
 }
 
 @media (max-width: 480px) {
-  .statistics-section {
-    padding: 16px 12px;
-  }
-
   .statistics-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .stat-number {
-    font-size: 20px;
-  }
-
-  .stat-label {
-    font-size: 10px;
+    gap: clamp(6px, 1vw, 8px);
   }
 }
 
 @media (max-width: 360px) {
-  .statistics-section {
-    padding: 14px 10px;
-  }
-
   .statistics-grid {
-    gap: 6px;
-  }
-
-  .stat-number {
-    font-size: 18px;
-  }
-
-  .stat-label {
-    font-size: 9px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(4px, 0.8vw, 6px);
   }
 }

@@ -1,7 +1,6 @@
 import SearchSection from '../components/SearchSection'
 import CategoryGrid from '../components/CategoryGrid'
 import BannerCarousel from '../components/BannerCarousel'
-import TouristPlaces from '../components/TouristPlaces'
 import CategorySections from '../components/CategorySections'
 import BannerCarousel2 from '../components/BannerCarousel2'
 import WhyChooseUs from '../components/WhyChooseUs'
@@ -21,7 +20,6 @@ function HomePage() {
         <BannerCarousel />
         <CategorySections />
         <BannerCarousel2 />
-        <TouristPlaces />
         <WhyChooseUs />
         <Statistics />
         <AppDownload />

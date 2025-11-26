@@ -47,70 +47,76 @@
 
 .modal-header {
   background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
-  padding: 20px; /* Same as login modal */
+  padding: clamp(16px, 2.5vw, 20px);
   color: white;
 }
 
 .modal-logo {
-  margin-bottom: 16px;
+  margin-bottom: clamp(12px, 1.5vw, 16px);
+  display: flex;
+  align-items: baseline;
 }
 
 .logo-our {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 900;
+  color: #93c5fd !important;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .logo-deals {
-  font-size: 24px;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 900;
+  color: #60a5fa !important;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .welcome-title {
-  font-size: 28px;
+  font-size: clamp(22px, 3.5vw, 28px);
   font-weight: 700;
-  margin: 0 0 4px 0;
+  margin: 0 0 clamp(3px, 0.5vw, 4px) 0;
   color: white;
 }
 
 .welcome-subtitle {
-  font-size: 14px;
+  font-size: clamp(12px, 1.75vw, 14px);
   margin: 0;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .modal-content {
-  padding: 24px 20px; /* Same as login modal */
+  padding: clamp(20px, 3vw, 24px) clamp(16px, 2.5vw, 20px);
 }
 
 .otp-input-group {
-  margin-bottom: 24px;
+  margin-bottom: clamp(20px, 3vw, 24px);
 }
 
 .input-label {
   display: block;
-  font-size: 14px;
+  font-size: clamp(12px, 1.75vw, 14px);
   font-weight: 600;
   color: #374151;
-  margin-bottom: 16px;
+  margin-bottom: clamp(12px, 2vw, 16px);
   text-align: center;
 }
 
 .otp-inputs {
   display: flex;
-  gap: 12px;
+  gap: clamp(8px, 1.5vw, 12px);
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: clamp(20px, 3vw, 24px);
 }
 
 .otp-input {
-  width: 50px;
-  height: 60px;
+  width: clamp(40px, 6.25vw, 50px);
+  height: clamp(50px, 7.5vw, 60px);
   border: 2px solid #e5e7eb;
   border-radius: 8px;
   text-align: center;
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 24px);
   font-weight: 600;
   color: #1a1a1a;
   transition: all 0.3s;
@@ -128,7 +134,7 @@
 }
 
 .otp-actions {
-  margin-bottom: 16px;
+  margin-bottom: clamp(12px, 2vw, 16px);
 }
 
 .verify-otp-btn {
@@ -136,13 +142,13 @@
   background-color: #13335a;
   color: white;
   border: none;
-  padding: 14px 24px;
+  padding: clamp(12px, 1.75vw, 14px) clamp(20px, 3vw, 24px);
   border-radius: 8px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-bottom: 16px;
+  margin-bottom: clamp(12px, 2vw, 16px);
 }
 
 .verify-otp-btn:hover:not(:disabled) {
@@ -158,12 +164,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: clamp(6px, 1vw, 8px);
+  margin-bottom: clamp(12px, 2vw, 16px);
 }
 
 .resend-text {
-  font-size: 14px;
+  font-size: clamp(12px, 1.75vw, 14px);
   color: #6b7280;
 }
 
@@ -171,7 +177,7 @@
   background: none;
   border: none;
   color: #13335a;
-  font-size: 14px;
+  font-size: clamp(12px, 1.75vw, 14px);
   font-weight: 600;
   cursor: pointer;
   padding: 0;
@@ -188,10 +194,10 @@
   background: none;
   border: none;
   color: #6b7280;
-  font-size: 14px;
+  font-size: clamp(12px, 1.75vw, 14px);
   font-weight: 500;
   cursor: pointer;
-  padding: 8px;
+  padding: clamp(6px, 1vw, 8px);
   transition: color 0.3s;
 }
 
@@ -201,34 +207,177 @@
 
 @media (max-width: 768px) {
   .otp-modal {
-    width: 85%; /* Same as login modal */
-    max-width: 380px; /* Same as login modal */
+    width: 85%;
+    max-width: 380px;
   }
 
   .modal-content {
-    padding: 20px 16px; /* Same as login modal */
+    padding: clamp(16px, 2.5vw, 20px) clamp(14px, 2vw, 16px);
   }
 
   .modal-header {
-    padding: 16px 20px; /* Same as login modal */
+    padding: clamp(14px, 2vw, 18px) clamp(16px, 2.5vw, 20px);
+  }
+
+  .logo-our {
+    font-size: clamp(18px, 2.5vw, 24px);
+  }
+
+  .logo-deals {
+    font-size: clamp(18px, 2.5vw, 24px);
   }
 
   .welcome-title {
-    font-size: 24px; /* Same as login modal */
+    font-size: clamp(20px, 2.8vw, 24px);
   }
 
   .welcome-subtitle {
-    font-size: 13px; /* Same as login modal */
+    font-size: clamp(11px, 1.5vw, 13px);
   }
 
   .otp-input {
-    width: 45px;
-    height: 55px;
-    font-size: 20px;
+    width: clamp(38px, 5.6vw, 45px);
+    height: clamp(48px, 6.9vw, 55px);
+    font-size: clamp(18px, 2.5vw, 20px);
   }
 
   .otp-inputs {
-    gap: 8px;
+    gap: clamp(6px, 1vw, 8px);
+  }
+
+  .input-label {
+    font-size: clamp(11px, 1.5vw, 13px);
+    margin-bottom: clamp(10px, 1.5vw, 14px);
+  }
+
+  .verify-otp-btn {
+    padding: clamp(10px, 1.5vw, 12px) clamp(18px, 2.5vw, 22px);
+    font-size: clamp(13px, 1.8vw, 15px);
+  }
+
+  .resend-text {
+    font-size: clamp(11px, 1.5vw, 13px);
+  }
+
+  .resend-btn {
+    font-size: clamp(11px, 1.5vw, 13px);
+  }
+
+  .maybe-later-btn {
+    font-size: clamp(11px, 1.5vw, 13px);
+  }
+}
+
+@media (max-width: 480px) {
+  .otp-modal {
+    width: 90%;
+    max-width: 360px;
+  }
+
+  .modal-content {
+    padding: clamp(14px, 2vw, 18px) clamp(12px, 1.8vw, 14px);
+  }
+
+  .modal-header {
+    padding: clamp(12px, 1.8vw, 16px) clamp(14px, 2vw, 18px);
+  }
+
+  .logo-our {
+    font-size: clamp(16px, 2.2vw, 22px);
+  }
+
+  .logo-deals {
+    font-size: clamp(16px, 2.2vw, 22px);
+  }
+
+  .welcome-title {
+    font-size: clamp(18px, 2.5vw, 22px);
+  }
+
+  .welcome-subtitle {
+    font-size: clamp(10px, 1.4vw, 12px);
+  }
+
+  .otp-input {
+    width: clamp(35px, 4.9vw, 42px);
+    height: clamp(45px, 6.3vw, 52px);
+    font-size: clamp(16px, 2.2vw, 18px);
+  }
+
+  .otp-inputs {
+    gap: clamp(5px, 0.8vw, 7px);
+  }
+
+  .input-label {
+    font-size: clamp(10px, 1.4vw, 12px);
+    margin-bottom: clamp(8px, 1.2vw, 12px);
+  }
+
+  .verify-otp-btn {
+    padding: clamp(10px, 1.4vw, 12px) clamp(16px, 2.2vw, 20px);
+    font-size: clamp(12px, 1.6vw, 14px);
+  }
+
+  .resend-text {
+    font-size: clamp(10px, 1.4vw, 12px);
+  }
+
+  .resend-btn {
+    font-size: clamp(10px, 1.4vw, 12px);
+  }
+
+  .maybe-later-btn {
+    font-size: clamp(10px, 1.4vw, 12px);
+  }
+}
+
+@media (max-width: 400px) {
+  .otp-modal {
+    width: 92%;
+    max-width: 340px;
+  }
+
+  .modal-content {
+    padding: clamp(12px, 1.8vw, 16px) clamp(10px, 1.5vw, 12px);
+  }
+
+  .modal-header {
+    padding: clamp(10px, 1.5vw, 14px) clamp(12px, 1.8vw, 16px);
+  }
+
+  .logo-our {
+    font-size: clamp(15px, 2vw, 20px);
+  }
+
+  .logo-deals {
+    font-size: clamp(15px, 2vw, 20px);
+  }
+
+  .welcome-title {
+    font-size: clamp(16px, 2.2vw, 20px);
+  }
+
+  .welcome-subtitle {
+    font-size: clamp(9px, 1.3vw, 11px);
+  }
+
+  .otp-input {
+    width: clamp(32px, 4.4vw, 40px);
+    height: clamp(42px, 5.8vw, 50px);
+    font-size: clamp(15px, 2vw, 17px);
+  }
+
+  .otp-inputs {
+    gap: clamp(4px, 0.7vw, 6px);
+  }
+
+  .verify-otp-btn {
+    padding: clamp(9px, 1.3vw, 11px) clamp(14px, 2vw, 18px);
+    font-size: clamp(11px, 1.5vw, 13px);
+  }
+
+  .maybe-later-btn {
+    font-size: clamp(9px, 1.3vw, 11px);
   }
 }
 

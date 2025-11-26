@@ -8,7 +8,7 @@
 
 .categories-header {
   background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
-  padding: 20px 24px;
+  padding: clamp(16px, 2vw, 20px) clamp(16px, 2vw, 24px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,14 +22,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: clamp(3px, 0.4vw, 4px);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: clamp(28px, 3.5vw, 32px);
+  height: clamp(28px, 3.5vw, 32px);
 }
 
 .back-btn:hover {
@@ -37,24 +37,25 @@
 }
 
 .back-btn svg {
-  width: 24px;
-  height: 24px;
+  width: clamp(20px, 2.5vw, 24px);
+  height: clamp(20px, 2.5vw, 24px);
 }
 
 .categories-title {
-  font-size: 24px;
+  font-size: clamp(18px, 2.5vw, 24px);
   font-weight: 700;
   color: white;
   margin: 0;
   flex: 1;
   text-align: center;
+  line-height: 1.3;
 }
 
 .categories-content {
   display: flex;
   flex: 1;
   overflow: hidden;
-  height: calc(100vh - 80px); /* Subtract header height */
+  height: calc(100vh - clamp(60px, 10vw, 80px)); /* Subtract header height */
   min-height: 0; /* Important for flex children to respect overflow */
   position: relative;
   isolation: isolate; /* Create a new stacking context */
@@ -63,12 +64,12 @@
 
 /* Left Sidebar - Categories List */
 .categories-sidebar {
-  width: 280px;
+  width: clamp(200px, 25vw, 280px);
   background-color: #f9fafb;
   border-right: 1px solid #e5e7eb;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 16px 0;
+  padding: clamp(12px, 1.5vw, 16px) 0;
   flex-shrink: 0;
   height: 100%;
   position: relative;
@@ -83,7 +84,7 @@
 
 /* Prevent scroll propagation from sidebar */
 .categories-sidebar::-webkit-scrollbar {
-  width: 8px;
+  width: clamp(6px, 1vw, 8px);
 }
 
 .categories-sidebar::-webkit-scrollbar-track {
@@ -102,11 +103,11 @@
 .category-sidebar-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
+  gap: clamp(10px, 1.2vw, 12px);
+  padding: clamp(10px, 1.2vw, 12px) clamp(16px, 2vw, 20px);
   cursor: pointer;
   transition: all 0.3s;
-  border-left: 4px solid transparent;
+  border-left: clamp(3px, 0.4vw, 4px) solid transparent;
 }
 
 .category-sidebar-item:hover {
@@ -116,12 +117,12 @@
 .category-sidebar-item.selected {
   background-color: #e8f0f7; /* Light blue background for better visibility */
   border-left-color: #13335a;
-  border-left-width: 4px; /* Thicker border for better visibility */
+  border-left-width: clamp(3px, 0.4vw, 4px); /* Thicker border for better visibility */
 }
 
 .category-sidebar-icon {
-  width: 40px;
-  height: 40px;
+  width: clamp(32px, 4vw, 40px);
+  height: clamp(32px, 4vw, 40px);
   border-radius: 50%;
   background-color: #e5e7eb;
   display: flex;
@@ -151,14 +152,15 @@
   background-color: #13335a;
   color: white;
   font-weight: 700;
-  font-size: 18px;
+  font-size: clamp(14px, 1.8vw, 18px);
 }
 
 .category-sidebar-name {
-  font-size: 14px;
+  font-size: clamp(12px, 1.4vw, 14px);
   font-weight: 500;
   color: #374151;
   flex: 1;
+  line-height: 1.4;
 }
 
 .category-sidebar-item.selected .category-sidebar-name {
@@ -170,7 +172,7 @@
 .categories-main-content {
   flex: 1;
   overflow: hidden; /* Changed from overflow-y: auto to prevent scrolling */
-  padding: 24px;
+  padding: clamp(16px, 2vw, 24px);
   background-color: white;
   height: 100%;
   min-height: 0; /* Important for flex children to respect overflow */
@@ -182,7 +184,7 @@
 
 /* Prevent scroll propagation from main content */
 .categories-main-content::-webkit-scrollbar {
-  width: 8px;
+  width: clamp(6px, 1vw, 8px);
 }
 
 .categories-main-content::-webkit-scrollbar-track {
@@ -199,18 +201,19 @@
 }
 
 .selected-category-title {
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 700;
   color: #1a1a1a;
-  margin: 0 0 16px 0;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #e5e7eb;
+  margin: 0 0 clamp(12px, 1.5vw, 16px) 0;
+  padding-bottom: clamp(10px, 1.2vw, 12px);
+  border-bottom: clamp(1.5px, 0.2vw, 2px) solid #e5e7eb;
+  line-height: 1.3;
 }
 
 .subcategories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(100px, 12vw, 140px), 1fr));
+  gap: clamp(12px, 1.5vw, 20px);
 }
 
 .subcategory-card {
@@ -228,10 +231,10 @@
 .subcategory-image-wrapper {
   width: 100%;
   aspect-ratio: 1;
-  border-radius: 12px;
+  border-radius: clamp(10px, 1.2vw, 12px);
   overflow: hidden;
   background-color: #f3f4f6;
-  margin-bottom: 8px;
+  margin-bottom: clamp(6px, 0.8vw, 8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,15 +255,16 @@
   background-color: #13335a;
   color: white;
   font-weight: 700;
-  font-size: 32px;
+  font-size: clamp(24px, 3.5vw, 32px);
 }
 
 .subcategory-name {
-  font-size: 14px;
+  font-size: clamp(12px, 1.4vw, 14px);
   font-weight: 500;
   color: #374151;
   text-align: center;
   line-height: 1.4;
+  word-wrap: break-word;
 }
 
 .subcategory-card:hover .subcategory-name {
@@ -269,8 +273,10 @@
 
 .no-subcategories {
   text-align: center;
-  padding: 40px 20px;
+  padding: clamp(30px, 3.5vw, 40px) clamp(16px, 2vw, 20px);
   color: #6b7280;
+  font-size: clamp(13px, 1.6vw, 16px);
+  line-height: 1.5;
 }
 
 @keyframes fadeIn {
@@ -294,26 +300,32 @@
 }
 
 @media (max-width: 768px) {
+  .categories-title {
+    font-size: clamp(16px, 2.2vw, 20px);
+  }
+
   .categories-content {
     flex-direction: column;
+    height: calc(100vh - clamp(50px, 8vw, 70px));
   }
 
   .categories-sidebar {
     width: 100%;
-    max-height: 200px;
+    max-height: clamp(120px, 18vw, 200px);
     border-right: none;
     border-bottom: 1px solid #e5e7eb;
     display: flex;
     overflow-x: auto;
-    padding: 12px;
+    padding: clamp(8px, 1vw, 12px);
   }
 
   .category-sidebar-item {
     flex-direction: column;
-    min-width: 100px;
-    padding: 12px;
+    min-width: clamp(70px, 9vw, 100px);
+    padding: clamp(8px, 1vw, 12px);
     border-left: none;
-    border-bottom: 3px solid transparent;
+    border-bottom: clamp(2px, 0.3vw, 3px) solid transparent;
+    gap: clamp(5px, 0.7vw, 8px);
   }
 
   .category-sidebar-item.selected {
@@ -321,9 +333,126 @@
     border-bottom-color: #13335a;
   }
 
+  .category-sidebar-icon {
+    width: clamp(24px, 3vw, 36px);
+    height: clamp(24px, 3vw, 36px);
+  }
+
+  .category-icon-placeholder {
+    font-size: clamp(10px, 1.3vw, 16px);
+  }
+
+  .category-sidebar-name {
+    font-size: clamp(9px, 1.1vw, 12px);
+  }
+
+  .categories-main-content {
+    padding: clamp(12px, 1.5vw, 20px);
+  }
+
+  .selected-category-title {
+    font-size: clamp(14px, 1.8vw, 18px);
+    margin-bottom: clamp(10px, 1.3vw, 14px);
+    padding-bottom: clamp(8px, 1vw, 10px);
+  }
+
   .subcategories-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(clamp(70px, 9vw, 100px), 1fr));
+    gap: clamp(10px, 1.3vw, 16px);
+  }
+
+  .subcategory-image-wrapper {
+    margin-bottom: clamp(5px, 0.7vw, 7px);
+  }
+
+  .subcategory-placeholder {
+    font-size: clamp(18px, 2.5vw, 28px);
+  }
+
+  .subcategory-name {
+    font-size: clamp(10px, 1.2vw, 13px);
+  }
+
+  .no-subcategories {
+    padding: clamp(24px, 3vw, 36px) clamp(12px, 1.5vw, 18px);
+    font-size: clamp(12px, 1.5vw, 15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-header {
+    padding: clamp(12px, 1.5vw, 16px) clamp(12px, 1.5vw, 16px);
+  }
+
+  .categories-title {
+    font-size: clamp(15px, 2vw, 18px);
+  }
+
+  .back-btn {
+    width: clamp(24px, 3vw, 28px);
+    height: clamp(24px, 3vw, 28px);
+  }
+
+  .back-btn svg {
+    width: clamp(18px, 2.2vw, 22px);
+    height: clamp(18px, 2.2vw, 22px);
+  }
+
+  .categories-sidebar {
+    max-height: clamp(100px, 15vw, 180px);
+    padding: clamp(6px, 0.8vw, 10px);
+  }
+
+  .category-sidebar-item {
+    min-width: clamp(60px, 8vw, 90px);
+    padding: clamp(6px, 0.8vw, 10px);
+    gap: clamp(4px, 0.6vw, 6px);
+  }
+
+  .category-sidebar-icon {
+    width: clamp(20px, 2.5vw, 32px);
+    height: clamp(20px, 2.5vw, 32px);
+  }
+
+  .category-icon-placeholder {
+    font-size: clamp(9px, 1.1vw, 14px);
+  }
+
+  .category-sidebar-name {
+    font-size: clamp(8px, 1vw, 11px);
+  }
+
+  .categories-main-content {
+    padding: clamp(10px, 1.3vw, 16px);
+  }
+
+  .selected-category-title {
+    font-size: clamp(13px, 1.6vw, 16px);
+    margin-bottom: clamp(8px, 1vw, 12px);
+    padding-bottom: clamp(6px, 0.8vw, 10px);
+  }
+
+  .subcategories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(clamp(60px, 8vw, 90px), 1fr));
+    gap: clamp(8px, 1.1vw, 14px);
+  }
+
+  .subcategory-image-wrapper {
+    border-radius: clamp(8px, 1vw, 10px);
+    margin-bottom: clamp(4px, 0.6vw, 6px);
+  }
+
+  .subcategory-placeholder {
+    font-size: clamp(16px, 2.2vw, 24px);
+  }
+
+  .subcategory-name {
+    font-size: clamp(9px, 1.1vw, 12px);
+  }
+
+  .no-subcategories {
+    padding: clamp(20px, 2.5vw, 32px) clamp(10px, 1.3vw, 16px);
+    font-size: clamp(11px, 1.4vw, 14px);
   }
 }
 

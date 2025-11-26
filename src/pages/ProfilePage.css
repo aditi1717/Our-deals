@@ -10,7 +10,7 @@
 
 .profile-header {
   background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
-  padding: 20px 24px;
+  padding: clamp(16px, 2vw, 20px) clamp(16px, 2vw, 24px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .profile-header-title {
-  font-size: 24px;
+  font-size: clamp(18px, 2.5vw, 24px);
   font-weight: 700;
   color: white;
   margin: 0;
@@ -30,13 +30,13 @@
 .close-profile-btn {
   background: none;
   border: none;
-  font-size: 32px;
+  font-size: clamp(24px, 3.5vw, 32px);
   color: white;
   cursor: pointer;
   line-height: 1;
   padding: 0;
-  width: 32px;
-  height: 32px;
+  width: clamp(28px, 3.5vw, 32px);
+  height: clamp(28px, 3.5vw, 32px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,7 +49,7 @@
 }
 
 .profile-content {
-  padding: 24px;
+  padding: clamp(16px, 2vw, 24px);
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
@@ -60,14 +60,14 @@
 .user-profile-section {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: clamp(12px, 1.5vw, 16px);
+  margin-bottom: clamp(16px, 2vw, 24px);
   position: relative;
 }
 
 .profile-picture {
-  width: 80px;
-  height: 80px;
+  width: clamp(60px, 8vw, 80px);
+  height: clamp(60px, 8vw, 80px);
   border-radius: 50%;
   background-color: #e5e7eb;
   display: flex;
@@ -77,7 +77,7 @@
 }
 
 .profile-initial {
-  font-size: 36px;
+  font-size: clamp(24px, 4vw, 36px);
   font-weight: 700;
   color: #6b7280;
 }
@@ -87,25 +87,32 @@
 }
 
 .username {
-  font-size: 24px;
+  font-size: clamp(18px, 2.5vw, 24px);
   font-weight: 700;
   color: #1a1a1a;
-  margin: 0 0 4px 0;
+  margin: 0 0 clamp(3px, 0.4vw, 4px) 0;
+  line-height: 1.3;
 }
 
 .user-phone {
-  font-size: 16px;
+  font-size: clamp(13px, 1.6vw, 16px);
   color: #6b7280;
   margin: 0;
+  line-height: 1.4;
 }
 
 .edit-profile-btn {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: clamp(6px, 0.8vw, 8px);
   color: #6b7280;
   transition: color 0.3s;
+}
+
+.edit-profile-btn svg {
+  width: clamp(16px, 2vw, 20px);
+  height: clamp(16px, 2vw, 20px);
 }
 
 .edit-profile-btn:hover {
@@ -114,8 +121,8 @@
 
 .action-buttons {
   display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: clamp(8px, 1.2vw, 12px);
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .action-btn {
@@ -123,13 +130,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 16px;
+  gap: clamp(6px, 0.8vw, 8px);
+  padding: clamp(10px, 1.2vw, 12px) clamp(12px, 1.5vw, 16px);
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border-radius: clamp(6px, 0.8vw, 8px);
   background-color: white;
   color: #374151;
-  font-size: 14px;
+  font-size: clamp(12px, 1.4vw, 14px);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
@@ -142,18 +149,18 @@
 }
 
 .action-btn svg {
-  width: 20px;
-  height: 20px;
+  width: clamp(16px, 2vw, 20px);
+  height: clamp(16px, 2vw, 20px);
 }
 
 .business-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: clamp(12px, 1.5vw, 16px);
   background-color: #f9fafb;
-  border-radius: 8px;
-  margin-bottom: 24px;
+  border-radius: clamp(6px, 0.8vw, 8px);
+  margin-bottom: clamp(16px, 2vw, 24px);
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -163,44 +170,49 @@
 }
 
 .business-card span {
-  font-size: 16px;
+  font-size: clamp(13px, 1.6vw, 16px);
   font-weight: 500;
   color: #374151;
+  line-height: 1.4;
 }
 
 .business-card svg {
   color: #6b7280;
+  width: clamp(16px, 2vw, 20px);
+  height: clamp(16px, 2vw, 20px);
 }
 
 .settings-section {
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .section-title {
-  font-size: 14px;
+  font-size: clamp(11px, 1.3vw, 14px);
   font-weight: 600;
   color: #9ca3af;
-  margin: 0 0 12px 0;
+  margin: 0 0 clamp(8px, 1vw, 12px) 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  line-height: 1.4;
 }
 
 .language-buttons {
   display: flex;
-  gap: 12px;
+  gap: clamp(8px, 1.2vw, 12px);
 }
 
 .language-btn {
   flex: 1;
-  padding: 12px 16px;
+  padding: clamp(10px, 1.2vw, 12px) clamp(12px, 1.5vw, 16px);
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border-radius: clamp(6px, 0.8vw, 8px);
   background-color: white;
   color: #374151;
-  font-size: 14px;
+  font-size: clamp(12px, 1.4vw, 14px);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
+  line-height: 1.4;
 }
 
 .language-btn.active {
@@ -214,7 +226,7 @@
 }
 
 .more-section {
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .more-options {
@@ -226,8 +238,8 @@
 .more-option {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 0;
+  gap: clamp(10px, 1.2vw, 12px);
+  padding: clamp(12px, 1.5vw, 16px) 0;
   border-bottom: 1px solid #f3f4f6;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -239,26 +251,31 @@
 
 .more-option:hover {
   background-color: #f9fafb;
-  margin: 0 -24px;
-  padding-left: 24px;
-  padding-right: 24px;
+  margin: 0 clamp(-16px, -2vw, -24px);
+  padding-left: clamp(16px, 2vw, 24px);
+  padding-right: clamp(16px, 2vw, 24px);
 }
 
 .more-option svg:first-child {
   color: #374151;
   flex-shrink: 0;
+  width: clamp(18px, 2.2vw, 24px);
+  height: clamp(18px, 2.2vw, 24px);
 }
 
 .more-option span {
   flex: 1;
-  font-size: 16px;
+  font-size: clamp(13px, 1.6vw, 16px);
   font-weight: 500;
   color: #374151;
+  line-height: 1.4;
 }
 
 .more-option svg:last-child {
   color: #9ca3af;
   flex-shrink: 0;
+  width: clamp(16px, 2vw, 20px);
+  height: clamp(16px, 2vw, 20px);
 }
 
 @keyframes fadeIn {
