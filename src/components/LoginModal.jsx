@@ -44,10 +44,6 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
           <div className="modal-overlay"></div>
           <div className="login-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <div className="modal-logo">
-            <span className="logo-our">Our</span>
-            <span className="logo-deals"> Deals</span>
-          </div>
           <div className="modal-welcome">
             <h2 className="welcome-title">Welcome</h2>
             <p className="welcome-subtitle">Login for a seamless experience</p>

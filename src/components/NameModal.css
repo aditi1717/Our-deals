@@ -61,7 +61,7 @@
 .logo-our {
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 900;
-  color: #93c5fd !important;
+  color: #13335a !important;
   letter-spacing: -0.5px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -69,7 +69,7 @@
 .logo-deals {
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 900;
-  color: #60a5fa !important;
+  color: #13335a !important;
   letter-spacing: -0.5px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -149,35 +149,26 @@
 
 .submit-name-btn {
   width: 100%;
-  background-color: #9ca3af;
+  background-color: #13335a;
   color: white;
   border: none;
-  padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 24px);
+  padding: clamp(12px, 1.75vw, 14px) clamp(20px, 3vw, 24px);
   border-radius: 8px;
   font-weight: 600;
   font-size: clamp(14px, 2vw, 16px);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s;
   margin-top: clamp(6px, 1vw, 8px);
   letter-spacing: 0.3px;
 }
 
 .submit-name-btn:hover:not(:disabled) {
-  background-color: #6b7280;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.submit-name-btn:active:not(:disabled) {
-  transform: translateY(0);
+  background-color: #0f2440;
 }
 
 .submit-name-btn:disabled {
-  background-color: #d1d5db;
-  color: #9ca3af;
+  background-color: #9ca3af;
   cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
 }
 
 @media (max-width: 768px) {

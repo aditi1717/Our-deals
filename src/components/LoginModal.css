@@ -60,7 +60,7 @@
 .logo-our {
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 900;
-  color: #93c5fd !important;
+  color: #13335a !important;
   letter-spacing: -0.5px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -68,7 +68,7 @@
 .logo-deals {
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 900;
-  color: #60a5fa !important;
+  color: #13335a !important;
   letter-spacing: -0.5px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
