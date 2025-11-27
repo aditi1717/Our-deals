@@ -1,13 +1,13 @@
 .category-subcategories-page {
   min-height: 100vh;
-  background-color: #f5f7fa;
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
 }
 
 .category-subcategories-header {
-  background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
-  padding: 20px 24px;
+  background-color: #13335a;
+  padding: clamp(16px, 2vw, 20px) clamp(16px, 2vw, 24px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,8 +41,12 @@
   height: 24px;
 }
 
+.back-btn svg path {
+  stroke: white;
+}
+
 .category-subcategories-title {
-  font-size: 24px;
+  font-size: clamp(18px, 2.5vw, 24px);
   font-weight: 700;
   color: white;
   margin: 0;
@@ -52,17 +56,21 @@
 
 .category-subcategories-content {
   flex: 1;
-  padding: 24px;
+  padding: clamp(16px, 2vw, 24px);
   overflow-y: auto;
   padding-bottom: 100px;
+  background-color: #FFFFFF;
+}
+
+.category-subcategories-content .banner-carousel-section {
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .subcategories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(110px, 15vw, 150px), 1fr));
+  gap: clamp(8px, 1vw, 12px);
+  margin: clamp(16px, 2vw, 24px) 0 0 0;
 }
 
 .subcategory-grid-card {
@@ -71,10 +79,10 @@
   align-items: center;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
-  background-color: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background-color: transparent;
+  border-radius: clamp(10px, 1.2vw, 12px);
+  overflow: visible;
+  box-shadow: none;
 }
 
 .subcategory-grid-card:hover {
@@ -85,7 +93,7 @@
 .subcategory-grid-image {
   width: 100%;
   aspect-ratio: 1;
-  border-radius: 12px 12px 0 0;
+  border-radius: clamp(10px, 1.2vw, 12px);
   overflow: hidden;
   background-color: #f3f4f6;
   display: flex;
@@ -109,18 +117,19 @@
   background-color: #13335a;
   color: white;
   font-weight: 700;
-  font-size: 32px;
+  font-size: clamp(20px, 2.5vw, 28px);
 }
 
 .subcategory-grid-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: #374151;
+  font-size: clamp(12px, 1.4vw, 14px);
+  font-weight: 700;
+  color: #1f2937;
   text-align: center;
   line-height: 1.4;
-  padding: 12px;
+  padding: clamp(8px, 1vw, 12px) 0 0 0;
   width: 100%;
   box-sizing: border-box;
+  margin-top: clamp(6px, 0.8vw, 10px);
 }
 
 .subcategory-grid-card:hover .subcategory-grid-name {
@@ -134,19 +143,42 @@
 }
 
 @media (max-width: 768px) {
+  .category-subcategories-header {
+    padding: clamp(12px, 1.5vw, 16px) clamp(12px, 1.5vw, 16px);
+  }
+
+  .category-subcategories-title {
+    font-size: clamp(18px, 2.2vw, 22px);
+  }
+
   .category-subcategories-content {
-    padding: 16px;
+    padding: clamp(12px, 1.5vw, 16px);
     padding-bottom: 100px;
   }
 
   .subcategories-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(clamp(100px, 25vw, 130px), 1fr));
+    gap: clamp(6px, 0.8vw, 10px);
+    margin-top: clamp(12px, 1.5vw, 16px);
   }
 
+
   .subcategory-grid-name {
-    font-size: 12px;
-    padding: 10px;
+    font-size: clamp(11px, 1.3vw, 13px);
+    padding: clamp(6px, 0.8vw, 8px) 0 0 0;
+    margin-top: clamp(4px, 0.6vw, 6px);
+  }
+}
+
+@media (max-width: 480px) {
+  .subcategories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(clamp(90px, 28vw, 110px), 1fr));
+    gap: clamp(4px, 0.6vw, 8px);
+  }
+
+
+  .subcategory-grid-name {
+    font-size: clamp(9px, 1.1vw, 11px);
   }
 }
 

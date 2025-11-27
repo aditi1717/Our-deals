@@ -58,7 +58,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #f9fafb;
+  background-color: #F7F8FC;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
   padding: clamp(10px, 1.2vw, 12px) clamp(12px, 1.5vw, 16px);
@@ -74,7 +74,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #6b7280;
+  color: #E10129;
   flex-shrink: 0;
   vertical-align: middle;
 }
@@ -116,20 +116,43 @@
 }
 
 .location-input::placeholder {
-  color: #6b7280;
+  color: #6B6D70;
 }
 
 .search-input-wrapper {
   display: flex;
   align-items: center;
-  background-color: #f9fafb;
+  background-color: #F7F8FC;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
-  padding: clamp(10px, 1.2vw, 12px) clamp(12px, 1.5vw, 16px);
+  padding: clamp(12px, 1.5vw, 16px) clamp(12px, 1.5vw, 16px);
   flex: 1;
   position: relative;
   z-index: 100;
   gap: clamp(6px, 0.8vw, 8px);
+}
+
+.search-input-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.search-placeholder-overlay {
+  position: absolute;
+  left: 0;
+  pointer-events: none;
+  font-size: clamp(14px, 1.6vw, 16px);
+  white-space: nowrap;
+}
+
+.placeholder-prefix {
+  color: #494B4E;
+}
+
+.placeholder-dynamic {
+  color: #B0B2B5;
 }
 
 .search-input {
@@ -140,10 +163,11 @@
   color: #000000;
   font-size: clamp(14px, 1.6vw, 16px);
   padding: 0;
+  width: 100%;
 }
 
 .search-input::placeholder {
-  color: #6b7280;
+  color: transparent;
 }
 
 .mic-icon {
@@ -155,7 +179,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6b7280;
+  color: #11345A;
   transition: color 0.2s;
   flex-shrink: 0;
 }
@@ -309,12 +333,16 @@
   .mobile-search-bar {
     display: flex;
     align-items: center;
-    background-color: #f9fafb;
+    background-color: #F7F8FC;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
-    padding: 10px 12px;
+    padding: 12px 12px;
     flex: 1;
-    gap: 8px;
+    gap: 0px;
+  }
+
+  .search-input-wrapper.mobile-search-bar {
+    gap: 0px !important;
   }
 
   .search-icon-left {
@@ -322,6 +350,24 @@
     height: 20px;
     color: #6b7280;
     flex-shrink: 0;
+    margin-right: 0;
+  }
+
+  .search-input-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .search-placeholder-overlay {
+    position: absolute;
+    left: 0;
+    pointer-events: none;
+    font-size: 14px;
+    white-space: nowrap;
   }
 
   .search-input {
@@ -330,25 +376,28 @@
     padding-right: 0;
     font-size: 14px;
     color: #000000;
+    width: 100%;
   }
 
   .search-separator {
     width: 1px;
     height: 20px;
     background-color: #e5e7eb;
-    margin: 0 8px;
+    margin: 0;
+    flex-shrink: 0;
   }
 
   .mic-icon {
     position: static;
     padding: 0;
+    margin: 0;
     background: none;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6b7280;
+    color: #11345A;
     flex-shrink: 0;
   }
 

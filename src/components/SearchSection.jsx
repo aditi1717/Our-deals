@@ -5,8 +5,11 @@ function SearchSection() {
   const [location, setLocation] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
   const [isSearchFocused, setIsSearchFocused] = useState(false)
+  const [currentPlaceholder, setCurrentPlaceholder] = useState(0)
   const searchInputRef = useRef(null)
   const dropdownRef = useRef(null)
+
+  const placeholderOptions = ['Spa & Salons', 'Doctor', 'Restaurants', 'Hotels', 'Beauty Spa', 'Home Decor']
 
   const recentSearches = [
     { text: 'Lunch Foodie', type: 'Category' },
@@ -39,6 +42,16 @@ function SearchSection() {
     }
   }, [isSearchFocused])
 
+  useEffect(() => {
+    if (!searchQuery && !isSearchFocused) {
+      const interval = setInterval(() => {
+        setCurrentPlaceholder((prev) => (prev + 1) % placeholderOptions.length)
+      }, 3000) // Change every 3 seconds
+
+      return () => clearInterval(interval)
+    }
+  }, [searchQuery, isSearchFocused, placeholderOptions.length])
+
   const handleSearchClick = (text) => {
     setSearchQuery(text)
     setIsSearchFocused(false)
@@ -70,15 +83,23 @@ function SearchSection() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="search-icon-left">
               <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <input
-              ref={searchInputRef}
-              type="text"
-              className="search-input"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => setIsSearchFocused(true)}
-              placeholder="Search for Spa & Salons"
-            />
+            <div className="search-input-container">
+              {!searchQuery && (
+                <span className="search-placeholder-overlay">
+                  <span className="placeholder-prefix">Search for </span>
+                  <span className="placeholder-dynamic">{placeholderOptions[currentPlaceholder]}</span>
+                </span>
+              )}
+              <input
+                ref={searchInputRef}
+                type="text"
+                className="search-input"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                placeholder=""
+              />
+            </div>
             <div className="search-separator"></div>
             <button className="mic-icon" aria-label="Voice search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

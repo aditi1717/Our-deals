@@ -2,10 +2,10 @@ import './Statistics.css'
 
 function Statistics() {
   const stats = [
-    { number: '4.9 Crore+', label: 'Businesses' },
-    { number: '10,000+', label: 'Cities' },
-    { number: '50,000+', label: 'Happy Customers' },
-    { number: '24/7', label: 'Support' }
+    { value: "4.9 Crore+", label: "Businesses" },
+    { value: "50,000+", label: "Happy Customers" },
+    { value: "10,000+", label: "Cities" },
+    { value: "24/7", label: "Support" }
   ]
 
   return (
@@ -13,9 +13,9 @@ function Statistics() {
       <div className="statistics-container">
         <div className="statistics-grid">
           {stats.map((stat, index) => (
-            <div key={index} className="stat-item">
-              <div className="stat-number">{stat.number}</div>
-              <div className="stat-label">{stat.label}</div>
+            <div key={index} className="statistics-item">
+              <div className="statistics-value">{stat.value}</div>
+              <div className="statistics-label">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -25,3 +25,4 @@ function Statistics() {
 }
 
 export default Statistics
+

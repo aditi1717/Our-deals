@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
-import { categorySectionsData } from '../data/categorySections'
+import { dummyCategoriesData } from '../data/dummyCategories'
+import BannerCarousel from '../components/BannerCarousel'
 import './CategorySubcategoriesPage.css'
 
 function CategorySubcategoriesPage() {
@@ -7,32 +8,13 @@ function CategorySubcategoriesPage() {
   const { categoryName } = useParams()
   const decodedCategoryName = decodeURIComponent(categoryName)
 
-  // Find the parent category for this popular subcategory
-  let parentCategory = null
-  let subcategories = []
+  // Find the category in dummyCategoriesData
+  const categoryData = dummyCategoriesData.find(
+    category => category.categoryName === decodedCategoryName
+  )
 
-  // Check if it's a popular subcategory
-  for (const section of categorySectionsData) {
-    const foundSubcat = section.subCategories?.find(
-      subCat => subCat.name === decodedCategoryName && subCat.isPopular
-    )
-    if (foundSubcat) {
-      parentCategory = section.categoryName
-      subcategories = section.subCategories || []
-      break
-    }
-  }
-
-  // If not found as popular, check if it's a regular category
-  if (!parentCategory) {
-    const section = categorySectionsData.find(
-      section => section.categoryName === decodedCategoryName
-    )
-    if (section) {
-      parentCategory = section.categoryName
-      subcategories = section.subCategories || []
-    }
-  }
+  const parentCategory = categoryData ? categoryData.categoryName : decodedCategoryName
+  const subcategories = categoryData ? categoryData.subCategories || [] : []
 
   const handleSubcategoryClick = (subcategoryName) => {
     navigate(`/vendors/${encodeURIComponent(subcategoryName)}`)
@@ -51,6 +33,7 @@ function CategorySubcategoriesPage() {
       </div>
 
       <div className="category-subcategories-content">
+        <BannerCarousel bannerSet={1} />
         {subcategories.length > 0 ? (
           <div className="subcategories-grid">
             {subcategories.map((subcat, index) => {

@@ -1,5 +1,5 @@
 .homepage {
-  background-color: #faf9f6;
+  background-color: #FFFFFF;
   min-height: 100vh;
   padding-bottom: 70px; /* Space for bottom navigation */
 }
@@ -8,7 +8,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: clamp(16px, 3vw, 32px) clamp(16px, 2.5vw, 24px);
-  background-color: #faf9f6;
+  background-color: #FFFFFF;
 }
 
 @media (max-width: 768px) {

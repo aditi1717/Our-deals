@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { categoryNames, allSubcategories } from '../data/categoryNames'
-import { categorySectionsData } from '../data/categorySections'
+import { dummyCategoriesData } from '../data/dummyCategories'
 import './CategoriesPage.css'
 
 function CategoriesPage() {
@@ -9,38 +8,12 @@ function CategoriesPage() {
   const { categoryName } = useParams()
   const [selectedCategory, setSelectedCategory] = useState(null)
 
-  // Combine all categories from categoryNames and categorySectionsData
+  // Get all categories from dummyCategoriesData (both popular and non-popular)
   const allCategories = useMemo(() => {
-    const combined = [...categoryNames]
-    const addedCategoryNames = new Set(categoryNames.map(cat => {
-      return typeof cat === 'string' ? cat : cat.name
+    return dummyCategoriesData.map(category => ({
+      name: category.categoryName,
+      image: category.image
     }))
-    
-    // Add categories from categorySectionsData that are not already in categoryNames
-    categorySectionsData.forEach(section => {
-      if (!addedCategoryNames.has(section.categoryName)) {
-        // Find an image from subcategories or use a default
-        const defaultImage = (section.subCategories && section.subCategories[0]?.image) || 
-                            (section.subcategories && section.subcategories[0]?.image) || 
-                            null
-        combined.push({ name: section.categoryName, image: defaultImage })
-        addedCategoryNames.add(section.categoryName)
-      }
-    })
-    
-    // Add popular subcategories as individual categories
-    categorySectionsData.forEach(section => {
-      if (section.subCategories) {
-        section.subCategories.forEach(subCat => {
-          if (subCat.isPopular && !addedCategoryNames.has(subCat.name)) {
-            combined.push({ name: subCat.name, image: subCat.image })
-            addedCategoryNames.add(subCat.name)
-          }
-        })
-      }
-    })
-    
-    return combined
   }, [])
 
   // Set selected category from URL param or default to first category
@@ -48,9 +21,8 @@ function CategoriesPage() {
     if (categoryName) {
       setSelectedCategory(decodeURIComponent(categoryName))
     } else if (allCategories.length > 0 && !selectedCategory) {
-      // Find first category that has subcategories
-      const firstCategoryWithSubs = categorySectionsData[0]?.categoryName || (typeof allCategories[0] === 'object' ? allCategories[0].name : allCategories[0])
-      setSelectedCategory(firstCategoryWithSubs)
+      // Set first category as default
+      setSelectedCategory(allCategories[0].name)
     }
   }, [categoryName, allCategories, selectedCategory])
 
@@ -62,37 +34,13 @@ function CategoriesPage() {
   const getSubcategories = () => {
     if (!selectedCategory) return []
     
-    // Check if selected category is a popular subcategory (standalone category)
-    // If it's a popular subcategory, navigate to category subcategories page
-    const isPopularSubcategory = categorySectionsData.some(section => 
-      section.subCategories?.some(subCat => 
-        subCat.name === selectedCategory && subCat.isPopular
-      )
+    // Find the category in dummyCategoriesData
+    const categoryData = dummyCategoriesData.find(
+      category => category.categoryName === selectedCategory
     )
     
-    if (isPopularSubcategory) {
-      // If it's a popular subcategory, navigate to category subcategories page
-      navigate(`/category/${encodeURIComponent(selectedCategory)}`)
-      return []
-    }
-    
-    // Check in categorySectionsData (from categorySections.js)
-    const categorySection = categorySectionsData.find(
-      section => section.categoryName === selectedCategory
-    )
-    if (categorySection) {
-      // Check both subCategories (capital C) and subcategories (lowercase c)
-      if (categorySection.subCategories && categorySection.subCategories.length > 0) {
-        return categorySection.subCategories
-      }
-      if (categorySection.subcategories && categorySection.subcategories.length > 0) {
-        return categorySection.subcategories
-      }
-    }
-    
-    // Check in allSubcategories (from categoryNames.js)
-    if (allSubcategories && allSubcategories[selectedCategory]) {
-      return allSubcategories[selectedCategory]
+    if (categoryData && categoryData.subCategories) {
+      return categoryData.subCategories
     }
     
     return []
@@ -105,7 +53,7 @@ function CategoriesPage() {
       <div className="categories-header">
         <button className="back-btn" onClick={() => navigate('/')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
         <h2 className="categories-title">Categories</h2>
@@ -134,7 +82,7 @@ function CategoriesPage() {
             }}
           >
             {allCategories.map((category, index) => {
-              const categoryName = typeof category === 'string' ? category : category.name
+              const categoryName = category.name
               const isSelected = selectedCategory === categoryName
               
               return (
@@ -144,7 +92,7 @@ function CategoriesPage() {
                   onClick={() => handleCategoryClick(categoryName)}
                 >
                   <div className="category-sidebar-icon">
-                    {typeof category === 'object' && category.image ? (
+                    {category.image ? (
                       <img src={category.image} alt={categoryName} />
                     ) : (
                       <div className="category-icon-placeholder">
@@ -176,8 +124,8 @@ function CategoriesPage() {
                 <div className="subcategories-grid">
                   {subcategories.length > 0 ? (
                     subcategories.map((subcat, index) => {
-                      const subcatName = typeof subcat === 'string' ? subcat : subcat.name
-                      const subcatImage = typeof subcat === 'object' ? subcat.image : null
+                      const subcatName = subcat.name
+                      const subcatImage = subcat.image
                       
                       return (
                         <div 

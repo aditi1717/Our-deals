@@ -1,9 +1,19 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './OTPModal.css'
 
 function OTPModal({ isOpen, onClose, mobileNumber }) {
-  const [otp, setOtp] = useState(['', '', '', '', '', ''])
+  const [otp, setOtp] = useState(['', '', '', ''])
+  const [resendTimer, setResendTimer] = useState(9)
   const inputRefs = useRef([])
+
+  useEffect(() => {
+    if (isOpen && resendTimer > 0) {
+      const timer = setInterval(() => {
+        setResendTimer((prev) => (prev > 0 ? prev - 1 : 0))
+      }, 1000)
+      return () => clearInterval(timer)
+    }
+  }, [isOpen, resendTimer])
 
   if (!isOpen) return null
 
@@ -15,7 +25,7 @@ function OTPModal({ isOpen, onClose, mobileNumber }) {
     setOtp(newOtp)
 
     // Auto-focus next input
-    if (value && index < 5) {
+    if (value && index < 3) {
       inputRefs.current[index + 1]?.focus()
     }
   }
@@ -28,19 +38,19 @@ function OTPModal({ isOpen, onClose, mobileNumber }) {
 
   const handlePaste = (e) => {
     e.preventDefault()
-    const pastedData = e.clipboardData.getData('text').slice(0, 6)
+    const pastedData = e.clipboardData.getData('text').slice(0, 4)
     const newOtp = [...otp]
-    for (let i = 0; i < pastedData.length && i < 6; i++) {
+    for (let i = 0; i < pastedData.length && i < 4; i++) {
       newOtp[i] = pastedData[i]
     }
     setOtp(newOtp)
-    const nextEmptyIndex = pastedData.length < 6 ? pastedData.length : 5
+    const nextEmptyIndex = pastedData.length < 4 ? pastedData.length : 3
     inputRefs.current[nextEmptyIndex]?.focus()
   }
 
   const handleVerify = () => {
     const otpString = otp.join('')
-    if (otpString.length === 6) {
+    if (otpString.length === 4) {
       // Handle OTP verification here
       console.log('OTP Verified:', otpString)
       onClose(otpString) // Pass OTP to parent and show name section
@@ -48,64 +58,60 @@ function OTPModal({ isOpen, onClose, mobileNumber }) {
   }
 
   const handleResend = () => {
-    // Handle resend OTP
-    console.log('Resend OTP')
-    setOtp(['', '', '', '', '', ''])
-    inputRefs.current[0]?.focus()
+    if (resendTimer === 0) {
+      // Handle resend OTP
+      console.log('Resend OTP')
+      setOtp(['', '', '', ''])
+      setResendTimer(9)
+      inputRefs.current[0]?.focus()
+    }
   }
 
   const isOtpComplete = otp.every(digit => digit !== '')
 
   return (
-    <>
-      <div className="modal-overlay"></div>
-      <div className="otp-modal" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <div className="modal-welcome">
-            <h2 className="welcome-title">Enter OTP</h2>
-            <p className="welcome-subtitle">
-              We've sent an OTP to +91 {mobileNumber}
-            </p>
-          </div>
-        </div>
-        <div className="modal-content">
-          <div className="otp-input-group">
-            <label className="input-label">Enter 6-digit OTP</label>
-            <div className="otp-inputs">
-              {otp.map((digit, index) => (
-                <input
-                  key={index}
-                  ref={(el) => (inputRefs.current[index] = el)}
-                  type="text"
-                  className="otp-input"
-                  value={digit}
-                  onChange={(e) => handleOtpChange(index, e.target.value)}
-                  onKeyDown={(e) => handleKeyDown(index, e)}
-                  onPaste={index === 0 ? handlePaste : undefined}
-                  maxLength="1"
-                  inputMode="numeric"
-                />
-              ))}
+    <div className="otp-verification-page">
+      <div className="otp-verification-content">
+        <h1 className="otp-verification-title">
+          <span>OTP</span>
+          <span>Verification</span>
+        </h1>
+        <p className="otp-verification-instruction">Enter the 4-digit code sent to</p>
+        <p className="otp-verification-phone">+91 {mobileNumber}</p>
+        
+        <div className="otp-inputs-container">
+          {otp.map((digit, index) => (
+            <div key={index} className="otp-circle-input-wrapper">
+              <input
+                ref={(el) => (inputRefs.current[index] = el)}
+                type="text"
+                className="otp-circle-input"
+                value={digit}
+                onChange={(e) => handleOtpChange(index, e.target.value)}
+                onKeyDown={(e) => handleKeyDown(index, e)}
+                onPaste={index === 0 ? handlePaste : undefined}
+                maxLength="1"
+                inputMode="numeric"
+              />
             </div>
-          </div>
-          <div className="otp-actions">
-            <button 
-              className="verify-otp-btn"
-              onClick={handleVerify}
-              disabled={!isOtpComplete}
-            >
-              Verify OTP
-            </button>
-            <div className="resend-section">
-              <span className="resend-text">Didn't receive OTP?</span>
-              <button className="resend-btn" onClick={handleResend}>
-                Resend OTP
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
+
+        <div className="otp-resend-section">
+          <span className="otp-resend-text">
+            Didn't receive OTP? {resendTimer > 0 && <span>{resendTimer}</span>}
+          </span>
+        </div>
+
+        <button 
+          className="otp-verify-continue-btn"
+          onClick={handleVerify}
+          disabled={!isOtpComplete}
+        >
+          Verify & Continue
+        </button>
       </div>
-    </>
+    </div>
   )
 }
 

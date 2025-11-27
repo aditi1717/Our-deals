@@ -1,47 +1,39 @@
 import './AppDownload.css'
 
 function AppDownload() {
+  const handleAppStore = () => {
+    window.open('https://apps.apple.com/app/ourdeals', '_blank')
+  }
+
+  const handleGooglePlay = () => {
+    window.open('https://play.google.com/store/apps/details?id=com.ourdeals.app', '_blank')
+  }
+
   return (
     <div className="app-download-section">
-      <div className="app-download-container">
-        <div className="app-download-content">
-          <div className="app-download-text">
-            <h2 className="app-download-title">Download Our App</h2>
-            <p className="app-download-description">
-              Get the best deals and services on the go. Download our app now!
-            </p>
-            <div className="app-download-buttons">
-              <a href="#" className="app-download-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C1.79 15.25 2.18 8.85 6.84 8.37c1.08.07 1.97.67 3.08.73 1.14-.07 2.19-.63 3.45-.64 1.47.03 2.79.58 3.84 1.33-3.36 1.87-2.94 6.68.58 8.29-.76 1.99-1.66 3.95-2.83 5.9-.58 1.01-1.26 2.02-2.17 2.78zM12.03 7.89c.27-2.8 2.43-4.97 5.24-5.23.42 3.05-2.33 5.8-5.24 5.23z"/>
-                </svg>
-                <div className="btn-text">
-                  <span className="btn-label">Download on the</span>
-                  <span className="btn-name">App Store</span>
-                </div>
-              </a>
-              <a href="#" className="app-download-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L16.81,15.12L14.54,12.85L16.81,10.81L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                </svg>
-                <div className="btn-text">
-                  <span className="btn-label">Get it on</span>
-                  <span className="btn-name">Google Play</span>
-                </div>
-              </a>
-            </div>
+      <h2 className="app-download-title">Download Our App</h2>
+      <p className="app-download-description">
+        Get the best deals and services on the go. Download our app now!
+      </p>
+      <div className="app-download-buttons">
+        <button className="app-download-btn app-store-btn" onClick={handleAppStore}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="white"/>
+          </svg>
+          <div className="app-download-btn-text">
+            <span className="app-download-btn-small">Download on the</span>
+            <span className="app-download-btn-large">App Store</span>
           </div>
-          <div className="app-download-image">
-            <div className="phone-mockup">
-              <div className="phone-screen">
-                <div className="phone-content">
-                  <div className="phone-header"></div>
-                  <div className="phone-body"></div>
-                </div>
-              </div>
-            </div>
+        </button>
+        <button className="app-download-btn google-play-btn" onClick={handleGooglePlay}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.6 3 21.09 3 20.5ZM16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12ZM20.16 10.81C20.5 11.08 20.75 11.5 20.75 12C20.75 12.5 20.53 12.9 20.18 13.18L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81ZM6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z" fill="white"/>
+          </svg>
+          <div className="app-download-btn-text">
+            <span className="app-download-btn-small">Get it on</span>
+            <span className="app-download-btn-large">Google Play</span>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   )

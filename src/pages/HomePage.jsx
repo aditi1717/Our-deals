@@ -1,8 +1,10 @@
 import SearchSection from '../components/SearchSection'
 import CategoryGrid from '../components/CategoryGrid'
+import PopularCategoriesSection from '../components/PopularCategoriesSection'
+import CategorySectionsList from '../components/CategorySectionsList'
 import BannerCarousel from '../components/BannerCarousel'
-import CategorySections from '../components/CategorySections'
-import BannerCarousel2 from '../components/BannerCarousel2'
+import CategorySectionsList14to16 from '../components/CategorySectionsList14to16'
+import RemainingCategorySectionsList from '../components/RemainingCategorySectionsList'
 import WhyChooseUs from '../components/WhyChooseUs'
 import Statistics from '../components/Statistics'
 import AppDownload from '../components/AppDownload'
@@ -17,9 +19,12 @@ function HomePage() {
       <div className="homepage-container">
         <SearchSection />
         <CategoryGrid />
-        <BannerCarousel />
-        <CategorySections />
-        <BannerCarousel2 />
+        <PopularCategoriesSection />
+        <CategorySectionsList />
+        <BannerCarousel bannerSet={1} />
+        <CategorySectionsList14to16 />
+        <BannerCarousel bannerSet={2} />
+        <RemainingCategorySectionsList />
         <WhyChooseUs />
         <Statistics />
         <AppDownload />

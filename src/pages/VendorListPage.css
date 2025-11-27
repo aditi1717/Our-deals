@@ -6,8 +6,8 @@
 }
 
 .vendor-list-header {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  padding: clamp(12px, 2.5vw, 20px) clamp(16px, 3vw, 24px);
+  background-color: #13335a;
+  padding: clamp(16px, 2vw, 20px) clamp(16px, 2vw, 24px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,6 +15,7 @@
   top: 0;
   z-index: 10;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .back-btn {
@@ -40,6 +41,10 @@
   height: clamp(20px, 3vw, 24px);
 }
 
+.back-btn svg path {
+  stroke: white;
+}
+
 .vendor-list-title {
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
@@ -57,7 +62,7 @@
   -webkit-overflow-scrolling: touch;
   min-height: 0;
   padding-bottom: 80px; /* Space for bottom navigation */
-  background-color: #f9fafb; /* Light background to make cards stand out */
+  background-color: #FFFFFF;
 }
 
 .filter-buttons {
@@ -81,13 +86,25 @@
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   background-color: white;
-  color: #374151;
+  color: #1f2937;
   font-size: clamp(11px, 1.75vw, 14px);
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.filter-btn svg path,
+.filter-btn svg {
+  stroke: #1f2937;
+  fill: #1f2937;
+}
+
+.filter-btn.active svg path,
+.filter-btn.active svg {
+  stroke: white;
+  fill: white;
 }
 
 .filter-btn svg {
@@ -97,9 +114,9 @@
 }
 
 .filter-btn.active {
-  background-color: #1e3a8a;
+  background-color: #13335a;
   color: white;
-  border-color: #1e3a8a;
+  border-color: #13335a;
 }
 
 .filter-btn:hover:not(.active) {
@@ -109,8 +126,8 @@
 
 .results-count {
   font-size: clamp(13px, 2vw, 16px);
-  font-weight: 600;
-  color: #1a1a1a;
+  font-weight: 700;
+  color: #000000;
   margin-bottom: clamp(12px, 2vw, 16px);
 }
 
@@ -123,20 +140,18 @@
 .vendor-card {
   background-color: white;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e5e7eb; /* Added border for better definition */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: none;
   overflow: hidden;
   display: flex;
   gap: clamp(12px, 2vw, 16px);
-  padding: clamp(16px, 2.5vw, 20px); /* Increased padding */
+  padding: clamp(16px, 2.5vw, 20px);
   transition: all 0.3s;
-  margin-bottom: 4px; /* Extra margin for separation */
+  margin-bottom: clamp(12px, 2vw, 16px);
 }
 
 .vendor-card:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  border-color: #d1d5db; /* Darker border on hover */
-  transform: translateY(-2px); /* Slight lift effect */
 }
 
 .vendor-image-section {
@@ -149,7 +164,7 @@
 
 .vendor-image-placeholder {
   width: clamp(80px, 15vw, 120px);
-  height: clamp(80px, 15vw, 120px);
+  aspect-ratio: 2/3;
   background-color: #f3f4f6;
   border-radius: 8px;
   display: flex;
@@ -177,6 +192,8 @@
   font-size: clamp(10px, 1.5vw, 12px);
   color: #6b7280;
   text-align: center;
+  width: 100%;
+  align-self: center;
 }
 
 .vendor-details {
@@ -189,7 +206,7 @@
 .vendor-name {
   font-size: clamp(16px, 2.5vw, 20px);
   font-weight: 700;
-  color: #1e3a8a;
+  color: #13335a;
   margin: 0;
 }
 
@@ -198,7 +215,8 @@
   align-items: center;
   gap: clamp(4px, 0.75vw, 6px);
   font-size: clamp(12px, 1.75vw, 14px);
-  color: #374151;
+  color: #000000;
+  font-weight: 700;
 }
 
 .vendor-location svg {
@@ -207,13 +225,17 @@
   flex-shrink: 0;
 }
 
+.vendor-location svg path {
+  fill: #E10129;
+}
+
 .vendor-category-tag {
   display: inline-block;
   padding: clamp(3px, 0.5vw, 4px) clamp(10px, 1.5vw, 12px);
   background-color: #f3f4f6;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: clamp(10px, 1.5vw, 12px);
-  font-weight: 500;
+  font-weight: 700;
   color: #6b7280;
   width: fit-content;
 }
@@ -223,7 +245,8 @@
   align-items: center;
   gap: clamp(4px, 0.75vw, 6px);
   font-size: clamp(12px, 1.75vw, 14px);
-  color: #374151;
+  color: #3B82F6;
+  font-weight: 700;
 }
 
 .vendor-services svg {
@@ -232,9 +255,14 @@
   flex-shrink: 0;
 }
 
+.vendor-services svg path {
+  stroke: #10b981;
+}
+
 .vendor-hours {
   font-size: clamp(12px, 1.75vw, 14px);
-  color: #374151;
+  color: #000000;
+  font-weight: 700;
 }
 
 .vendor-actions {
@@ -253,7 +281,7 @@
   padding: clamp(8px, 1.25vw, 10px) clamp(12px, 2vw, 16px);
   border-radius: 8px;
   font-size: clamp(11px, 1.75vw, 14px);
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
   border: 1px solid #e5e7eb;
@@ -266,13 +294,13 @@
 }
 
 .call-btn {
-  background-color: #1e3a8a;
+  background-color: #13335a;
   color: white;
-  border-color: #1e3a8a;
+  border-color: #13335a;
 }
 
 .call-btn:hover {
-  background-color: #1e40af;
+  background-color: #1e4a7a;
 }
 
 .chat-btn {
@@ -288,13 +316,17 @@
 
 .direction-btn {
   background-color: white;
-  color: #374151;
+  color: #1f2937;
   border-color: #e5e7eb;
 }
 
 .direction-btn:hover {
   background-color: #f9fafb;
   border-color: #d1d5db;
+}
+
+.direction-btn svg path {
+  stroke: #1f2937;
 }
 
 @media (max-width: 768px) {
@@ -383,7 +415,7 @@
 
   .vendor-image-placeholder {
     width: clamp(70px, 11.25vw, 90px) !important;
-    height: clamp(70px, 11.25vw, 90px) !important;
+    aspect-ratio: 2/3 !important;
     max-width: none !important;
     display: flex !important;
   }
@@ -497,7 +529,7 @@
 
   .vendor-image-placeholder {
     width: clamp(70px, 10vw, 80px) !important;
-    height: clamp(70px, 10vw, 80px) !important;
+    aspect-ratio: 2/3 !important;
   }
 
   .vendor-image-placeholder svg {

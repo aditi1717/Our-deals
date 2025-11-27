@@ -1,6 +1,6 @@
 .vendor-detail-page {
   min-height: 100vh;
-  background-color: #f5f7fa;
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
 }
@@ -61,13 +61,12 @@
 }
 
 .vendor-detail-card {
-  background: linear-gradient(135deg, #b8d5eb 0%, #c8dff0 20%, #d4e4f5 40%, #e0ecf5 60%, #eef5fa 80%, #ffffff 100%);
+  background: linear-gradient(135deg, #F2E8F0 0%, #DEDCE9 33%, #BCC6E1 66%, #98B0D6 100%);
   border-radius: clamp(16px, 2.5vw, 20px);
-  box-shadow: 0 8px 24px rgba(19, 51, 90, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  overflow: visible;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  overflow: hidden;
   margin-bottom: clamp(16px, 3vw, 24px);
-  backdrop-filter: blur(10px);
 }
 
 .vendor-detail-main {
@@ -75,6 +74,8 @@
   gap: clamp(16px, 3vw, 24px);
   padding: clamp(20px, 4vw, 32px);
   background: rgba(255, 255, 255, 0.3);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .vendor-detail-info {
@@ -82,6 +83,8 @@
   display: flex;
   flex-direction: column;
   gap: clamp(16px, 2.5vw, 20px);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .vendor-name-rating {
@@ -120,11 +123,11 @@
   display: flex;
   align-items: center;
   gap: clamp(3px, 0.5vw, 4px);
-  background-color: #10b981;
+  background-color: #31652E;
   color: white;
   padding: clamp(5px, 0.75vw, 6px) clamp(10px, 1.5vw, 12px);
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(13px, 1.9vw, 15px);
 }
 
@@ -136,8 +139,8 @@
 
 .ratings-count {
   font-size: clamp(13px, 1.9vw, 15px);
-  color: #374151;
-  font-weight: 600;
+  color: #000000;
+  font-weight: 700;
 }
 
 .vendor-location-info {
@@ -149,23 +152,23 @@
 
 .vendor-address {
   font-size: clamp(13px, 1.9vw, 15px);
-  color: #374151;
+  color: #9E9BA6;
   margin: 0;
   font-weight: 500;
 }
 
 .vendor-business-years {
   font-size: clamp(13px, 1.9vw, 15px);
-  color: #374151;
+  color: #000000;
   margin: 0;
   font-weight: 500;
 }
 
 .vendor-hours-badge {
   display: inline-block;
-  color: #10b981;
+  color: #31652E;
   font-size: clamp(13px, 1.9vw, 15px);
-  font-weight: 700;
+  font-weight: 500;
   margin-top: clamp(2px, 0.25vw, 2px);
 }
 
@@ -192,10 +195,10 @@
 }
 
 .vendor-quick-actions {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   gap: clamp(10px, 1.5vw, 12px);
   margin-top: clamp(16px, 2.5vw, 20px);
+  justify-content: flex-start;
 }
 
 .quick-action-btn {
@@ -203,29 +206,47 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(4px, 0.75vw, 6px);
-  padding: clamp(12px, 1.75vw, 14px) clamp(6px, 1vw, 8px);
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background-color: white;
-  color: #374151;
+  gap: clamp(8px, 1.25vw, 10px);
+  padding: 0;
+  border: none;
+  background: none;
+  color: #000000;
   font-size: clamp(11px, 1.6vw, 13px);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
 }
 
 .quick-action-btn:hover {
-  background-color: #f9fafb;
-  border-color: #d1d5db;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
+  opacity: 0.8;
 }
 
-.quick-action-btn svg {
-  width: clamp(16px, 2.5vw, 20px);
-  height: clamp(16px, 2.5vw, 20px);
+.quick-action-icon-box {
+  width: clamp(48px, 6vw, 60px);
+  height: clamp(48px, 6vw, 60px);
+  background-color: #E6EAF3;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.quick-action-icon {
+  width: clamp(20px, 2.5vw, 24px);
+  height: clamp(20px, 2.5vw, 24px);
+  color: #000000;
+}
+
+.whatsapp-icon-wrapper {
+  width: clamp(32px, 4vw, 40px);
+  height: clamp(32px, 4vw, 40px);
+  border-radius: 50%;
+  border: 2px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .vendor-image-section-detail {
@@ -235,7 +256,7 @@
 
 .vendor-image-placeholder-detail {
   width: clamp(150px, 25vw, 200px);
-  height: clamp(150px, 25vw, 200px);
+  aspect-ratio: 2/3;
   background-color: #f9fafb;
   border-radius: 12px;
   display: flex;
@@ -275,7 +296,7 @@
   border: none;
   background: none;
   font-size: clamp(14px, 2vw, 16px);
-  font-weight: 500;
+  font-weight: 700;
   color: #6b7280;
   cursor: pointer;
   transition: all 0.3s;
@@ -475,14 +496,14 @@
 
 .vendor-detail-bottom-actions {
   position: relative;
-  background-color: white;
+  background-color: #13335a;
   display: flex !important;
   gap: clamp(10px, 1.5vw, 12px);
   padding: clamp(12px, 2vw, 16px);
-  margin-top: clamp(16px, 3vw, 24px);
+  margin-top: 0;
   margin-bottom: 0;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-  border-top: 1px solid #e5e7eb;
+  border: none;
   border-radius: 0 0 clamp(16px, 2.5vw, 20px) clamp(16px, 2.5vw, 20px);
   width: 100%;
   box-sizing: border-box;
@@ -545,23 +566,56 @@
   }
 
   .vendor-detail-main {
-    flex-direction: column;
+    flex-direction: row;
     padding: clamp(12px, 2vw, 16px);
+    gap: clamp(8px, 1.5vw, 12px);
+    min-width: 0;
+    overflow: hidden;
   }
 
   .vendor-image-section-detail {
-    width: 100%;
+    width: auto;
+    flex-shrink: 0;
+    min-width: 0;
   }
 
   .vendor-image-placeholder-detail {
-    width: 100%;
-    max-width: 300px;
-    height: clamp(180px, 25vw, 200px);
-    margin: 0 auto;
+    width: clamp(80px, 18vw, 120px);
+    aspect-ratio: 2/3;
+    margin: 0;
+    max-width: 100%;
   }
 
   .vendor-quick-actions {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    gap: clamp(6px, 1vw, 8px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .vendor-quick-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .quick-action-btn {
+    flex-shrink: 0;
+    min-width: auto;
+  }
+
+  .quick-action-icon-box {
+    width: clamp(40px, 10vw, 50px);
+    height: clamp(40px, 10vw, 50px);
+  }
+
+  .quick-action-icon {
+    width: clamp(18px, 4vw, 20px);
+    height: clamp(18px, 4vw, 20px);
+  }
+
+  .whatsapp-icon-wrapper {
+    width: clamp(28px, 6vw, 32px);
+    height: clamp(28px, 6vw, 32px);
   }
 
   .vendor-tabs {
@@ -577,8 +631,8 @@
   .vendor-detail-bottom-actions {
     padding: clamp(10px, 1.5vw, 12px) !important;
     position: relative !important;
-    margin-top: clamp(16px, 3vw, 24px) !important;
-    margin-bottom: clamp(16px, 2.5vw, 20px) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;

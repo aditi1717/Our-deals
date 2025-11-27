@@ -1,3 +1,117 @@
+.otp-verification-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #13335A 0%, #213F65 50%, #5E738E 100%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: clamp(20px, 4vw, 40px);
+  box-sizing: border-box;
+  overflow-y: auto;
+  color: white;
+}
+
+.otp-verification-content {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.otp-verification-title {
+  font-size: clamp(36px, 7vw, 52px);
+  font-weight: 900;
+  color: #FFFFFF;
+  margin: 0 0 clamp(16px, 3vw, 24px) 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 1vw, 8px);
+  line-height: 1.1;
+}
+
+.otp-verification-instruction {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #FFFFFF;
+  margin: 0 0 clamp(8px, 1.5vw, 12px) 0;
+  font-weight: 400;
+}
+
+.otp-verification-phone {
+  font-size: clamp(16px, 3vw, 20px);
+  color: #FFFFFF;
+  margin: 0 0 clamp(32px, 6vw, 48px) 0;
+  font-weight: 500;
+}
+
+.otp-inputs-container {
+  display: flex;
+  gap: clamp(16px, 3vw, 24px);
+  justify-content: center;
+  margin-bottom: clamp(24px, 4vw, 32px);
+}
+
+.otp-circle-input-wrapper {
+  position: relative;
+}
+
+.otp-circle-input {
+  width: clamp(60px, 10vw, 80px);
+  height: clamp(60px, 10vw, 80px);
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 600;
+  color: #000000;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.otp-circle-input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.otp-resend-section {
+  margin-bottom: clamp(24px, 4vw, 32px);
+}
+
+.otp-resend-text {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #FFFFFF;
+}
+
+.otp-verify-continue-btn {
+  width: 100%;
+  max-width: 350px;
+  background-color: #E10129;
+  color: white;
+  border: none;
+  padding: clamp(14px, 2vw, 16px) clamp(20px, 3vw, 24px);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: clamp(16px, 2.5vw, 18px);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.otp-verify-continue-btn:hover:not(:disabled) {
+  background-color: #c00122;
+}
+
+.otp-verify-continue-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -378,6 +492,62 @@
 
   .maybe-later-btn {
     font-size: clamp(9px, 1.3vw, 11px);
+  }
+}
+
+@media (max-width: 768px) {
+  .otp-verification-page {
+    padding: clamp(16px, 3vw, 24px);
+  }
+
+  .otp-verification-title {
+    font-size: clamp(32px, 6vw, 44px);
+  }
+
+  .otp-verification-instruction {
+    font-size: clamp(13px, 2.2vw, 15px);
+  }
+
+  .otp-verification-phone {
+    font-size: clamp(15px, 2.8vw, 19px);
+  }
+
+  .otp-circle-input {
+    width: clamp(55px, 9vw, 70px);
+    height: clamp(55px, 9vw, 70px);
+    font-size: clamp(22px, 3.5vw, 28px);
+  }
+
+  .otp-inputs-container {
+    gap: clamp(12px, 2.5vw, 20px);
+  }
+
+  .otp-resend-text {
+    font-size: clamp(13px, 2.2vw, 15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .otp-verification-title {
+    font-size: clamp(28px, 5vw, 40px);
+  }
+
+  .otp-verification-instruction {
+    font-size: clamp(12px, 2vw, 14px);
+  }
+
+  .otp-verification-phone {
+    font-size: clamp(14px, 2.5vw, 18px);
+  }
+
+  .otp-circle-input {
+    width: clamp(50px, 8vw, 65px);
+    height: clamp(50px, 8vw, 65px);
+    font-size: clamp(20px, 3vw, 26px);
+  }
+
+  .otp-inputs-container {
+    gap: clamp(10px, 2vw, 16px);
   }
 }
 

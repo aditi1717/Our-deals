@@ -239,9 +239,15 @@
   height: 24px;
 }
 
+.more-bottom-sheet-icon svg path,
+.more-bottom-sheet-icon svg rect,
+.more-bottom-sheet-icon svg circle {
+  stroke-width: 2.5;
+}
+
 .more-bottom-sheet-label {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   color: #374151;
   text-align: center;
 }

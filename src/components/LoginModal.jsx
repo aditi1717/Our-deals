@@ -1,27 +1,37 @@
 import { useState } from 'react'
 import OTPModal from './OTPModal'
-import NameModal from './NameModal'
 import './LoginModal.css'
 
 function LoginModal({ isOpen, onClose, onLoginSuccess }) {
   const [mobileNumber, setMobileNumber] = useState('')
-  const [agreeToTerms, setAgreeToTerms] = useState(true)
+  const [showOTPSent, setShowOTPSent] = useState(false)
   const [showOTP, setShowOTP] = useState(false)
-  const [showName, setShowName] = useState(false)
 
   if (!isOpen) return null
 
   const handleLogin = () => {
-    if (mobileNumber.length === 10 && agreeToTerms) {
-      setShowOTP(true)
+    if (mobileNumber.length === 10) {
+      setShowOTPSent(true)
     }
+  }
+
+  const handleOTPSentOK = () => {
+    setShowOTPSent(false)
+    setShowOTP(true)
   }
 
   const handleOTPClose = (otp) => {
     if (otp) {
-      // OTP verified, show name section
+      // OTP verified, directly login success
       setShowOTP(false)
-      setShowName(true)
+      const userData = {
+        mobile: mobileNumber,
+        name: `User ${mobileNumber}` // Default name
+      }
+      if (onLoginSuccess) {
+        onLoginSuccess(userData)
+      }
+      onClose() // Close modal and return to main page
     } else {
       // Maybe later or close
       setShowOTP(false)
@@ -29,79 +39,79 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
     }
   }
 
-  const handleNameClose = (userData) => {
-    setShowName(false)
-    if (userData && onLoginSuccess) {
-      onLoginSuccess(userData)
-    }
-    onClose() // Close modal and return to main page
-  }
-
   return (
     <>
-      {!showOTP && !showName && (
-        <>
-          <div className="modal-overlay"></div>
-          <div className="login-modal" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <div className="modal-welcome">
-            <h2 className="welcome-title">Welcome</h2>
-            <p className="welcome-subtitle">Login for a seamless experience</p>
-          </div>
-        </div>
-        <div className="modal-content">
-          <div className="mobile-input-group">
-            <div className="mobile-input-wrapper">
-              <span className="country-code">+91</span>
-              <input
-                type="tel"
-                className="mobile-input"
-                value={mobileNumber}
-                onChange={(e) => setMobileNumber(e.target.value)}
-                placeholder="Enter your mobile number"
-                maxLength="10"
-              />
+      {!showOTPSent && !showOTP && (
+        <div className="login-page">
+          <div className="login-page-content">
+            <h1 className="login-app-title">Ourdeals</h1>
+            <p className="login-tagline">Book Your Services in 2 minutes</p>
+            
+            <div className="login-form-container">
+              <div className="mobile-input-group">
+                <div className="mobile-input-wrapper">
+                  <span className="country-code">+91</span>
+                  <input
+                    type="tel"
+                    className="mobile-input"
+                    value={mobileNumber}
+                    onChange={(e) => setMobileNumber(e.target.value)}
+                    placeholder="Enter your phone number"
+                    maxLength="10"
+                  />
+                </div>
+              </div>
+              
+              <button 
+                className="login-continue-btn"
+                onClick={handleLogin}
+                disabled={!mobileNumber || mobileNumber.length !== 10}
+              >
+                Continue
+              </button>
             </div>
           </div>
-          <div className="terms-section">
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                checked={agreeToTerms}
-                onChange={(e) => setAgreeToTerms(e.target.checked)}
-                className="terms-checkbox"
-              />
-              <span>I Agree to Terms and Conditions</span>
-            </label>
-            <a href="#" className="terms-link">T&C's Privacy Policy</a>
-          </div>
-          <button 
-            className="login-otp-btn"
-            onClick={handleLogin}
-            disabled={!mobileNumber || mobileNumber.length !== 10 || !agreeToTerms}
-          >
-            Continue with OTP
-          </button>
-          <button className="maybe-later-btn" onClick={onClose}>
-            Maybe Later
-          </button>
         </div>
-      </div>
-      </>
+      )}
+      {showOTPSent && (
+        <>
+          <div className="login-page">
+            <div className="login-page-content">
+              <h1 className="login-app-title">Ourdeals</h1>
+              <p className="login-tagline">Book Your Services in 2 minutes</p>
+              
+              <div className="login-form-container">
+                <div className="mobile-input-group">
+                  <div className="mobile-input-wrapper">
+                    <span className="country-code">+91</span>
+                    <input
+                      type="tel"
+                      className="mobile-input"
+                      value={mobileNumber}
+                      onChange={(e) => setMobileNumber(e.target.value)}
+                      placeholder="Enter your phone number"
+                      maxLength="10"
+                      readOnly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="otp-sent-popup">
+            <div className="otp-sent-popup-content">
+              <h2 className="otp-sent-title">OTP Sent!</h2>
+              <p className="otp-sent-message">A verification code has been sent to your phone.</p>
+              <button className="otp-sent-ok-btn" onClick={handleOTPSentOK}>OK</button>
+            </div>
+          </div>
+        </>
       )}
       {showOTP && (
         <OTPModal 
           isOpen={showOTP} 
           onClose={handleOTPClose}
           mobileNumber={mobileNumber}
-        />
-      )}
-      {showName && (
-        <NameModal 
-          isOpen={showName} 
-          onClose={handleNameClose}
-          mobileNumber={mobileNumber}
-          onLoginSuccess={handleNameClose}
         />
       )}
     </>

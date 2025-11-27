@@ -1,10 +1,14 @@
 import { useNavigate } from 'react-router-dom'
-import { categoriesData } from '../data/categories'
+import { dummyCategoriesData } from '../data/dummyCategories'
 import './CategoryGrid.css'
 
 function CategoryGrid() {
   const navigate = useNavigate()
-  const mainCategories = categoriesData.slice(0, 11) // Changed from 12 to 11 to remove last one
+  
+  // Get only non-popular categories (isPopular: false) and take first 11
+  const nonPopularCategories = dummyCategoriesData
+    .filter(category => !category.isPopular)
+    .slice(0, 11)
 
   const handleCategoryClick = (categoryName) => {
     navigate(`/categories/${encodeURIComponent(categoryName)}`)
@@ -17,17 +21,16 @@ function CategoryGrid() {
   return (
     <div className="category-section">
       <div className="category-grid">
-        {mainCategories.map((category, index) => (
-          <div key={index} className="category-item" onClick={() => handleCategoryClick(category.name)}>
+        {nonPopularCategories.map((category, index) => (
+          <div key={index} className="category-item" onClick={() => handleCategoryClick(category.categoryName)}>
             <div className="category-image-container">
               <img
                 src={category.image}
-                alt={category.name}
+                alt={category.categoryName}
                 className="category-image"
               />
-              <span className="category-explore">Explore</span>
             </div>
-            <span className="category-name">{category.name}</span>
+            <span className="category-name">{category.categoryName}</span>
           </div>
         ))}
         {/* More Option */}
