@@ -331,7 +331,11 @@
     border-bottom: 1px solid #e5e7eb;
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     padding: clamp(8px, 1vw, 12px);
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;
+    touch-action: pan-x; /* Allow horizontal touch scrolling */
   }
 
   .category-sidebar-item {

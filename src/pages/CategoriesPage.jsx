@@ -127,10 +127,10 @@ function CategoriesPage() {
           <div 
             className="categories-sidebar"
             onWheel={(e) => {
-              e.stopPropagation()
-            }}
-            onScroll={(e) => {
-              e.stopPropagation()
+              // Only prevent on desktop
+              if (window.innerWidth > 768) {
+                e.stopPropagation()
+              }
             }}
           >
             {allCategories.map((category, index) => {
