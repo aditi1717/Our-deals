@@ -9,6 +9,9 @@ import ContactUsPage from './pages/ContactUsPage'
 import VendorListPage from './pages/VendorListPage'
 import VendorDetailPage from './pages/VendorDetailPage'
 import CategorySubcategoriesPage from './pages/CategorySubcategoriesPage'
+import MoreOptionsPage from './pages/MoreOptionsPage'
+import AgentRegistrationPage from './pages/AgentRegistrationPage'
+import CallEnquiryPage from './pages/CallEnquiryPage'
 import './App.css'
 
 function AppContent() {
@@ -29,6 +32,9 @@ function AppContent() {
                <Route path="/vendor/:vendorId" element={<VendorDetailPage />} />
                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                <Route path="/contact-us" element={<ContactUsPage />} />
+               <Route path="/more" element={<MoreOptionsPage />} />
+               <Route path="/agent-registration" element={<AgentRegistrationPage />} />
+               <Route path="/call-enquiry" element={<CallEnquiryPage />} />
              </Routes>
       <BottomNavigation />
     </div>

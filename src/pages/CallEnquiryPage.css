@@ -1,0 +1,100 @@
+.call-enquiry-page {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px; /* Space for bottom navigation */
+}
+
+.call-enquiry-header {
+  background: linear-gradient(135deg, #13335a 0%, #1e4a7a 100%);
+  padding: clamp(16px, 2vw, 20px) clamp(16px, 2vw, 24px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+  border-radius: 0 0 clamp(12px, 1.5vw, 16px) clamp(12px, 1.5vw, 16px);
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: clamp(3px, 0.4vw, 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  border-radius: 50%;
+  width: clamp(28px, 3.5vw, 32px);
+  height: clamp(28px, 3.5vw, 32px);
+  color: white;
+}
+
+.back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.back-btn svg {
+  width: clamp(20px, 2.5vw, 24px);
+  height: clamp(20px, 2.5vw, 24px);
+}
+
+.call-enquiry-title {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.call-enquiry-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(40px, 5vw, 60px) clamp(20px, 2.5vw, 32px);
+  min-height: calc(100vh - clamp(60px, 10vw, 80px) - 80px);
+}
+
+.empty-message {
+  font-size: clamp(16px, 2vw, 18px);
+  color: #6b7280;
+  text-align: center;
+  margin: 0;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .call-enquiry-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+  }
+
+  .call-enquiry-content {
+    margin-top: clamp(50px, 8vw, 70px);
+    padding: clamp(40px, 5vw, 60px) clamp(20px, 2.5vw, 32px);
+  }
+}
+
+@media (max-width: 480px) {
+  .call-enquiry-title {
+    font-size: clamp(16px, 2vw, 20px);
+  }
+
+  .empty-message {
+    font-size: clamp(14px, 1.8vw, 16px);
+  }
+}
+

@@ -50,9 +50,6 @@ function SearchSection() {
 
   return (
     <div className="search-section">
-      <h2 className="search-title desktop-only">
-        Search across <span className="search-highlight">'4.9 Crore+'</span> Businesses
-      </h2>
       <div className="search-container-wrapper">
         <div className="search-container">
           <div className="location-input-wrapper desktop-only">
