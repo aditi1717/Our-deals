@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LanguageSelector from './LanguageSelector'
 import LoginModal from './LoginModal'
+import logo from '../assets/logo.png'
 import './Header.css'
 
 function Header() {
@@ -39,11 +40,8 @@ function Header() {
     <>
       <header className="header">
         <div className="header-container">
-          <div className="logo-section">
-            <h1 className="app-logo">
-              <span className="logo-our">Our</span>
-              <span className="logo-deals"> Deals</span>
-            </h1>
+          <div className="logo-section" onClick={() => navigate('/')}>
+            <img src={logo} alt="Our Deals Logo" className="header-logo" />
           </div>
           <div className="header-right">
             <div className="location-input-mobile-wrapper mobile-only">
