@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LoginModal from './LoginModal'
+import DownloadApp from './DownloadApp'
 import logo from '../assets/logo.png'
 import './Header.css'
 
@@ -52,28 +53,25 @@ function Header() {
                 <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <button className="bell-icon-mobile mobile-only" aria-label="Notifications">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
+            <div className="download-app-mobile mobile-only">
+              <DownloadApp isMobile={true} />
+            </div>
             <div className="desktop-only header-actions">
               {userData ? (
                 <>
                   <button className="header-action-btn" onClick={() => navigate('/call-enquiry')}>Call Enquiry</button>
                   <button className="header-action-btn" onClick={() => navigate('/more')}>More</button>
-                  <button className="profile-icon-btn" onClick={() => navigate('/profile')} aria-label="Profile">
-                    <div className="profile-icon">
-                      <span className="profile-icon-initial">{userData.name ? userData.name.charAt(0).toUpperCase() : 'U'}</span>
-                    </div>
-                  </button>
+                <button className="profile-icon-btn" onClick={() => navigate('/profile')} aria-label="Profile">
+                  <div className="profile-icon">
+                    <span className="profile-icon-initial">{userData.name ? userData.name.charAt(0).toUpperCase() : 'U'}</span>
+                  </div>
+                </button>
                 </>
               ) : (
                 <>
                   <button className="header-action-btn" onClick={() => navigate('/call-enquiry')}>Call Enquiry</button>
                   <button className="header-action-btn" onClick={() => navigate('/more')}>More</button>
-                  <button className="login-btn" onClick={() => setIsLoginModalOpen(true)}>Login / Sign Up</button>
+                <button className="login-btn" onClick={() => setIsLoginModalOpen(true)}>Login / Sign Up</button>
                 </>
               )}
             </div>

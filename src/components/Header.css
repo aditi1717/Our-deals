@@ -426,24 +426,34 @@
     height: 20px;
   }
 
-  .bell-icon-mobile {
-    background-color: #f3f4f6;
-    border: none;
-    border-radius: 50%;
-    padding: 8px;
-    cursor: pointer;
+  .download-app-mobile {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #374151;
-    width: 36px;
-    height: 36px;
     flex-shrink: 0;
   }
 
-  .bell-icon-mobile svg {
-    width: 20px;
-    height: 20px;
+  .download-app-mobile .download-app-wrapper {
+    position: static;
+    right: auto;
+    top: auto;
+    display: flex;
+  }
+
+  .download-app-mobile .download-app-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 6px 0 0 6px;
+  }
+
+  .download-app-mobile .download-app-icon-wrapper {
+    width: 40px;
+    height: 36px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .download-app-mobile .download-app-icon {
+    width: 32px;
+    height: 40px;
   }
 
   .header-container {

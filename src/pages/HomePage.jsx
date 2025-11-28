@@ -1,4 +1,6 @@
 import SearchSection from '../components/SearchSection'
+import DownloadApp from '../components/DownloadApp'
+import BannerWithCategories from '../components/BannerWithCategories'
 import CategoryGrid from '../components/CategoryGrid'
 import PopularCategoriesSection from '../components/PopularCategoriesSection'
 import CategorySectionsList from '../components/CategorySectionsList'
@@ -17,7 +19,11 @@ function HomePage() {
   return (
     <main className="homepage">
       <div className="homepage-container">
+        <div className="download-app-top-wrapper">
+          <DownloadApp />
+        </div>
         <SearchSection />
+        <BannerWithCategories />
         <CategoryGrid />
         <PopularCategoriesSection />
         <CategorySectionsList />

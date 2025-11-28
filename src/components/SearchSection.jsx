@@ -90,15 +90,15 @@ function SearchSection() {
                   <span className="placeholder-dynamic">{placeholderOptions[currentPlaceholder]}</span>
                 </span>
               )}
-              <input
-                ref={searchInputRef}
-                type="text"
-                className="search-input"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => setIsSearchFocused(true)}
+            <input
+              ref={searchInputRef}
+              type="text"
+              className="search-input"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={() => setIsSearchFocused(true)}
                 placeholder=""
-              />
+            />
             </div>
             <div className="search-separator"></div>
             <button className="mic-icon" aria-label="Voice search">

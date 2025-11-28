@@ -10,6 +10,7 @@ import beautySpaCategory from '../assets/Beauty & Spa.png'
 import foodDiningCategory from '../assets/Food & Dining.png'
 import homeServicesCategory from '../assets/Home Services.png'
 import hotelsTravelCategory from '../assets/Hotels & Travel.png'
+import exploreCityCategory from '../assets/explore city.png'
 
 // Use available images for subcategories
 const weddingPlans = images
@@ -321,6 +322,18 @@ export const dummyCategoriesData = [
       { name: "Grocery Stores", image: foodDining },
       { name: "Online Shopping", image: dailyServices },
       { name: "Department Stores", image: dailyServices }
+    ]
+  },
+  {
+    categoryName: "Explore City",
+    isPopular: true,
+    image: exploreCityCategory,
+    subCategories: [
+      { name: "Tourist Places", image: download1 },
+      { name: "Restaurants", image: download2 },
+      { name: "Hotels", image: download3 },
+      { name: "Shopping Malls", image: download1 },
+      { name: "Entertainment", image: download2 }
     ]
   }
 ]

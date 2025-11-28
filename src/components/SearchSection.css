@@ -1,6 +1,6 @@
 .search-section {
   background-color: transparent;
-  padding: 0;
+  padding: 0 16px;
   margin-bottom: 32px;
 }
 
@@ -44,8 +44,9 @@
 
 .search-container-wrapper {
   position: relative;
-  max-width: min(900px, 95vw);
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
 }
 
 .search-container {
@@ -192,7 +193,6 @@
   width: 20px;
   height: 20px;
 }
-
 
 .search-dropdown {
   position: absolute;
