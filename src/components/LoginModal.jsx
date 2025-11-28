@@ -43,6 +43,11 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
     <>
       {!showOTPSent && !showOTP && (
         <div className="login-page">
+          <button className="login-back-btn" onClick={onClose}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
           <div className="login-page-content">
             <h1 className="login-app-title">Ourdeals</h1>
             <p className="login-tagline">Book Your Services in 2 minutes</p>
@@ -76,6 +81,11 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
       {showOTPSent && (
         <>
           <div className="login-page">
+            <button className="login-back-btn" onClick={onClose}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
             <div className="login-page-content">
               <h1 className="login-app-title">Ourdeals</h1>
               <p className="login-tagline">Book Your Services in 2 minutes</p>
@@ -112,6 +122,10 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
           isOpen={showOTP} 
           onClose={handleOTPClose}
           mobileNumber={mobileNumber}
+          onBack={() => {
+            setShowOTP(false)
+            setShowOTPSent(false)
+          }}
         />
       )}
     </>

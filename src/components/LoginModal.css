@@ -27,6 +27,33 @@
   overflow-y: auto;
 }
 
+.login-back-btn {
+  position: absolute;
+  top: clamp(16px, 3vw, 24px);
+  left: clamp(16px, 3vw, 24px);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: clamp(40px, 6vw, 48px);
+  height: clamp(40px, 6vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+}
+
+.login-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.login-back-btn svg {
+  width: clamp(20px, 3vw, 24px);
+  height: clamp(20px, 3vw, 24px);
+}
+
 .login-page-content {
   width: 100%;
   max-width: 400px;
