@@ -45,7 +45,7 @@ function BannerCarousel({ bannerSet = 1 }) {
         >
           {banners.map((banner) => (
             <div key={banner.id} className="min-w-full w-full h-full overflow-hidden relative flex-shrink-0">
-              <img src={banner.image} alt={banner.alt} className="w-full h-full object-cover block" style={{ imageRendering: '-webkit-optimize-contrast', imageRendering: 'crisp-edges' }} />
+              <img src={banner.image} alt={banner.alt} className="w-full h-full object-cover block" style={{ imageRendering: 'crisp-edges' }} />
             </div>
           ))}
         </div>
