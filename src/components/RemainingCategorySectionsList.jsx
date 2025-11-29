@@ -8,7 +8,7 @@ function RemainingCategorySectionsList() {
     .slice(16, 18) // Get only 2 categories (indices 16-17)
 
   return (
-    <div className="category-sections-list">
+    <div className="w-full px-4">
       {remainingCategories.map((category, index) => (
         <CategorySection key={index} category={category} />
       ))}

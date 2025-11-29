@@ -8,7 +8,7 @@ function CategorySectionsList() {
     .slice(11, 13) // Get only 2 categories (indices 11-12)
 
   return (
-    <div className="category-sections-list">
+    <div className="w-full px-4">
       {nonPopularCategories.map((category, index) => (
         <CategorySection key={index} category={category} />
       ))}

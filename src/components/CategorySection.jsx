@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import './CategorySection.css'
 
 function CategorySection({ category }) {
   const navigate = useNavigate()
@@ -17,16 +16,16 @@ function CategorySection({ category }) {
   }
 
   return (
-    <div className="category-section-item">
-      <div className="category-section-header" onClick={handleCategoryClick}>
-        <h3 className="category-section-title">{category.categoryName}</h3>
+    <div className="w-full mb-[clamp(32px,4vw,24px)]">
+      <div className="flex items-center justify-between mb-[clamp(16px,2vw,24px)] cursor-pointer p-0" onClick={handleCategoryClick}>
+        <h3 className="text-[clamp(20px,2.5vw,28px)] md:text-[clamp(18px,2.2vw,24px)] font-bold text-gray-800 m-0 pl-0">{category.categoryName}</h3>
         <svg 
           width="20" 
           height="20" 
           viewBox="0 0 24 24" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg" 
-          className="category-section-arrow"
+          className="text-gray-500 flex-shrink-0 w-[clamp(18px,2vw,24px)] h-[clamp(18px,2vw,24px)]"
         >
           <path 
             d="M9 18L15 12L9 6" 
@@ -37,7 +36,7 @@ function CategorySection({ category }) {
           />
         </svg>
       </div>
-      <div className="category-section-subcategories">
+      <div className="flex gap-[clamp(12px,2vw,20px)] overflow-x-auto overflow-y-hidden p-0 scrollbar-thin scrollbar-thumb-[#cbd5e0] scrollbar-track-transparent [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#cbd5e0] [&::-webkit-scrollbar-thumb]:rounded-sm [-webkit-overflow-scrolling:touch] max-w-[1400px] mx-auto">
         {category.subCategories.map((subcat, index) => {
           const subcatName = typeof subcat === 'string' ? subcat : subcat.name
           const subcatImage = typeof subcat === 'object' ? subcat.image : null
@@ -45,23 +44,23 @@ function CategorySection({ category }) {
           return (
             <div 
               key={index} 
-              className="category-section-subcategory-card"
+              className="flex flex-col items-center cursor-pointer flex-shrink-0 w-[calc((100%-24px)/3)] min-w-[calc((100%-24px)/3)] md:w-[calc((100%-48px)/4)] md:min-w-[calc((100%-48px)/4)] lg:w-[calc((100%-100px)/6)] lg:min-w-[calc((100%-100px)/6)] lg:max-w-[120px] transition-transform hover:-translate-y-0.5"
               onClick={() => handleSubcategoryClick(subcatName)}
             >
-              <div className="category-section-subcategory-image-wrapper">
+              <div className="w-full h-0 pb-[150%] relative rounded-[clamp(10px,1.2vw,12px)] overflow-hidden bg-gray-100 mb-[clamp(8px,1vw,12px)] aspect-[2/3]">
                 {subcatImage ? (
                   <img 
                     src={subcatImage} 
                     alt={subcatName} 
-                    className="category-section-subcategory-image"
+                    className="absolute top-0 left-0 w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="category-section-subcategory-placeholder">
+                  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-[#13335a] text-white font-bold text-[clamp(20px,3vw,28px)]">
                     <span>{subcatName.charAt(0)}</span>
                   </div>
                 )}
               </div>
-              <span className="category-section-subcategory-name">{subcatName}</span>
+              <span className="text-[clamp(12px,1.4vw,14px)] font-bold text-gray-700 text-center leading-[1.4] break-words w-full block hover:text-[#13335a]">{subcatName}</span>
             </div>
           )
         })}

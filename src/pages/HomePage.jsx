@@ -1,5 +1,4 @@
 import SearchSection from '../components/SearchSection'
-import DownloadApp from '../components/DownloadApp'
 import BannerWithCategories from '../components/BannerWithCategories'
 import CategoryGrid from '../components/CategoryGrid'
 import PopularCategoriesSection from '../components/PopularCategoriesSection'
@@ -9,19 +8,14 @@ import CategorySectionsList14to16 from '../components/CategorySectionsList14to16
 import RemainingCategorySectionsList from '../components/RemainingCategorySectionsList'
 import WhyChooseUs from '../components/WhyChooseUs'
 import Statistics from '../components/Statistics'
-import AppDownload from '../components/AppDownload'
 import TrustBadges from '../components/TrustBadges'
 import FAQ from '../components/FAQ'
 import Footer from '../components/Footer'
-import './HomePage.css'
 
 function HomePage() {
   return (
-    <main className="homepage">
-      <div className="homepage-container">
-        <div className="download-app-top-wrapper">
-          <DownloadApp />
-        </div>
+    <main className="bg-white min-h-screen pb-[70px] md:pb-[70px] pt-[clamp(70px,8vw,90px)] md:pt-[clamp(50px,6vw,70px)]">
+      <div className="max-w-[1280px] mx-auto py-[clamp(16px,3vw,32px)] px-[clamp(16px,2.5vw,24px)] bg-white md:px-0 md:pt-[clamp(16px,2vw,24px)]">
         <SearchSection />
         <BannerWithCategories />
         <CategoryGrid />
@@ -33,7 +27,6 @@ function HomePage() {
         <RemainingCategorySectionsList />
         <WhyChooseUs />
         <Statistics />
-        <AppDownload />
         <TrustBadges />
         <FAQ />
         <Footer />

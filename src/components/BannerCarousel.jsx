@@ -5,7 +5,6 @@ import banner3 from '../assets/banner 3.jpg'
 import banner4 from '../assets/banner 4.jpg'
 import banner5 from '../assets/banner 5.jpg'
 import banner6 from '../assets/banner 6.jpg'
-import './BannerCarousel.css'
 
 function BannerCarousel({ bannerSet = 1 }) {
   // First set: banners 1, 2, 3
@@ -38,23 +37,23 @@ function BannerCarousel({ bannerSet = 1 }) {
   }
 
   return (
-    <div className="banner-carousel-section">
-      <div className="banner-carousel-container">
+    <div className="mb-12 px-4">
+      <div className="relative w-full overflow-hidden rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.1)] bg-white h-[clamp(220px,30vw,380px)] md:h-[clamp(180px,25vw,300px)]">
         <div 
-          className="banner-carousel-wrapper"
+          className="flex transition-transform duration-500 ease-in-out w-full h-full"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {banners.map((banner) => (
-            <div key={banner.id} className="banner-slide">
-              <img src={banner.image} alt={banner.alt} className="banner-image" />
+            <div key={banner.id} className="min-w-full w-full h-full overflow-hidden relative flex-shrink-0">
+              <img src={banner.image} alt={banner.alt} className="w-full h-full object-cover block" style={{ imageRendering: '-webkit-optimize-contrast', imageRendering: 'crisp-edges' }} />
             </div>
           ))}
         </div>
-        <div className="banner-indicators">
+        <div className="absolute bottom-4 md:bottom-3 left-1/2 -translate-x-1/2 flex gap-2 md:gap-1.5 z-10 bg-black/50 px-3 py-1.5 md:px-2.5 md:py-1 rounded-full">
           {banners.map((_, index) => (
             <button
               key={index}
-              className={`banner-indicator ${index === currentIndex ? 'active' : ''}`}
+              className={`rounded-full border-none cursor-pointer transition-all p-0 ${index === currentIndex ? 'bg-[#13335a] w-5 md:w-[18px] rounded-[10px] md:rounded-[9px]' : 'bg-white/60 w-2 md:w-1.5 hover:bg-white/90 hover:scale-110'} h-2 md:h-1.5`}
               onClick={() => goToSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
             />

@@ -1,10 +1,9 @@
-import './Logo.css'
 
 function Logo() {
   return (
-    <div className="logo-container">
+    <div className="flex items-center gap-3">
       <svg 
-        className="logo-icon" 
+        className="w-[50px] h-[50px]" 
         viewBox="0 0 200 80" 
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -21,7 +20,7 @@ function Logo() {
           strokeLinejoin="round"
         />
       </svg>
-      <span className="logo-text">Ourdeals</span>
+      <span className="text-[32px] font-bold text-[#1a237e] tracking-[-0.5px]">Ourdeals</span>
     </div>
   )
 }

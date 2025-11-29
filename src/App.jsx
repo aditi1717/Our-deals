@@ -12,14 +12,13 @@ import CategorySubcategoriesPage from './pages/CategorySubcategoriesPage'
 import MoreOptionsPage from './pages/MoreOptionsPage'
 import AgentRegistrationPage from './pages/AgentRegistrationPage'
 import CallEnquiryPage from './pages/CallEnquiryPage'
-import './App.css'
 
 function AppContent() {
   const location = useLocation()
   const showHeader = location.pathname === '/'
 
   return (
-    <div className="app">
+    <div className="min-h-screen bg-white font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif] overflow-x-hidden">
       {showHeader && <Header />}
              <Routes>
                <Route path="/" element={<HomePage />} />

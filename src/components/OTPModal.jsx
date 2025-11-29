@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import './OTPModal.css'
 
 function OTPModal({ isOpen, onClose, mobileNumber, onBack }) {
   const [otp, setOtp] = useState(['', '', '', ''])
@@ -70,29 +69,29 @@ function OTPModal({ isOpen, onClose, mobileNumber, onBack }) {
   const isOtpComplete = otp.every(digit => digit !== '')
 
   return (
-    <div className="otp-verification-page">
+    <div className="fixed top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-[#13335A] via-[#213F65] to-[#5E738E] z-[9999] flex items-center justify-center min-h-screen p-[clamp(20px,4vw,40px)] box-border overflow-y-auto text-white">
       {onBack && (
-        <button className="otp-back-btn" onClick={onBack}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <button className="absolute top-[clamp(16px,3vw,24px)] left-[clamp(16px,3vw,24px)] bg-white/20 border-none rounded-full w-[clamp(40px,6vw,48px)] h-[clamp(40px,6vw,48px)] flex items-center justify-center cursor-pointer transition-colors hover:bg-white/30 z-[10000] backdrop-blur-sm" onClick={onBack}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[clamp(20px,3vw,24px)] h-[clamp(20px,3vw,24px)]">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       )}
-      <div className="otp-verification-content">
-        <h1 className="otp-verification-title">
+      <div className="w-full max-w-[400px] flex flex-col items-center text-center">
+        <h1 className="text-[clamp(36px,7vw,52px)] font-black text-white m-0 mb-[clamp(16px,3vw,24px)] flex flex-col gap-[clamp(4px,1vw,8px)] leading-tight">
           <span>OTP</span>
           <span>Verification</span>
         </h1>
-        <p className="otp-verification-instruction">Enter the 4-digit code sent to</p>
-        <p className="otp-verification-phone">+91 {mobileNumber}</p>
+        <p className="text-[clamp(14px,2.5vw,16px)] text-white m-0 mb-[clamp(8px,1.5vw,12px)] font-normal">Enter the 4-digit code sent to</p>
+        <p className="text-[clamp(16px,3vw,20px)] text-white m-0 mb-[clamp(32px,6vw,48px)] font-medium">+91 {mobileNumber}</p>
         
-        <div className="otp-inputs-container">
+        <div className="flex gap-[clamp(16px,3vw,24px)] justify-center mb-[clamp(24px,4vw,32px)]">
           {otp.map((digit, index) => (
-            <div key={index} className="otp-circle-input-wrapper">
+            <div key={index} className="relative">
               <input
                 ref={(el) => (inputRefs.current[index] = el)}
                 type="text"
-                className="otp-circle-input"
+                className="w-[clamp(60px,10vw,80px)] h-[clamp(60px,10vw,80px)] border-none rounded-full bg-white text-center text-[clamp(24px,4vw,32px)] font-semibold text-black outline-none transition-all focus:shadow-[0_0_0_3px_rgba(255,255,255,0.3)]"
                 value={digit}
                 onChange={(e) => handleOtpChange(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
@@ -104,14 +103,14 @@ function OTPModal({ isOpen, onClose, mobileNumber, onBack }) {
           ))}
         </div>
 
-        <div className="otp-resend-section">
-          <span className="otp-resend-text">
+        <div className="mb-[clamp(24px,4vw,32px)]">
+          <span className="text-[clamp(14px,2.5vw,16px)] text-white">
             Didn't receive OTP? {resendTimer > 0 && <span>{resendTimer}</span>}
           </span>
         </div>
 
         <button 
-          className="otp-verify-continue-btn"
+          className="w-full max-w-[350px] bg-[#E10129] text-white border-none p-[clamp(14px,2vw,16px)_clamp(20px,3vw,24px)] rounded-xl font-bold text-[clamp(16px,2.5vw,18px)] cursor-pointer transition-colors hover:bg-[#c00122] disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-70"
           onClick={handleVerify}
           disabled={!isOtpComplete}
         >

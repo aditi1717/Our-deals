@@ -8,7 +8,7 @@ function CategorySectionsList14to16() {
     .slice(13, 16) // Get 3 categories (indices 13-15)
 
   return (
-    <div className="category-sections-list">
+    <div className="w-full px-4">
       {categories.map((category, index) => (
         <CategorySection key={index} category={category} />
       ))}

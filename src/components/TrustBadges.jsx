@@ -1,4 +1,3 @@
-import './TrustBadges.css'
 
 function TrustBadges() {
   const badges = [
@@ -38,16 +37,20 @@ function TrustBadges() {
   ]
 
   return (
-    <div className="trust-badges-section">
-      <div className="trust-badges-grid">
-        {badges.map((badge, index) => (
-          <div key={index} className="trust-badge-item">
-            <div className="trust-badge-icon">
-              {badge.icon}
+    <div className="w-full py-[clamp(32px,4vw,48px)] px-4 bg-blue-50">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-[clamp(16px,2vw,24px)]">
+          {badges.map((badge, index) => (
+            <div key={index} className="flex flex-col items-center text-center">
+              <div className="w-[clamp(60px,8vw,80px)] h-[clamp(60px,8vw,80px)] rounded-full bg-[#13335a] flex items-center justify-center mb-[clamp(12px,1.5vw,16px)]">
+                <div className="w-[clamp(24px,3vw,32px)] h-[clamp(24px,3vw,32px)] text-white">
+                  {badge.icon}
+                </div>
+              </div>
+              <span className="text-[clamp(14px,1.8vw,18px)] font-medium text-black">{badge.text}</span>
             </div>
-            <span className="trust-badge-text">{badge.text}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )
