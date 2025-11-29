@@ -150,7 +150,8 @@ function VendorListPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <div className="bg-[#13335a] p-[clamp(16px,2vw,20px)_clamp(16px,2vw,24px)] flex justify-between items-center sticky top-0 z-10 flex-shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.15)] md:p-[clamp(12px,2vw,16px)]">
+      {/* Header - Fixed on Top */}
+      <div className="bg-[#13335a] p-[clamp(16px,2vw,20px)_clamp(16px,2vw,24px)] flex justify-between items-center fixed top-0 left-0 right-0 z-[1000] shadow-[0_2px_8px_rgba(0,0,0,0.15)] md:p-[clamp(12px,2vw,16px)]">
         <button className="bg-transparent border-none cursor-pointer p-1 flex items-center justify-center transition-colors rounded-full w-[clamp(28px,4vw,32px)] h-[clamp(28px,4vw,32px)] hover:bg-white/20" onClick={() => navigate(-1)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[clamp(20px,3vw,24px)] h-[clamp(20px,3vw,24px)]">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -160,7 +161,8 @@ function VendorListPage() {
         <div className="w-6"></div>
       </div>
 
-      <div className="flex-1 overflow-y-auto overflow-x-hidden p-[clamp(12px,2vw,16px)] [-webkit-overflow-scrolling:touch] min-h-0 pb-20 bg-white md:p-[clamp(10px,1.5vw,12px)] md:pb-20 md:bg-gray-50">
+      {/* Content with top padding so it doesn't hide behind fixed header */}
+      <div className="flex-1 overflow-y-auto overflow-x-hidden p-[clamp(12px,2vw,16px)] pt-[clamp(72px,10vw,96px)] [-webkit-overflow-scrolling:touch] min-h-0 pb-20 bg-white md:p-[clamp(10px,1.5vw,12px)] md:pt-[clamp(64px,8vw,80px)] md:pb-20 md:bg-gray-50">
         {/* Filter Buttons */}
         <div className="flex gap-[clamp(6px,1vw,8px)] mb-[clamp(12px,2vw,16px)] overflow-x-auto pb-[clamp(6px,1vw,8px)] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden md:gap-[clamp(4px,0.75vw,6px)] md:mb-[clamp(10px,1.5vw,12px)]">
           {filters.map((filter) => (

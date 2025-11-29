@@ -100,8 +100,8 @@ function VendorDetailPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      {/* Header */}
-      <div className="bg-gradient-to-br from-[#13335a] to-[#1e4a7a] p-[clamp(12px,2.5vw,20px)_clamp(16px,3vw,24px)] flex justify-between items-center sticky top-0 z-10 flex-shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.15)] backdrop-blur-[10px] md:p-[clamp(12px,2vw,16px)]">
+      {/* Header - Fixed on Top */}
+      <div className="bg-gradient-to-br from-[#13335a] to-[#1e4a7a] p-[clamp(12px,2.5vw,20px)_clamp(16px,3vw,24px)] flex justify-between items-center fixed top-0 left-0 right-0 z-[1000] shadow-[0_2px_8px_rgba(0,0,0,0.15)] backdrop-blur-[10px]">
         <button className="bg-transparent border-none cursor-pointer p-1 flex items-center justify-center transition-colors rounded-full w-[clamp(28px,4vw,32px)] h-[clamp(28px,4vw,32px)] hover:bg-white/20" onClick={() => navigate(-1)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[clamp(20px,3vw,24px)] h-[clamp(20px,3vw,24px)]">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -111,7 +111,8 @@ function VendorDetailPage() {
         <div className="w-6"></div>
       </div>
 
-      <div className="flex-1 overflow-y-auto overflow-x-hidden p-[clamp(16px,3vw,24px)] pb-[120px] [-webkit-overflow-scrolling:touch] md:p-[clamp(14px,2vw,18px)] md:pb-[100px]">
+      {/* Content with top padding so it doesn't hide behind fixed header */}
+      <div className="flex-1 overflow-y-auto overflow-x-hidden p-[clamp(16px,3vw,24px)] pt-[clamp(72px,10vw,96px)] pb-[120px] [-webkit-overflow-scrolling:touch] md:p-[clamp(14px,2vw,18px)] md:pt-[clamp(64px,8vw,80px)] md:pb-[100px]">
         {/* Main Vendor Card */}
         <div className="bg-gradient-to-br from-[#F2E8F0] via-[#DEDCE9] via-[#BCC6E1] to-[#98B0D6] rounded-[clamp(16px,2.5vw,20px)] shadow-[0_2px_8px_rgba(0,0,0,0.1)] border-none overflow-hidden mb-[clamp(16px,3vw,24px)]">
           {/* Details and Image Section */}

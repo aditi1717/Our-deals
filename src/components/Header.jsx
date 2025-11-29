@@ -37,12 +37,12 @@ function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-[0_2px_4px_rgba(0,0,0,0.1)] py-4 z-[1000] w-full md:py-3">
+      <header className="fixed top-0 left-0 right-0 bg-white shadow-[0_2px_4px_rgba(0,0,0,0.1)] py-2.5 z-[1000] w-full md:py-3">
         <div className="max-w-[1280px] mx-auto px-6 md:px-4 relative">
-          <div className="flex justify-between items-center min-h-[70px] md:min-h-[50px]">
+          <div className="flex justify-between items-center min-h-[56px] md:min-h-[50px]">
             {/* Left side - Logo */}
             <div className="flex items-center justify-start cursor-pointer transition-opacity hover:opacity-80 h-full" onClick={() => navigate('/')}>
-              <img src={logo} alt="Our Deals Logo" className="h-[clamp(45px,5vw,80px)] w-auto object-contain block align-middle md:h-[clamp(50px,6vw,70px)] lg:h-[clamp(60px,4vw,90px)]" />
+              <img src={logo} alt="Our Deals Logo" className="h-[clamp(34px,4vw,48px)] w-auto object-contain block align-middle md:h-[clamp(50px,6vw,70px)] lg:h-[clamp(60px,4vw,90px)]" />
             </div>
             
             {/* Right side - Mobile: Download App, Desktop: Call Enquiry, More, Profile Icon */}

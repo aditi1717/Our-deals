@@ -68,7 +68,8 @@ function AgentRegistrationPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col pb-20">
-      <div className="bg-gradient-to-br from-[#13335a] to-[#1e4a7a] px-[clamp(16px,2vw,24px)] py-[clamp(16px,2vw,20px)] flex justify-between items-center sticky top-0 z-10 flex-shrink-0 md:fixed md:top-0 md:left-0 md:right-0 md:z-[1000] md:w-full md:shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
+      {/* Header - Fixed on Top */}
+      <div className="bg-gradient-to-br from-[#13335a] to-[#1e4a7a] px-[clamp(16px,2vw,24px)] py-[clamp(16px,2vw,20px)] flex justify-between items-center fixed top-0 left-0 right-0 z-[1000] shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
         <button className="bg-transparent border-none cursor-pointer p-[clamp(3px,0.4vw,4px)] flex items-center justify-center transition-colors rounded-full w-[clamp(28px,3.5vw,32px)] h-[clamp(28px,3.5vw,32px)] text-white hover:bg-white/20" onClick={() => navigate(-1)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[clamp(20px,2.5vw,24px)] h-[clamp(20px,2.5vw,24px)]">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -78,7 +79,8 @@ function AgentRegistrationPage() {
         <div style={{ width: '24px' }}></div>
       </div>
 
-      <form className="flex-1 px-[clamp(16px,2vw,20px)] py-[clamp(20px,2.5vw,24px)] max-w-[600px] mx-auto w-full md:mt-[clamp(50px,8vw,70px)]" onSubmit={handleSubmit}>
+      {/* Form content with top margin to clear fixed header */}
+      <form className="flex-1 px-[clamp(16px,2vw,20px)] py-[clamp(20px,2.5vw,24px)] max-w-[600px] mx-auto w-full mt-[clamp(70px,10vw,90px)] md:mt-[clamp(60px,8vw,80px)]" onSubmit={handleSubmit}>
         {/* AGENT PERSONAL DETAILS */}
         <div className="mb-[clamp(24px,3vw,32px)]">
           <h3 className="text-[clamp(16px,2vw,18px)] md:text-[clamp(14px,1.8vw,16px)] font-bold text-[#13335a] m-0 mb-[clamp(16px,2vw,20px)] uppercase tracking-[0.5px]">AGENT PERSONAL DETAILS</h3>
@@ -113,7 +115,7 @@ function AgentRegistrationPage() {
               name="gender"
               value={formData.gender}
               onChange={handleInputChange}
-              className="w-full border-[1.5px] border-gray-200 rounded-[clamp(6px,0.8vw,8px)] py-[clamp(10px,1.2vw,12px)] px-[clamp(12px,1.5vw,16px)] pr-[clamp(36px,4.5vw,48px)] text-[clamp(14px,1.6vw,16px)] md:text-[clamp(14px,1.8vw,16px)] text-[#1a1a1a] bg-white transition-colors box-border font-inherit cursor-pointer appearance-none bg-[url('data:image/svg+xml,%3Csvg_width=\\'12\\'_height=\\'8\\'_viewBox=\\'0_0_12_8\\'_fill=\\'none\\'_xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath_d=\\'M1_1L6_6L11_1\\'_stroke=\\'%236b7280\\'_stroke-width=\\'2\\'_stroke-linecap=\\'round\\'_stroke-linejoin=\\'round\\'/%3E%3C/svg%3E')] bg-no-repeat bg-[right_clamp(12px,1.5vw,16px)_center] focus:outline-none focus:border-[#13335a]"
+              className="w-full border-[1.5px] border-gray-200 rounded-[clamp(6px,0.8vw,8px)] py-[clamp(10px,1.2vw,12px)] px-[clamp(12px,1.5vw,16px)] pr-[clamp(36px,4.5vw,48px)] text-[clamp(14px,1.6vw,16px)] md:text-[clamp(14px,1.8vw,16px)] text-[#1a1a1a] bg-white transition-colors box-border font-inherit cursor-pointer appearance-none focus:outline-none focus:border-[#13335a]"
             >
               <option value="">Select gender</option>
               <option value="male">Male</option>

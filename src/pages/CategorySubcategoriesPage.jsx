@@ -21,7 +21,8 @@ function CategorySubcategoriesPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <div className="bg-[#13335a] px-[clamp(16px,2vw,24px)] md:px-[clamp(12px,1.5vw,16px)] py-[clamp(16px,2vw,20px)] flex justify-between items-center sticky top-0 z-10 flex-shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
+      {/* Header - Fixed on Top */}
+      <div className="bg-[#13335a] px-[clamp(16px,2vw,24px)] md:px-[clamp(12px,1.5vw,16px)] py-[clamp(16px,2vw,20px)] flex justify-between items-center fixed top-0 left-0 right-0 z-[1000] shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
         <button className="bg-transparent border-none cursor-pointer p-1 flex items-center justify-center transition-colors rounded-full w-8 h-8 hover:bg-white/20" onClick={() => navigate(-1)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -31,7 +32,8 @@ function CategorySubcategoriesPage() {
         <div style={{ width: '24px' }}></div>
       </div>
 
-      <div className="flex-1 p-[clamp(16px,2vw,24px)] md:p-[clamp(12px,1.5vw,16px)] overflow-y-auto pb-[100px] bg-white">
+      {/* Content with top padding so it doesn't hide behind fixed header */}
+      <div className="flex-1 p-[clamp(16px,2vw,24px)] pt-[clamp(72px,10vw,96px)] md:p-[clamp(12px,1.5vw,16px)] md:pt-[clamp(64px,8vw,80px)] overflow-y-auto pb-[100px] bg-white">
         <div className="mb-[clamp(16px,2vw,24px)]">
           <BannerCarousel bannerSet={1} />
         </div>

@@ -62,7 +62,7 @@ function SearchSection() {
   }
 
   return (
-    <div className="bg-transparent px-4 pt-4 mb-8 md:mb-6 md:px-4 md:pt-[clamp(16px,2vw,24px)]">
+    <div className="bg-transparent px-4 pt-4 mt-[clamp(8px,3vw,16px)] mb-8 md:mb-6 md:px-4 md:pt-[clamp(16px,2vw,24px)] md:mt-0">
       <div className="relative w-full max-w-full m-0">
         <div className="flex gap-4 md:flex-row md:gap-[clamp(20px,3vw,32px)] relative">
           <div className="hidden md:flex flex-row items-center bg-[#F7F8FC] border-2 border-gray-200 rounded-lg py-[clamp(10px,1.2vw,12px)] px-[clamp(12px,1.5vw,16px)] flex-[0_0_auto] max-w-[clamp(150px,18vw,200px)] min-w-[clamp(130px,16vw,180px)] whitespace-nowrap overflow-hidden">

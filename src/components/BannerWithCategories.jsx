@@ -64,7 +64,7 @@ function BannerWithCategories() {
       <div className="grid grid-cols-2 gap-[clamp(12px,1.5vw,16px)] flex-[0_0_auto] w-full md:w-[clamp(300px,35vw,400px)] items-stretch">
         {weddingRequisites && (
           <div 
-            className="bg-[rgba(133,109,101,0.1)] border border-[rgba(133,109,101,0.3)] rounded-[clamp(12px,1.8vw,16px)] shadow-[0_0_8px_2px_rgba(133,109,101,0.2)] overflow-hidden cursor-pointer transition-all flex flex-col p-0 box-border relative h-full min-h-[clamp(200px,35vw,320px)] md:min-h-[clamp(180px,30vw,250px)] hover:-translate-y-0.5 hover:shadow-[0_0_12px_4px_rgba(133,109,101,0.3)]"
+            className="bg-[rgba(133,109,101,0.1)] border border-[rgba(133,109,101,0.3)] rounded-[clamp(12px,1.8vw,16px)] shadow-[0_0_8px_2px_rgba(133,109,101,0.2)] overflow-hidden cursor-pointer transition-all flex flex-col p-0 box-border relative hover:-translate-y-0.5 hover:shadow-[0_0_12px_4px_rgba(133,109,101,0.3)]"
             onClick={() => handleCategoryClick(weddingRequisites.categoryName)}
           >
             <div className="flex items-center justify-between py-[clamp(14px,1.8vw,18px)] px-[clamp(12px,1.5vw,16px)] bg-transparent min-h-[clamp(90px,10vw,110px)] box-border overflow-visible flex-shrink-0">
@@ -76,7 +76,7 @@ function BannerWithCategories() {
                 <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <div className="w-full h-0 pb-[130%] relative overflow-hidden bg-[rgba(133,109,101,0.1)] rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
+            <div className="w-full h-[clamp(140px,38vw,200px)] md:h-auto md:h-[clamp(180px,30vw,250px)] relative overflow-hidden bg-[rgba(133,109,101,0.1)] rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
               <img 
                 src={weddingRequisites.image} 
                 alt={weddingRequisites.categoryName}
@@ -88,7 +88,7 @@ function BannerWithCategories() {
 
         {exploreCity && (
           <div 
-            className="bg-[rgba(133,109,101,0.1)] border border-[rgba(133,109,101,0.3)] rounded-[clamp(12px,1.8vw,16px)] shadow-[0_0_8px_2px_rgba(133,109,101,0.2)] overflow-hidden cursor-pointer transition-all flex flex-col p-0 box-border relative h-full min-h-[clamp(200px,35vw,320px)] md:min-h-[clamp(180px,30vw,250px)] hover:-translate-y-0.5 hover:shadow-[0_0_12px_4px_rgba(133,109,101,0.3)]"
+            className="bg-[rgba(133,109,101,0.1)] border border-[rgba(133,109,101,0.3)] rounded-[clamp(12px,1.8vw,16px)] shadow-[0_0_8px_2px_rgba(133,109,101,0.2)] overflow-hidden cursor-pointer transition-all flex flex-col p-0 box-border relative hover:-translate-y-0.5 hover:shadow-[0_0_12px_4px_rgba(133,109,101,0.3)]"
             onClick={() => handleCategoryClick(exploreCity.categoryName)}
           >
             <div className="flex items-center justify-between py-[clamp(14px,1.8vw,18px)] px-[clamp(12px,1.5vw,16px)] bg-transparent min-h-[clamp(90px,10vw,110px)] box-border overflow-visible flex-shrink-0">
@@ -100,7 +100,7 @@ function BannerWithCategories() {
                 <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <div className="w-full h-0 pb-[130%] relative overflow-hidden bg-[rgba(133,109,101,0.1)] rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
+            <div className="w-full h-[clamp(140px,38vw,200px)] md:h-auto md:h-[clamp(180px,30vw,250px)] relative overflow-hidden bg-[rgba(133,109,101,0.1)] rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
               <img 
                 src={exploreCity.image} 
                 alt={exploreCity.categoryName}
