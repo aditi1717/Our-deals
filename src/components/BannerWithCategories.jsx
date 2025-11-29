@@ -76,7 +76,7 @@ function BannerWithCategories() {
                 <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <div className="w-full h-[clamp(140px,38vw,200px)] md:h-auto md:h-[clamp(180px,30vw,250px)] relative overflow-hidden bg-[rgba(133,109,101,0.1)] rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
+            <div className="w-full h-0 pb-[90%] md:pb-[130%] relative overflow-hidden bg-[rgba(133,109,101,0.1)] rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
               <img 
                 src={weddingRequisites.image} 
                 alt={weddingRequisites.categoryName}
@@ -100,7 +100,7 @@ function BannerWithCategories() {
                 <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <div className="w-full h-[clamp(140px,38vw,200px)] md:h-auto md:h-[clamp(180px,30vw,250px)] relative overflow-hidden bg-[rgba(133,109,101,0.1)] rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
+            <div className="w-full h-0 pb-[90%] md:pb-[130%] relative overflow-hidden bg-[rgba(133,109,101,0.1)] rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
               <img 
                 src={exploreCity.image} 
                 alt={exploreCity.categoryName}

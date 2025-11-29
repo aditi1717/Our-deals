@@ -49,7 +49,7 @@ function CategoriesPage() {
 
   return (
     <div className="h-screen bg-white flex flex-col overflow-hidden">
-      <div className="bg-white px-[clamp(16px,2vw,24px)] py-[clamp(16px,2vw,20px)] flex justify-between items-center sticky top-0 z-10 flex-shrink-0 md:fixed md:top-0 md:left-0 md:right-0 md:z-[1000] md:w-full md:shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
+      <div className="bg-white px-[clamp(16px,2vw,24px)] py-[clamp(16px,2vw,20px)] flex justify-between items-center fixed top-0 left-0 right-0 z-[1000] flex-shrink-0 w-full shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
         <button className="bg-transparent border-none cursor-pointer p-[clamp(3px,0.4vw,4px)] flex items-center justify-center transition-colors rounded-full w-[clamp(28px,3.5vw,32px)] h-[clamp(28px,3.5vw,32px)] hover:bg-black/5" onClick={() => navigate('/')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[clamp(20px,2.5vw,24px)] h-[clamp(20px,2.5vw,24px)]">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -60,7 +60,7 @@ function CategoriesPage() {
       </div>
 
         <div 
-          className="flex flex-1 overflow-hidden h-[calc(100vh-clamp(60px,10vw,80px))] min-h-0 relative isolate overscroll-none md:flex-row md:h-[calc(100vh-clamp(60px,10vw,80px))] md:mt-[clamp(60px,10vw,80px)] md:pt-0"
+          className="flex flex-1 overflow-hidden h-[calc(100vh-clamp(60px,10vw,80px))] min-h-0 relative isolate overscroll-none mt-[clamp(60px,10vw,80px)] pt-0 md:flex-row md:h-[calc(100vh-clamp(60px,10vw,80px))]"
           onWheel={(e) => {
             // Only allow scrolling if the event is on the sidebar
             const sidebar = e.currentTarget.querySelector('.categories-sidebar')
