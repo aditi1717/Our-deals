@@ -19,7 +19,7 @@ function CategoryGrid() {
 
   return (
     <div className="bg-transparent rounded-lg shadow-none px-4 py-0 w-full box-border">
-      <div className="grid grid-rows-2 grid-flow-col w-full gap-2 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-[#c1c1c1] scrollbar-track-[#f1f1f1] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-[#f1f1f1] [&::-webkit-scrollbar-track]:rounded-sm [&::-webkit-scrollbar-thumb]:bg-[#c1c1c1] [&::-webkit-scrollbar-thumb]:rounded-sm [&::-webkit-scrollbar-thumb]:hover:bg-[#a8a8a8] md:[scrollbar-width:thin] md:[scrollbar-color:#c1c1c1_#f1f1f1] md:[-webkit-overflow-scrolling:touch] md:grid-rows-2 md:grid-flow-col" style={{ gridAutoColumns: '1fr' }}>
+      <div className="grid grid-rows-2 grid-flow-col w-full gap-2 overflow-x-auto overflow-y-hidden md:[scrollbar-width:thin] md:[scrollbar-color:#c1c1c1_#f1f1f1] [-webkit-overflow-scrolling:touch] md:grid-rows-2 md:grid-flow-col [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar]:h-0 [-ms-overflow-style:none] [scrollbar-width:none]" style={{ gridAutoColumns: '1fr', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {nonPopularCategories.map((category, index) => (
           <div key={index} className="flex flex-col items-center cursor-pointer pt-5 md:pt-0 w-full box-border" onClick={() => handleCategoryClick(category.categoryName)}>
             <div className="w-20 h-[90px] rounded-lg bg-[#F1F4F9] flex items-center justify-center mb-3 border-2 border-gray-200 overflow-hidden transition-all relative mx-auto hover:bg-[#F1F4F9] hover:border-gray-200 shadow-[0_4px_12px_rgba(0,0,0,0.15),0_2px_4px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.2),0_4px_8px_rgba(0,0,0,0.15)]">

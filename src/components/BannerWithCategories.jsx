@@ -36,16 +36,16 @@ function BannerWithCategories() {
   }
 
   return (
-    <div className="hidden md:flex w-full px-4 mb-[clamp(24px,3vw,32px)] md:mb-[clamp(20px,2.5vw,28px)] flex-col md:flex-row gap-[clamp(12px,1.5vw,16px)] items-stretch">
+    <div className="hidden min-[1063px]:flex w-full px-4 mb-[clamp(24px,3vw,32px)] md:mb-[clamp(20px,2.5vw,28px)] flex-col md:flex-row gap-[clamp(12px,1.5vw,16px)] items-stretch">
       {/* Banner */}
-      <div className="flex-1 rounded-[clamp(12px,1.5vw,16px)] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.1)] min-h-[clamp(200px,40vw,364px)] h-[clamp(200px,40vw,364px)] md:min-h-[364px] md:h-[364px] relative bg-gray-100">
-        <div className="relative w-full h-full min-h-[clamp(200px,40vw,364px)] md:min-h-[364px]">
+      <div className="flex-1 max-w-[60%] rounded-[clamp(12px,1.5vw,16px)] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.1)] relative bg-gray-100 h-[clamp(200px,25vw,400px)] min-h-[clamp(200px,25vw,400px)]">
+        <div className="relative w-full h-full">
           {banners.map((banner, index) => (
             <img
               key={index}
               src={banner}
               alt={`Banner ${index + 1}`}
-              className={`absolute top-0 left-0 w-full h-full block object-cover transition-opacity duration-500 min-h-[clamp(200px,40vw,364px)] md:min-h-[364px] ${index === currentBannerIndex ? 'opacity-100 z-[1]' : 'opacity-0'} ${index === 0 ? 'opacity-100 z-[1]' : ''}`}
+              className={`absolute top-0 left-0 w-full h-full block object-cover transition-opacity duration-500 ${index === currentBannerIndex ? 'opacity-100 z-[1]' : 'opacity-0'} ${index === 0 ? 'opacity-100 z-[1]' : ''}`}
             />
           ))}
         </div>
@@ -61,26 +61,23 @@ function BannerWithCategories() {
         </div>
       </div>
       {/* Category Boxes */}
-      <div className="grid grid-cols-2 gap-[clamp(12px,1.5vw,16px)] flex-[0_0_auto] w-full md:w-[clamp(300px,35vw,400px)] items-stretch">
+      <div className="grid grid-cols-2 gap-[clamp(12px,1.5vw,16px)] flex-[0_0_auto] w-full md:w-[clamp(400px,45vw,500px)] h-[clamp(200px,25vw,400px)] min-h-[clamp(200px,25vw,400px)]">
         {weddingRequisites && (
           <div 
-            className="bg-white border border-[rgba(133,109,101,0.3)] rounded-[clamp(12px,1.8vw,16px)] shadow-[0_4px_12px_rgba(0,0,0,0.15),0_2px_4px_rgba(0,0,0,0.1)] overflow-hidden cursor-pointer transition-all flex flex-col p-0 box-border relative hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.2),0_4px_8px_rgba(0,0,0,0.15)]"
+            className="bg-white rounded-[clamp(28px,4vw,40px)] shadow-[0_-2px_6px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.08),-2px_0_6px_rgba(0,0,0,0.08),2px_0_6px_rgba(0,0,0,0.08)] overflow-visible cursor-pointer flex-shrink-0 transition-all flex flex-col p-[clamp(12px,1.5vw,16px)] box-border relative hover:-translate-y-1 h-full"
             onClick={() => handleCategoryClick(weddingRequisites.categoryName)}
           >
-            <div className="flex items-center justify-between py-[clamp(14px,1.8vw,18px)] px-[clamp(12px,1.5vw,16px)] bg-transparent min-h-[clamp(90px,10vw,110px)] box-border overflow-visible flex-shrink-0">
-              <div className="flex-1 flex flex-col gap-[clamp(4px,0.5vw,6px)] min-w-0 overflow-visible justify-center">
-                <h3 className="text-[clamp(16px,2vw,20px)] font-bold text-black m-0 leading-[1.3] break-words overflow-hidden text-ellipsis line-clamp-2 max-h-[2.6em] flex-shrink-0">{weddingRequisites.categoryName}</h3>
-                <p className="text-[clamp(12px,1.5vw,14px)] font-normal text-black m-0 opacity-100 flex-shrink-0 overflow-hidden text-ellipsis whitespace-nowrap block visible">Quick Quotes</p>
-              </div>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black flex-shrink-0 w-[clamp(14px,1.5vw,18px)] h-[clamp(14px,1.5vw,18px)] ml-2">
+            <div className="flex items-center justify-between py-[clamp(12px,1.5vw,16px)] px-[clamp(10px,1.3vw,14px)] bg-white box-border flex-shrink-0">
+              <span className="text-[clamp(14px,1.8vw,18px)] font-bold text-[#856D65] flex-1 leading-[1.3] break-words overflow-hidden text-ellipsis line-clamp-2">{weddingRequisites.categoryName}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#856D65] flex-shrink-0 w-[clamp(12px,1.5vw,16px)] h-[clamp(12px,1.5vw,16px)] ml-2">
                 <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <div className="w-full h-0 pb-[90%] md:pb-[130%] relative overflow-hidden bg-white rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
+            <div className="w-full flex-1 relative overflow-hidden bg-white rounded-b-[clamp(28px,4vw,40px)] min-h-0">
               <img 
                 src={weddingRequisites.image} 
                 alt={weddingRequisites.categoryName}
-                className="absolute top-[-10%] left-0 w-full h-full object-cover"
+                className="absolute top-0 left-0 w-full h-full object-cover"
               />
             </div>
           </div>
@@ -88,23 +85,20 @@ function BannerWithCategories() {
 
         {exploreCity && (
           <div 
-            className="bg-white border border-[rgba(133,109,101,0.3)] rounded-[clamp(12px,1.8vw,16px)] shadow-[0_4px_12px_rgba(0,0,0,0.15),0_2px_4px_rgba(0,0,0,0.1)] overflow-hidden cursor-pointer transition-all flex flex-col p-0 box-border relative hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.2),0_4px_8px_rgba(0,0,0,0.15)]"
+            className="bg-white rounded-[clamp(28px,4vw,40px)] shadow-[0_-2px_6px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.08),-2px_0_6px_rgba(0,0,0,0.08),2px_0_6px_rgba(0,0,0,0.08)] overflow-visible cursor-pointer flex-shrink-0 transition-all flex flex-col p-[clamp(12px,1.5vw,16px)] box-border relative hover:-translate-y-1 h-full"
             onClick={() => handleCategoryClick(exploreCity.categoryName)}
           >
-            <div className="flex items-center justify-between py-[clamp(14px,1.8vw,18px)] px-[clamp(12px,1.5vw,16px)] bg-transparent min-h-[clamp(90px,10vw,110px)] box-border overflow-visible flex-shrink-0">
-              <div className="flex-1 flex flex-col gap-[clamp(4px,0.5vw,6px)] min-w-0 overflow-visible justify-center">
-                <h3 className="text-[clamp(16px,2vw,20px)] font-bold text-black m-0 leading-[1.3] break-words overflow-hidden text-ellipsis line-clamp-2 max-h-[2.6em] flex-shrink-0">{exploreCity.categoryName}</h3>
-                <p className="text-[clamp(12px,1.5vw,14px)] font-normal text-black m-0 opacity-100 flex-shrink-0 overflow-hidden text-ellipsis whitespace-nowrap block visible">Get Nearest Vendor</p>
-              </div>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black flex-shrink-0 w-[clamp(14px,1.5vw,18px)] h-[clamp(14px,1.5vw,18px)] ml-2">
+            <div className="flex items-center justify-between py-[clamp(12px,1.5vw,16px)] px-[clamp(10px,1.3vw,14px)] bg-white box-border flex-shrink-0">
+              <span className="text-[clamp(14px,1.8vw,18px)] font-bold text-[#856D65] flex-1 leading-[1.3] break-words overflow-hidden text-ellipsis line-clamp-2">{exploreCity.categoryName}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#856D65] flex-shrink-0 w-[clamp(12px,1.5vw,16px)] h-[clamp(12px,1.5vw,16px)] ml-2">
                 <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <div className="w-full h-0 pb-[90%] md:pb-[130%] relative overflow-hidden bg-white rounded-b-[clamp(12px,1.8vw,16px)] flex-shrink-0">
+            <div className="w-full flex-1 relative overflow-hidden bg-white rounded-b-[clamp(28px,4vw,40px)] min-h-0">
               <img 
                 src={exploreCity.image} 
                 alt={exploreCity.categoryName}
-                className="absolute top-[-10%] left-0 w-full h-full object-cover"
+                className="absolute top-0 left-0 w-full h-full object-cover"
               />
             </div>
           </div>

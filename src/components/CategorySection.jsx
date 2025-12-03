@@ -16,7 +16,7 @@ function CategorySection({ category }) {
   }
 
   return (
-    <div className="w-full mb-[clamp(32px,4vw,24px)]">
+    <div className={`w-full mb-[clamp(32px,4vw,24px)] ${category.categoryName === 'Home Maintenance' ? 'min-[1088px]:mt-[clamp(24px,3vw,32px)]' : ''}`}>
       <div className="flex items-center justify-between mb-[clamp(16px,2vw,24px)] cursor-pointer p-0" onClick={handleCategoryClick}>
         <h3 className="text-[clamp(20px,2.5vw,28px)] md:text-[clamp(18px,2.2vw,24px)] font-bold text-gray-800 m-0 pl-0">{category.categoryName}</h3>
         <svg 
