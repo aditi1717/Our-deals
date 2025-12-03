@@ -77,7 +77,7 @@ function BannerWithCategories() {
               <img 
                 src={weddingRequisites.image} 
                 alt={weddingRequisites.categoryName}
-                className="absolute top-0 left-0 w-full h-full object-cover scale-[1.75]"
+                className="absolute top-0 left-0 w-full h-full object-cover scale-[2.25]"
               />
             </div>
           </div>

@@ -35,8 +35,8 @@ function PopularCategoriesSection() {
                 alt={category.categoryName}
                 className={`absolute top-0 left-0 w-full h-full object-cover ${
                   category.categoryName === 'Explore City'
-                    ? 'scale-[1.15] md:scale-[1.3]'
-                    : 'scale-[1.75]'
+                    ? 'scale-[1.5] md:scale-[1.75]'
+                    : 'scale-[2.25]'
                 }`}
               />
             </div>
