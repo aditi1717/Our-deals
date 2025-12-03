@@ -36,7 +36,7 @@ function CategorySection({ category }) {
           />
         </svg>
       </div>
-      <div className="flex gap-2 overflow-x-auto overflow-y-hidden p-0 scrollbar-thin scrollbar-thumb-[#cbd5e0] scrollbar-track-transparent [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#cbd5e0] [&::-webkit-scrollbar-thumb]:rounded-sm [-webkit-overflow-scrolling:touch] max-w-[1400px] mx-auto">
+      <div className="flex gap-2 overflow-x-auto overflow-y-hidden p-0 md:scrollbar-thin md:scrollbar-thumb-[#cbd5e0] md:scrollbar-track-transparent md:[&::-webkit-scrollbar]:h-1.5 md:[&::-webkit-scrollbar-track]:bg-transparent md:[&::-webkit-scrollbar-thumb]:bg-[#cbd5e0] md:[&::-webkit-scrollbar-thumb]:rounded-sm [-webkit-overflow-scrolling:touch] max-w-[1400px] mx-auto [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar]:h-0 [-ms-overflow-style:none] [scrollbar-width:none] md:[scrollbar-width:thin] md:[scrollbar-color:#cbd5e0_transparent]" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {category.subCategories.map((subcat, index) => {
           const subcatName = typeof subcat === 'string' ? subcat : subcat.name
           const subcatImage = typeof subcat === 'object' ? subcat.image : null

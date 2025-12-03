@@ -72,7 +72,7 @@ function BottomNavigation() {
 
   return (
     <>
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-evenly items-center py-1.5 z-[1000] shadow-[0_-2px_8px_rgba(0,0,0,0.1)] min-h-[56px] md:hidden">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-evenly items-center py-1.5 z-[1000] shadow-[0_-2px_8px_rgba(0,0,0,0.1)] h-[56px] max-h-[56px] overflow-hidden md:hidden">
         <button 
           type="button"
           className={`flex flex-col items-center justify-center gap-0.5 bg-transparent border-none cursor-pointer py-1 px-1.5 text-gray-500 transition-colors flex-1 min-w-0 text-center pointer-events-auto touch-manipulation [-webkit-tap-highlight-color:transparent] ${isHome ? 'text-blue-600' : ''} active:opacity-70`}

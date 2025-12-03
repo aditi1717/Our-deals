@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { FaSearch, FaMicrophone } from 'react-icons/fa'
 import DownloadApp from './DownloadApp'
 
 function SearchSection() {
@@ -82,9 +83,7 @@ function SearchSection() {
                 />
               </div>
               <div className="flex items-center bg-[#F7F8FC] border-2 md:border border-gray-200 rounded-lg py-3 px-3 md:py-[clamp(12px,1.5vw,16px)] md:px-[clamp(12px,1.5vw,16px)] flex-1 max-w-[600px] relative z-[100] gap-0 md:gap-[clamp(6px,0.8vw,8px)]" ref={dropdownRef}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex items-center justify-center text-gray-500 flex-shrink-0 w-5 h-5 md:mr-2">
-              <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <FaSearch className="flex items-center justify-center text-[#11345A] flex-shrink-0 w-4 h-4 mr-2 md:w-5 md:h-5 md:mr-2" />
             <div className="relative flex-1 flex items-center md:mr-0 md:pr-0">
               {!searchQuery && (
                 <span className="absolute left-0 pointer-events-none text-sm md:text-[clamp(14px,1.6vw,16px)] whitespace-nowrap">
@@ -104,11 +103,7 @@ function SearchSection() {
             </div>
             <div className="w-px h-5 bg-gray-200 flex-shrink-0 m-0"></div>
             <button className="static bg-none border-none cursor-pointer p-0 m-0 flex items-center justify-center text-[#11345A] transition-colors flex-shrink-0 hover:text-[#13335a]" aria-label="Voice search">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 1C10.34 1 9 2.34 9 4V12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12V4C15 2.34 13.66 1 12 1Z" fill="currentColor"/>
-                <path d="M19 10V12C19 15.87 15.87 19 12 19C8.13 19 5 15.87 5 12V10H3V12C3 16.97 7.03 21 12 21C16.97 21 21 16.97 21 12V10H19Z" fill="currentColor"/>
-                <path d="M11 22H13V24H11V22Z" fill="currentColor"/>
-              </svg>
+              <FaMicrophone className="w-5 h-5" />
             </button>
             {isSearchFocused && (
               <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-[0_8px_24px_rgba(0,0,0,0.15)] mt-1 max-h-[500px] overflow-y-auto z-[1000]">
@@ -120,9 +115,7 @@ function SearchSection() {
                   <div className="flex flex-col gap-1">
                     {recentSearches.map((search, index) => (
                       <div key={index} className="flex items-center gap-3 p-[10px_12px] rounded-md cursor-pointer transition-colors hover:bg-gray-50" onClick={() => handleSearchClick(search.text)}>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gray-500 flex-shrink-0">
-                          <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                        <FaSearch className="text-gray-500 flex-shrink-0 w-4 h-4" />
                         <div className="flex flex-col flex-1">
                           <span className="text-sm font-medium text-[#1a1a1a] mb-0.5">{search.text}</span>
                           <span className="text-xs text-gray-400">{search.type}</span>

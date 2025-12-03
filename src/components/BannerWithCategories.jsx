@@ -38,7 +38,7 @@ function BannerWithCategories() {
   return (
     <div className="hidden min-[1063px]:flex w-full px-4 mb-[clamp(24px,3vw,32px)] md:mb-[clamp(20px,2.5vw,28px)] flex-col md:flex-row gap-[clamp(12px,1.5vw,16px)] items-stretch">
       {/* Banner */}
-      <div className="flex-1 max-w-[60%] rounded-[clamp(12px,1.5vw,16px)] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.1)] relative bg-gray-100 h-[clamp(200px,25vw,400px)] min-h-[clamp(200px,25vw,400px)]">
+      <div className="flex-1 max-w-[50%] rounded-[clamp(12px,1.5vw,16px)] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.1)] relative bg-gray-100 h-[clamp(200px,25vw,400px)] min-h-[clamp(200px,25vw,400px)]">
         <div className="relative w-full h-full">
           {banners.map((banner, index) => (
             <img
@@ -61,7 +61,7 @@ function BannerWithCategories() {
         </div>
       </div>
       {/* Category Boxes */}
-      <div className="grid grid-cols-2 gap-[clamp(12px,1.5vw,16px)] flex-[0_0_auto] w-full md:w-[clamp(400px,45vw,500px)] h-[clamp(200px,25vw,400px)] min-h-[clamp(200px,25vw,400px)]">
+      <div className="grid grid-cols-2 gap-[clamp(12px,1.5vw,16px)] flex-[0_0_auto] w-full md:w-[clamp(500px,50vw,600px)] h-[clamp(200px,25vw,400px)] min-h-[clamp(200px,25vw,400px)]">
         {weddingRequisites && (
           <div 
             className="bg-white rounded-[clamp(28px,4vw,40px)] shadow-[0_-2px_6px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.08),-2px_0_6px_rgba(0,0,0,0.08),2px_0_6px_rgba(0,0,0,0.08)] overflow-visible cursor-pointer flex-shrink-0 transition-all flex flex-col p-[clamp(12px,1.5vw,16px)] box-border relative hover:-translate-y-1 h-full"

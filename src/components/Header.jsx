@@ -67,7 +67,7 @@ function Header() {
                 <IoMdNotifications className="text-gray-600 text-2xl" />
               </button>
             </div>
-            
+              
             {/* Right side - Language Selector, Free Listing, Login, Desktop: Call Enquiry, More, Profile Icon */}
             <div className="flex items-center gap-2 md:gap-3">
               {/* Desktop - Language Selector, Free Listing, Call Enquiry, More, Login */}
@@ -112,7 +112,7 @@ function Header() {
                   onClick={() => setIsLoginModalOpen(true)}
                 >
                   Login / Sign Up
-                </button>
+                  </button>
               </div>
             </div>
           </div>
