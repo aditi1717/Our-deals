@@ -14,7 +14,7 @@ function PopularCategoriesSection() {
   }
 
   return (
-    <div className="w-full pt-[clamp(16px,2vw,24px)] pb-[clamp(8px,1vw,12px)] px-4 bg-white block lg:hidden">
+    <div className="w-full pt-[clamp(16px,2vw,24px)] pb-[clamp(8px,1vw,12px)] px-4 bg-white block md:hidden">
       <h2 className="text-[clamp(20px,2.5vw,28px)] md:text-[clamp(18px,2.2vw,24px)] font-bold text-black mb-[clamp(16px,2vw,24px)] md:mb-[clamp(14px,1.8vw,20px)] pl-0">Popular Categories</h2>
       <div className="flex gap-4 md:gap-6 overflow-x-auto overflow-y-hidden pb-[clamp(8px,1vw,12px)] pt-2 pl-2 pr-4 md:pr-6 [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar]:h-0 [-ms-overflow-style:none] [scrollbar-width:none]" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {popularCategories.map((category, index) => (

@@ -36,7 +36,7 @@ function BannerWithCategories() {
   }
 
   return (
-    <div className="hidden lg:flex w-full px-4 mb-[clamp(24px,3vw,32px)] md:mb-[clamp(20px,2.5vw,28px)] flex-col md:flex-row gap-[clamp(12px,1.5vw,16px)] items-stretch">
+    <div className="hidden md:flex w-full px-4 mb-[clamp(24px,3vw,32px)] md:mb-[clamp(20px,2.5vw,28px)] flex-col md:flex-row gap-[clamp(12px,1.5vw,16px)] items-stretch">
       {/* Banner */}
       <div className="flex-1 max-w-[50%] rounded-[clamp(12px,1.5vw,16px)] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.1)] relative bg-gray-100 h-[clamp(200px,25vw,400px)] min-h-[clamp(200px,25vw,400px)]">
         <div className="relative w-full h-full">
