@@ -1,9 +1,9 @@
 
 function Statistics() {
   const stats = [
-    { value: "4.9 Crore+", label: "Businesses" },
+    { value: "1 Lakh+", label: "Businesses" },
     { value: "50,000+", label: "Happy Customers" },
-    { value: "10,000+", label: "Cities" },
+    { value: "100+", label: "Cities" },
     { value: "24/7", label: "Support" }
   ]
 
