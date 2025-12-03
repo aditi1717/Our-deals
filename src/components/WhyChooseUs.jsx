@@ -41,14 +41,14 @@ function WhyChooseUs() {
   ]
 
   return (
-    <div className="w-full py-[clamp(32px,4vw,48px)] px-4 bg-gray-100">
-      <h2 className="text-center text-[clamp(24px,3vw,32px)] font-bold text-gray-800 mb-[clamp(24px,3vw,32px)]">Why Choose Us</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-[clamp(16px,2vw,24px)] max-w-[1200px] mx-auto">
+    <div className="w-full py-[clamp(8px,1vw,12px)] px-4 bg-gray-100">
+      <h2 className="text-center text-[clamp(24px,3vw,32px)] font-bold text-gray-800 mb-[clamp(8px,1vw,12px)]">Why Choose Us</h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-[clamp(16px,2vw,24px)] max-w-[1400px] mx-auto">
         {features.map((feature, index) => (
           <div key={index} className="bg-white rounded-[clamp(12px,1.5vw,16px)] p-[clamp(20px,2.5vw,24px)] flex flex-col items-center text-center shadow-sm">
             <div className="mb-[clamp(12px,1.5vw,16px)]">
-              <div className="w-[clamp(60px,8vw,80px)] h-[clamp(60px,8vw,80px)] rounded-full bg-[#13335a] border-[clamp(3px,0.4vw,4px)] border-[#1e4a7a] flex items-center justify-center">
-                <div className="w-[clamp(24px,3vw,32px)] h-[clamp(24px,3vw,32px)] text-white">
+              <div className="w-[clamp(40px,5vw,50px)] h-[clamp(40px,5vw,50px)] rounded-full bg-[#13335a] border-[clamp(2px,0.3vw,3px)] border-[#1e4a7a] flex items-center justify-center">
+                <div className="w-[clamp(18px,2.2vw,22px)] h-[clamp(18px,2.2vw,22px)] text-white flex items-center justify-center">
                   {feature.icon}
                 </div>
               </div>

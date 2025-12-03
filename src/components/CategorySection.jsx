@@ -36,18 +36,18 @@ function CategorySection({ category }) {
           />
         </svg>
       </div>
-      <div className="flex gap-[clamp(12px,2vw,20px)] overflow-x-auto overflow-y-hidden p-0 scrollbar-thin scrollbar-thumb-[#cbd5e0] scrollbar-track-transparent [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#cbd5e0] [&::-webkit-scrollbar-thumb]:rounded-sm [-webkit-overflow-scrolling:touch] max-w-[1400px] mx-auto">
+      <div className="flex gap-2 overflow-x-auto overflow-y-hidden p-0 scrollbar-thin scrollbar-thumb-[#cbd5e0] scrollbar-track-transparent [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#cbd5e0] [&::-webkit-scrollbar-thumb]:rounded-sm [-webkit-overflow-scrolling:touch] max-w-[1400px] mx-auto">
         {category.subCategories.map((subcat, index) => {
           const subcatName = typeof subcat === 'string' ? subcat : subcat.name
           const subcatImage = typeof subcat === 'object' ? subcat.image : null
           
           return (
-            <div 
+          <div 
               key={index} 
-              className="flex flex-col items-center cursor-pointer flex-shrink-0 w-[calc((100%-24px)/3)] min-w-[calc((100%-24px)/3)] md:w-[calc((100%-48px)/4)] md:min-w-[calc((100%-48px)/4)] lg:w-[calc((100%-100px)/6)] lg:min-w-[calc((100%-100px)/6)] lg:max-w-[120px] transition-transform hover:-translate-y-0.5"
+              className="flex flex-col items-center cursor-pointer flex-shrink-0 w-[calc(100%/4)] min-w-[calc(100%/4)] md:w-[calc(100%/5)] md:min-w-[calc(100%/5)] lg:w-[calc(100%/6)] lg:min-w-[calc(100%/6)] lg:max-w-[90px] transition-transform hover:-translate-y-0.5"
               onClick={() => handleSubcategoryClick(subcatName)}
             >
-              <div className="w-full h-0 pb-[150%] relative rounded-[clamp(10px,1.2vw,12px)] overflow-hidden bg-gray-100 mb-[clamp(8px,1vw,12px)] aspect-[2/3]">
+              <div className="w-full h-0 pb-[150%] relative rounded-[clamp(10px,1.2vw,12px)] overflow-hidden bg-gray-100 mb-[clamp(8px,1vw,12px)] aspect-[2/3] shadow-[0_4px_12px_rgba(0,0,0,0.15),0_2px_4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.2),0_4px_8px_rgba(0,0,0,0.15)]">
                 {subcatImage ? (
                   <img 
                     src={subcatImage} 

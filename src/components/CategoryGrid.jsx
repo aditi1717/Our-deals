@@ -4,10 +4,10 @@ import { dummyCategoriesData } from '../data/dummyCategories'
 function CategoryGrid() {
   const navigate = useNavigate()
   
-  // Get only non-popular categories (isPopular: false) and take first 11
+  // Get only non-popular categories (isPopular: false) and take first 13
   const nonPopularCategories = dummyCategoriesData
     .filter(category => !category.isPopular)
-    .slice(0, 11)
+    .slice(0, 13)
 
   const handleCategoryClick = (categoryName) => {
     navigate(`/categories/${encodeURIComponent(categoryName)}`)
@@ -19,10 +19,10 @@ function CategoryGrid() {
 
   return (
     <div className="bg-transparent rounded-lg shadow-none px-4 py-0 w-full box-border">
-      <div className="grid grid-rows-2 grid-flow-col w-full gap-[clamp(8px,1.5vw,16px)] md:gap-[clamp(6px,1.2vw,12px)] overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-[#c1c1c1] scrollbar-track-[#f1f1f1] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-[#f1f1f1] [&::-webkit-scrollbar-track]:rounded-sm [&::-webkit-scrollbar-thumb]:bg-[#c1c1c1] [&::-webkit-scrollbar-thumb]:rounded-sm [&::-webkit-scrollbar-thumb]:hover:bg-[#a8a8a8] md:[scrollbar-width:thin] md:[scrollbar-color:#c1c1c1_#f1f1f1] md:[-webkit-overflow-scrolling:touch] md:grid-rows-2 md:grid-flow-col">
+      <div className="grid grid-rows-2 grid-flow-col w-full gap-2 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-[#c1c1c1] scrollbar-track-[#f1f1f1] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-[#f1f1f1] [&::-webkit-scrollbar-track]:rounded-sm [&::-webkit-scrollbar-thumb]:bg-[#c1c1c1] [&::-webkit-scrollbar-thumb]:rounded-sm [&::-webkit-scrollbar-thumb]:hover:bg-[#a8a8a8] md:[scrollbar-width:thin] md:[scrollbar-color:#c1c1c1_#f1f1f1] md:[-webkit-overflow-scrolling:touch] md:grid-rows-2 md:grid-flow-col" style={{ gridAutoColumns: '1fr' }}>
         {nonPopularCategories.map((category, index) => (
-          <div key={index} className="flex flex-col items-center cursor-pointer pt-5 md:pt-0 w-[calc(100%/7)] min-w-[80px] box-border" onClick={() => handleCategoryClick(category.categoryName)}>
-            <div className="w-20 h-[90px] rounded-lg bg-[#F1F4F9] flex items-center justify-center mb-3 border-2 border-gray-200 overflow-hidden transition-all relative mx-auto hover:bg-[#F1F4F9] hover:border-gray-200">
+          <div key={index} className="flex flex-col items-center cursor-pointer pt-5 md:pt-0 w-full box-border" onClick={() => handleCategoryClick(category.categoryName)}>
+            <div className="w-20 h-[90px] rounded-lg bg-[#F1F4F9] flex items-center justify-center mb-3 border-2 border-gray-200 overflow-hidden transition-all relative mx-auto hover:bg-[#F1F4F9] hover:border-gray-200 shadow-[0_4px_12px_rgba(0,0,0,0.15),0_2px_4px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.2),0_4px_8px_rgba(0,0,0,0.15)]">
               <img
                 src={category.image}
                 alt={category.categoryName}
@@ -33,7 +33,7 @@ function CategoryGrid() {
           </div>
         ))}
         {/* More Option */}
-        <div className="flex flex-col items-center cursor-pointer pt-5 md:pt-0 w-[calc(100%/7)] min-w-[80px] box-border" onClick={handleSeeMore}>
+        <div className="flex flex-col items-center cursor-pointer pt-5 md:pt-0 w-full box-border" onClick={handleSeeMore}>
           <div className="w-20 h-[90px] rounded-lg flex items-center justify-center bg-transparent border-none">
             <div className="flex flex-col items-center justify-center gap-1">
               <span className="text-[11px] font-semibold text-[#13335a] text-center">See More</span>

@@ -4,8 +4,8 @@ function Footer() {
   const navigate = useNavigate()
 
   return (
-    <footer className="w-full bg-[#1A3760] text-white py-[clamp(20px,2.5vw,40px)] px-[clamp(12px,1.5vw,20px)]">
-      <div className="max-w-[1200px] mx-auto">
+    <footer className="w-full bg-[#1A3760] text-white pt-[clamp(8px,1vw,12px)] pb-0 px-[clamp(12px,1.5vw,20px)]">
+      <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-3 gap-[clamp(8px,1vw,24px)] mb-[clamp(16px,2vw,28px)]">
           {/* About Section */}
           <div className="flex flex-col">

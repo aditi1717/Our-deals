@@ -62,24 +62,26 @@ function SearchSection() {
   }
 
   return (
-    <div className="bg-transparent px-4 pt-4 mt-[clamp(8px,3vw,16px)] mb-8 md:mb-6 md:px-4 md:pt-[clamp(16px,2vw,24px)] md:mt-0">
-      <div className="relative w-full max-w-full m-0">
-        <div className="flex gap-4 md:flex-row md:gap-[clamp(20px,3vw,32px)] relative">
-          <div className="hidden md:flex flex-row items-center bg-[#F7F8FC] border-2 border-gray-200 rounded-lg py-[clamp(10px,1.2vw,12px)] px-[clamp(12px,1.5vw,16px)] flex-[0_0_auto] max-w-[clamp(150px,18vw,200px)] min-w-[clamp(130px,16vw,180px)] whitespace-nowrap overflow-hidden">
-            <span className="mr-2 inline-flex items-center justify-center text-[#E10129] flex-shrink-0 align-middle">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="block">
-                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
-              </svg>
-            </span>
-            <input
-              type="text"
-              className="bg-transparent border-none outline-none flex-1 text-black text-[clamp(14px,1.6vw,16px)] text-left min-w-0 whitespace-nowrap overflow-hidden text-ellipsis placeholder:text-[#6B6D70]"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder="Mumbai"
-            />
-          </div>
-          <div className="flex items-center bg-[#F7F8FC] border-2 md:border border-gray-200 rounded-lg py-3 px-3 md:py-[clamp(12px,1.5vw,16px)] md:px-[clamp(12px,1.5vw,16px)] flex-1 relative z-[100] gap-0 md:gap-[clamp(6px,0.8vw,8px)]" ref={dropdownRef}>
+    <div className="bg-transparent px-4 pt-0 mt-0 mb-0 md:mb-6 md:px-4 md:pt-[clamp(16px,2vw,24px)] md:mt-0">
+      <div className="relative w-full m-0">
+        <div className="flex gap-4 md:flex-row md:gap-[clamp(20px,3vw,32px)] relative items-start">
+          <div className="flex-1 max-w-[800px]">
+            <div className="flex gap-4 md:flex-row md:gap-[clamp(20px,3vw,32px)] relative">
+              <div className="hidden md:flex flex-row items-center bg-[#F7F8FC] border-2 border-gray-200 rounded-lg py-[clamp(10px,1.2vw,12px)] px-[clamp(12px,1.5vw,16px)] flex-[0_0_auto] max-w-[clamp(150px,18vw,200px)] min-w-[clamp(130px,16vw,180px)] whitespace-nowrap overflow-hidden">
+                <span className="mr-2 inline-flex items-center justify-center text-[#E10129] flex-shrink-0 align-middle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="block">
+                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  className="bg-transparent border-none outline-none flex-1 text-black text-[clamp(14px,1.6vw,16px)] text-left min-w-0 whitespace-nowrap overflow-hidden text-ellipsis placeholder:text-[#6B6D70]"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder="Mumbai"
+                />
+              </div>
+              <div className="flex items-center bg-[#F7F8FC] border-2 md:border border-gray-200 rounded-lg py-3 px-3 md:py-[clamp(12px,1.5vw,16px)] md:px-[clamp(12px,1.5vw,16px)] flex-1 max-w-[600px] relative z-[100] gap-0 md:gap-[clamp(6px,0.8vw,8px)]" ref={dropdownRef}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex items-center justify-center text-gray-500 flex-shrink-0 w-5 h-5 md:mr-2">
               <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -151,12 +153,15 @@ function SearchSection() {
                 </div>
               </div>
             )}
+              </div>
+            </div>
+          </div>
+          {/* Download App Button - Right Side (Desktop Only) */}
+          <div className="hidden md:flex items-start pt-2 ml-auto">
+            <DownloadApp isMobile={false} />
           </div>
         </div>
-        {/* Download App Button - Below Search Bar, Right Side (Desktop Only) */}
-        <div className="hidden md:flex justify-end mt-2">
-          <DownloadApp isMobile={false} />
-        </div>
+        {/* Download App Button - Below Search Bar, Right Side (Desktop Only) - Mobile removed, using above */}
       </div>
     </div>
   )

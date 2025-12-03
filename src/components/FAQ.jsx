@@ -31,8 +31,8 @@ function FAQ() {
   }
 
   return (
-    <div className="w-full py-[clamp(32px,4vw,48px)] px-4 bg-white">
-      <h2 className="text-center text-[clamp(24px,3vw,32px)] font-bold text-gray-800 mb-[clamp(24px,3vw,32px)]">Frequently Asked Questions</h2>
+    <div className="w-full py-[clamp(8px,1vw,12px)] px-4 bg-white">
+      <h2 className="text-center text-[clamp(24px,3vw,32px)] font-bold text-gray-800 mb-[clamp(8px,1vw,12px)]">Frequently Asked Questions</h2>
       <div className="max-w-[800px] mx-auto flex flex-col gap-[clamp(12px,1.5vw,16px)]">
         {faqs.map((faq, index) => (
           <div key={index} className="bg-gray-100 rounded-[clamp(8px,1vw,12px)] overflow-hidden">
