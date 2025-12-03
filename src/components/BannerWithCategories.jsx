@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { dummyCategoriesData } from '../data/dummyCategories'
 import banner7 from '../assets/banner 7.jpg'
 import banner8 from '../assets/banner 8.webp'
+import category1 from '../assets/category1.png'
+import category2 from '../assets/category2.png'
 
 function BannerWithCategories() {
   const navigate = useNavigate()
@@ -75,9 +77,9 @@ function BannerWithCategories() {
             </div>
             <div className="w-full flex-1 relative overflow-hidden bg-white rounded-b-[clamp(28px,4vw,40px)] min-h-0">
               <img 
-                src={weddingRequisites.image} 
+                src={category1} 
                 alt={weddingRequisites.categoryName}
-                className="absolute top-0 left-0 w-full h-full object-cover scale-[2.25]"
+                className="absolute top-0 left-0 w-full h-full object-cover scale-[1.3]"
               />
             </div>
           </div>
@@ -96,9 +98,9 @@ function BannerWithCategories() {
             </div>
             <div className="w-full flex-1 relative overflow-hidden bg-white rounded-b-[clamp(28px,4vw,40px)] min-h-0">
               <img 
-                src={exploreCity.image} 
+                src={category2} 
                 alt={exploreCity.categoryName}
-                className="absolute top-0 left-0 w-full h-full object-cover"
+                className="absolute top-0 left-0 w-full h-full object-cover scale-[1.3]"
               />
             </div>
           </div>

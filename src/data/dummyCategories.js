@@ -5,12 +5,12 @@ import download2 from '../assets/download2.jpg'
 import download3 from '../assets/download3.jpg'
 
 // Import category images (popular categories)
-import weddingRequisitesCategory from '../assets/Wedding Requisites.png'
+import weddingRequisitesCategory from '../assets/category1.png'
 import beautySpaCategory from '../assets/Beauty & Spa.png'
 import foodDiningCategory from '../assets/Food & Dining.png'
 import homeServicesCategory from '../assets/Home Services.png'
 import hotelsTravelCategory from '../assets/Hotels & Travel.png'
-import exploreCityCategory from '../assets/explore city.png'
+import exploreCityCategory from '../assets/category2.png'
 
 // Use available images for subcategories
 const weddingPlans = images

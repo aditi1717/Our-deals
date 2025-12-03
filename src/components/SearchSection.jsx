@@ -7,8 +7,15 @@ function SearchSection() {
   const [searchQuery, setSearchQuery] = useState('')
   const [isSearchFocused, setIsSearchFocused] = useState(false)
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0)
+  const [currentSearchText, setCurrentSearchText] = useState(0)
+  const [isTextAnimating, setIsTextAnimating] = useState(false)
   const searchInputRef = useRef(null)
   const dropdownRef = useRef(null)
+
+  const searchTexts = [
+    { number: "'4.9 lakh+'", text: "Businesses" },
+    { number: "'5.9 lakh+'", text: "Products & Services" }
+  ]
 
   const placeholderOptions = ['Spa & Salons', 'Doctor', 'Restaurants', 'Hotels', 'Beauty Spa', 'Home Decor']
 
@@ -53,6 +60,24 @@ function SearchSection() {
     }
   }, [searchQuery, isSearchFocused, placeholderOptions.length])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Slide out (move up and fade)
+      setIsTextAnimating(true)
+      
+      // After slide out completes, change text and slide in
+      setTimeout(() => {
+        setCurrentSearchText((prev) => (prev + 1) % searchTexts.length)
+        // Small delay before slide in
+        setTimeout(() => {
+          setIsTextAnimating(false)
+        }, 50)
+      }, 400) // Animation duration
+    }, 6000) // Change every 6 seconds
+
+    return () => clearInterval(interval)
+  }, [searchTexts.length])
+
   const handleSearchClick = (text) => {
     setSearchQuery(text)
     setIsSearchFocused(false)
@@ -65,6 +90,28 @@ function SearchSection() {
   return (
     <div className="bg-transparent px-4 pt-0 mt-0 mb-0 md:mb-6 md:px-4 md:pt-[clamp(16px,2vw,24px)] md:mt-0">
       <div className="relative w-full m-0">
+        {/* Search Text Above Search Bar */}
+        <div className="mb-[clamp(12px,1.5vw,16px)] md:mb-[clamp(16px,2vw,20px)]">
+          <div className="w-full h-px bg-gray-200 mb-[clamp(8px,1vw,12px)]"></div>
+          <p className="text-[clamp(12px,1.4vw,16px)] md:text-[clamp(14px,1.6vw,18px)] font-bold leading-tight flex items-baseline flex-wrap">
+            <span className="text-black">Search across</span>
+            <span 
+              className="inline-block relative overflow-hidden align-baseline ml-2"
+              style={{
+                transform: isTextAnimating 
+                  ? 'translate3d(0px, -8px, 0px)' 
+                  : 'translate3d(0px, 0px, 0px)',
+                transition: 'transform 0.4s ease-in-out, opacity 0.4s ease-in-out',
+                opacity: isTextAnimating ? 0 : 1
+              }}
+            >
+              <span className="text-[#4A90E2]">
+                {searchTexts[currentSearchText].number}{' '}
+                <span className="text-[#4A90E2]">{searchTexts[currentSearchText].text}</span>
+              </span>
+            </span>
+          </p>
+        </div>
         <div className="flex gap-4 md:flex-row md:gap-[clamp(20px,3vw,32px)] relative items-start">
           <div className="flex-1 max-w-[800px]">
             <div className="flex gap-4 md:flex-row md:gap-[clamp(20px,3vw,32px)] relative">
