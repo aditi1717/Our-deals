@@ -40,7 +40,7 @@ function BannerWithCategories() {
   return (
     <div className="hidden md:flex w-full px-4 mb-[clamp(24px,3vw,32px)] md:mb-[clamp(20px,2.5vw,28px)] flex-col md:flex-row gap-[clamp(12px,1.5vw,16px)] items-stretch">
       {/* Banner */}
-      <div className="flex-[2] rounded-[clamp(12px,1.5vw,16px)] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.1)] relative bg-gray-100 h-[clamp(200px,25vw,400px)] min-h-[clamp(200px,25vw,400px)]">
+      <div className="flex-[2] rounded-[clamp(12px,1.5vw,16px)] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.1)] relative bg-gray-100 h-[clamp(150px,20vw,300px)] min-h-[clamp(150px,20vw,300px)]">
         <div className="relative w-full h-full">
           {banners.map((banner, index) => (
             <img
@@ -63,7 +63,7 @@ function BannerWithCategories() {
         </div>
       </div>
       {/* Category Boxes */}
-      <div className="grid grid-cols-2 gap-[clamp(12px,1.5vw,16px)] flex-[1] h-[clamp(200px,25vw,400px)] min-h-[clamp(200px,25vw,400px)]">
+      <div className="grid grid-cols-2 gap-[clamp(12px,1.5vw,16px)] flex-[1] h-[clamp(150px,20vw,300px)] min-h-[clamp(150px,20vw,300px)]">
         {weddingRequisites && (
           <div 
             className="bg-white rounded-[clamp(28px,4vw,40px)] shadow-[0_-2px_6px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.08),-2px_0_6px_rgba(0,0,0,0.08),2px_0_6px_rgba(0,0,0,0.08)] overflow-visible cursor-pointer flex-shrink-0 transition-all flex flex-col p-[clamp(12px,1.5vw,16px)] box-border relative hover:-translate-y-1 h-full"
@@ -79,7 +79,7 @@ function BannerWithCategories() {
               <img 
                 src={category1} 
                 alt={weddingRequisites.categoryName}
-                className="absolute top-0 left-0 w-full h-full object-cover scale-[1.3]"
+                className="absolute top-0 left-0 w-full h-full object-contain scale-[2.1]"
               />
             </div>
           </div>
@@ -100,7 +100,7 @@ function BannerWithCategories() {
               <img 
                 src={category2} 
                 alt={exploreCity.categoryName}
-                className="absolute top-0 left-0 w-full h-full object-cover scale-[1.3]"
+                className="absolute top-0 left-0 w-full h-full object-contain scale-[2.1]"
               />
             </div>
           </div>

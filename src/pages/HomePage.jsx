@@ -29,8 +29,8 @@ function HomePage() {
         <Statistics />
         <TrustBadges />
         <FAQ />
-        <Footer />
       </div>
+      <Footer />
     </main>
   )
 }

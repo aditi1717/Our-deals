@@ -4,9 +4,9 @@ function Footer() {
   const navigate = useNavigate()
 
   return (
-    <footer className="w-full bg-[#1A3760] text-white pt-[clamp(8px,1vw,12px)] pb-0 px-[clamp(12px,1.5vw,20px)]">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-3 gap-[clamp(8px,1vw,24px)] mb-[clamp(16px,2vw,28px)]">
+    <footer className="w-full bg-[#1A3760] text-white pt-[clamp(8px,1vw,12px)] pb-0 px-0 max-w-none">
+      <div className="w-full max-w-[1400px] mx-auto px-[clamp(16px,2vw,24px)]">
+        <div className="grid grid-cols-3 gap-[clamp(8px,1vw,24px)] mb-[clamp(16px,2vw,28px)] justify-items-center">
           {/* About Section */}
           <div className="flex flex-col">
             <h3 className="text-[14px] font-bold text-white mb-[clamp(6px,0.8vw,12px)]">About Us</h3>
